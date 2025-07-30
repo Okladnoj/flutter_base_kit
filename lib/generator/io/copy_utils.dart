@@ -66,7 +66,7 @@ class CopyUtils {
       'hosted',
       'pub.dev',
     );
-    
+
     if (Directory(pubCacheDir).existsSync()) {
       // Find flutter_base_kit package directory (any version)
       final entries = Directory(pubCacheDir).listSync();
