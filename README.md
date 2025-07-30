@@ -217,16 +217,20 @@ flutter packages pub run build_runner build --delete-conflicting-outputs
 
 If you find this package helpful, consider supporting its development:
 
-<a href="https://www.buymeacoffee.com/okji" target="_blank">
-  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png"
-       alt="Buy Me A Coffee"
-       style="height: 40px; width: 160px;"/>
-</a>
+<div style="display: flex; flex-direction: column; gap: 12px; align-items: start;">
 
-<a href="https://www.paypal.com/donate?hosted_button_id=NBYVPYB7XDW6A">
-  <img src="https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal"
-       alt="Donate" style="margin-left: 8px; vertical-align: middle;" />
-</a>
+  <a href="https://www.buymeacoffee.com/okji" target="_blank">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png"
+         alt="Buy Me A Coffee"
+         style="height: 40px; width: 160px;" />
+  </a>
+
+  <a href="https://www.paypal.com/donate?hosted_button_id=NBYVPYB7XDW6A">
+    <img src="https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal"
+         alt="Donate" />
+  </a>
+
+</div>
 
 ## License
 
