@@ -218,7 +218,9 @@ flutter packages pub run build_runner build --delete-conflicting-outputs
 If you find this package helpful, consider supporting its development:
 
 <a href="https://www.buymeacoffee.com/okji" target="_blank">
-  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="Buy Me A Coffee" style="max-width: 160px;"/>
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/arcade-purple.png"
+     alt="Buy Me A Coffee" style="height: 32px; width: auto;">
+
 </a>
 
 <a href="https://www.paypal.com/donate?hosted_button_id=NBYVPYB7XDW6A">
