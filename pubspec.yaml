@@ -1,0 +1,39 @@
+name: flutter_base_kit
+description: "A comprehensive Flutter development kit with base classes, utilities, and common patterns for faster app development."
+version: 0.0.1
+homepage: https://github.com/Okladnoj/flutter_base_kit
+repository: https://github.com/Okladnoj/flutter_base_kit
+issue_tracker: https://github.com/Okladnoj/flutter_base_kit/issues
+
+environment:
+  sdk: ^3.4.3
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.4
+  equatable: ^2.0.5
+  json_annotation: ^4.8.1
+  logger: ^2.0.2+1
+  freezed_annotation: ^2.4.4
+  dio: ^5.8.0+1
+  provider: ^6.1.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.8
+  json_serializable: ^6.7.1
+  freezed: ^2.5.2
+
+flutter:
+  uses-material-design: true
+keywords:
+  - flutter
+
+topics:
+  - search
+
+license: MIT
