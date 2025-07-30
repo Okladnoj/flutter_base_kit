@@ -56,15 +56,20 @@ fi
 echo -e "\033[32mUpdating CHANGELOG.md...\033[0m"
 
 # Create changelog entry
-changelog_entry="## $new_version\n\n"
-for comment in "${comments[@]}"; do
-    changelog_entry+="- $comment\n"
-done
-changelog_entry+="\n"
+changelog_entry="## $new_version
 
-# Insert at the beginning of CHANGELOG.md (after the first line)
-sed -i '' "2i\\
-$changelog_entry" CHANGELOG.md
+"
+for comment in "${comments[@]}"; do
+    changelog_entry+="- $comment
+"
+done
+changelog_entry+="
+"
+
+# Create temporary file with new changelog entry
+echo "$changelog_entry" > temp_changelog.md
+cat CHANGELOG.md >> temp_changelog.md
+mv temp_changelog.md CHANGELOG.md
 
 echo -e "\033[32mUpdated CHANGELOG.md\033[0m"
 

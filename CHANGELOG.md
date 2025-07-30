@@ -1,8 +1,20 @@
-## 1.1.2
-## 1.1.3nn- Fixed typo in README.mdn- Improved documentationnn
+## 1.1.4
+
+- Fix CHANGELOG.md formatting issues
+- Improve pub_publish.sh script to handle changelog updates properly
+- Better error handling for version detection
+
+## 1.1.3
+
 - Fix init command to use correct version from pub.dev instead of local path
 - Automate version detection to prevent hardcoded version numbers
 - Improved error handling for version detection
+
+## 1.1.2
+
+- Fix template path resolution for globally installed package
+- Improved search algorithm to find any version of the package
+- Better compatibility with pub.dev installation
 
 ## 1.1.1
 
