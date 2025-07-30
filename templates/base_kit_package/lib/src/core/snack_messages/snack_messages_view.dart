@@ -65,7 +65,7 @@ class SnackMessagesView extends StatelessWidget {
             IconButton(
               onPressed: SnackMessagesState.close,
               icon: Icon(Icons.close, color: designs.primary),
-            )
+            ),
           ],
         ),
       ),

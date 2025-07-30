@@ -15,11 +15,7 @@ class SettingsState extends BaseProvider {
   final ThemeService _themeService;
   final FontsService _fontsService;
 
-  SettingsState(
-    this._localeService,
-    this._themeService,
-    this._fontsService,
-  );
+  SettingsState(this._localeService, this._themeService, this._fontsService);
 
   Locale locale = appLocale;
   ThemeType themeType = ThemeType.dark;

@@ -46,11 +46,7 @@ Future<_i174.GetIt> $initGetIt(
   String? environment,
   _i526.EnvironmentFilter? environmentFilter,
 }) async {
-  final gh = _i526.GetItHelper(
-    getIt,
-    environment,
-    environmentFilter,
-  );
+  final gh = _i526.GetItHelper(getIt, environment, environmentFilter);
   final diModule = _$DiModule();
   final routeModule = _$RouteModule();
   final dioModule = _$DioModule();
@@ -70,44 +66,61 @@ Future<_i174.GetIt> $initGetIt(
   gh.singleton<_i935.SnackMessagesState>(() => _i935.SnackMessagesState());
   gh.lazySingleton<_i393.AppRouter>(() => routeModule.router());
   gh.lazySingleton<_i792.UrlLauncherService>(
-      () => const _i792.UrlLauncherService());
-  gh.factory<_i395.StoreVersionService>(() => _i395.StoreVersionService(
-        gh<_i460.SharedPreferences>(),
-        gh<_i558.FlutterSecureStorage>(),
-      ));
+    () => const _i792.UrlLauncherService(),
+  );
+  gh.factory<_i395.StoreVersionService>(
+    () => _i395.StoreVersionService(
+      gh<_i460.SharedPreferences>(),
+      gh<_i558.FlutterSecureStorage>(),
+    ),
+  );
   gh.lazySingleton<_i810.AppInfoService>(
     () => _i810.AppInfoServiceDev(gh<_i655.PackageInfo>()),
     registerFor: {_dev},
   );
   gh.factory<_i700.TokenService>(
-      () => _i700.TokenService(gh<_i558.FlutterSecureStorage>()));
+    () => _i700.TokenService(gh<_i558.FlutterSecureStorage>()),
+  );
   gh.factory<_i247.LocaleService>(
-      () => _i247.LocaleService(gh<_i460.SharedPreferences>()));
+    () => _i247.LocaleService(gh<_i460.SharedPreferences>()),
+  );
   gh.factory<_i977.ThemeService>(
-      () => _i977.ThemeService(gh<_i460.SharedPreferences>()));
+    () => _i977.ThemeService(gh<_i460.SharedPreferences>()),
+  );
   gh.factory<_i490.FontsService>(
-      () => _i490.FontsService(gh<_i460.SharedPreferences>()));
-  gh.singleton<_i751.SettingsState>(() => _i751.SettingsState(
-        gh<_i247.LocaleService>(),
-        gh<_i977.ThemeService>(),
-        gh<_i490.FontsService>(),
-      ));
+    () => _i490.FontsService(gh<_i460.SharedPreferences>()),
+  );
+  gh.singleton<_i751.SettingsState>(
+    () => _i751.SettingsState(
+      gh<_i247.LocaleService>(),
+      gh<_i977.ThemeService>(),
+      gh<_i490.FontsService>(),
+    ),
+  );
   gh.lazySingleton<_i956.ApiInterceptor>(
-      () => _i956.ApiInterceptor(gh<_i700.TokenService>()));
+    () => _i956.ApiInterceptor(gh<_i700.TokenService>()),
+  );
   gh.lazySingleton<_i361.Dio>(
-      () => dioModule.client(gh<_i956.ApiInterceptor>()));
+    () => dioModule.client(gh<_i956.ApiInterceptor>()),
+  );
   gh.lazySingleton<_i652.PostsApi>(
-      () => postsApiModule.getInstance(gh<_i361.Dio>()));
+    () => postsApiModule.getInstance(gh<_i361.Dio>()),
+  );
   gh.lazySingleton<_i1045.ExampleApi>(
-      () => exampleApiModule.getInstance(gh<_i361.Dio>()));
+    () => exampleApiModule.getInstance(gh<_i361.Dio>()),
+  );
   gh.lazySingleton<_i229.ExampleService>(
-      () => _i229.ExampleService(gh<_i1045.ExampleApi>()));
+    () => _i229.ExampleService(gh<_i1045.ExampleApi>()),
+  );
   gh.lazySingleton<_i354.PostsService>(
-      () => _i354.PostsService(gh<_i652.PostsApi>()));
+    () => _i354.PostsService(gh<_i652.PostsApi>()),
+  );
   gh.factory<_i180.ExampleCubit>(
-      () => _i180.ExampleCubit(gh<_i229.ExampleService>()));
+    () => _i180.ExampleCubit(gh<_i229.ExampleService>()),
+  );
   gh.factory<_i286.PostsCubit>(
-      () => _i286.PostsCubit(gh<_i354.PostsService>()));
+    () => _i286.PostsCubit(gh<_i354.PostsService>()),
+  );
   return getIt;
 }
 

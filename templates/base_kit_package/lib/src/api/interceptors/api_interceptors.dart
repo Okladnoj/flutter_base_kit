@@ -12,9 +12,7 @@ import '../constants/api_constants.dart';
 class ApiInterceptor extends Interceptor {
   final TokenService _tokenService;
 
-  ApiInterceptor(
-    this._tokenService,
-  );
+  ApiInterceptor(this._tokenService);
 
   bool _isRefreshing = false;
   Completer<void>? _refreshCompleter;

@@ -77,25 +77,24 @@ class _SingleLineFieldState extends State<SingleLineField> {
   @override
   Widget build(BuildContext context) {
     final border = OutlineInputBorder(
-      borderSide: !widget.withBorder
-          ? BorderSide.none
-          : BorderSide(
-              color: context.designs.surface,
-            ),
+      borderSide:
+          !widget.withBorder
+              ? BorderSide.none
+              : BorderSide(color: context.designs.surface),
       borderRadius: widget.borderRadius ?? BorderRadius.circular(10),
       gapPadding: 1,
     );
     final focusedBorder = border.copyWith(
-      borderSide: !widget.withBorder
-          ? BorderSide.none
-          : BorderSide(
-              color: context.designs.surface,
-            ),
+      borderSide:
+          !widget.withBorder
+              ? BorderSide.none
+              : BorderSide(color: context.designs.surface),
     );
     final focusedErrorBorder = border.copyWith(
-      borderSide: !widget.withBorder
-          ? BorderSide.none
-          : BorderSide(color: context.designs.error),
+      borderSide:
+          !widget.withBorder
+              ? BorderSide.none
+              : BorderSide(color: context.designs.error),
     );
 
     return TextFormField(
@@ -160,7 +159,9 @@ class _SingleLineFieldState extends State<SingleLineField> {
 class UpperCaseTextFormatter extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue) {
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
     return TextEditingValue(
       text: capitalize(newValue.text),
       selection: newValue.selection,

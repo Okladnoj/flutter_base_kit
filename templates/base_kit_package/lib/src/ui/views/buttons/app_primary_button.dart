@@ -32,9 +32,10 @@ class AppPrimaryButton extends StatelessWidget {
         width: width,
         padding: padding ?? const EdgeInsets.fromLTRB(24, 12, 26, 12),
         decoration: BoxDecoration(
-          gradient: isActive
-              ? context.designs.gradientButton
-              : context.designs.gradientInactiveButton,
+          gradient:
+              isActive
+                  ? context.designs.gradientButton
+                  : context.designs.gradientInactiveButton,
           borderRadius: BorderRadius.circular(50),
         ),
         child: Text(
@@ -43,9 +44,10 @@ class AppPrimaryButton extends StatelessWidget {
           style: context.textTheme.titleMedium?.copyWith(
             fontSize: fontSize ?? 17,
             fontWeight: fontWeight ?? FontWeight.w700,
-            color: isActive
-                ? context.designs.onPrimary
-                : context.designs.textDisabled,
+            color:
+                isActive
+                    ? context.designs.onPrimary
+                    : context.designs.textDisabled,
           ),
         ),
       ),

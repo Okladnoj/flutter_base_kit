@@ -8,10 +8,7 @@ import '../../../l10n/localization_helper.dart';
 class ChangeLanguage extends StatelessWidget {
   final bool hideRelease;
 
-  const ChangeLanguage({
-    super.key,
-    this.hideRelease = true,
-  });
+  const ChangeLanguage({super.key, this.hideRelease = true});
 
   void _changeLanguage(BuildContext context, Locale locale) {
     try {
@@ -36,19 +33,21 @@ class ChangeLanguage extends StatelessWidget {
         color: Theme.of(context).colorScheme.primary,
       ),
       onSelected: (locale) => _changeLanguage(context, locale),
-      itemBuilder: (_) => AppLocalizations.supportedLocales.map((locale) {
-        return PopupMenuItem<Locale>(
-          value: locale,
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(locale.flag),
-              const SizedBox(width: 4),
-              Text(locale.name),
-            ],
-          ),
-        );
-      }).toList(),
+      itemBuilder:
+          (_) =>
+              AppLocalizations.supportedLocales.map((locale) {
+                return PopupMenuItem<Locale>(
+                  value: locale,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(locale.flag),
+                      const SizedBox(width: 4),
+                      Text(locale.name),
+                    ],
+                  ),
+                );
+              }).toList(),
     );
   }
 }

@@ -1,5 +1,5 @@
 ## 1.1.2
-
+## 1.1.3nn- Fixed typo in README.mdn- Improved documentationnn
 - Fix init command to use correct version from pub.dev instead of local path
 - Automate version detection to prevent hardcoded version numbers
 - Improved error handling for version detection

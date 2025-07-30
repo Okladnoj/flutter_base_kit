@@ -21,10 +21,7 @@ class _Logger {
   }
 
   void w(dynamic message) {
-    Logger(
-      printer: PrettyPrinter(lineLength: l),
-      filter: _Filter(),
-    ).w(message);
+    Logger(printer: PrettyPrinter(lineLength: l), filter: _Filter()).w(message);
   }
 
   void e(
@@ -36,26 +33,15 @@ class _Logger {
     Logger(
       printer: PrettyPrinter(lineLength: l),
       filter: _Filter(),
-    ).e(
-      message,
-      error: error,
-      stackTrace: stackTrace,
-      time: time,
-    );
+    ).e(message, error: error, stackTrace: stackTrace, time: time);
   }
 
   void f(dynamic message) {
-    Logger(
-      printer: PrettyPrinter(lineLength: l),
-      filter: _Filter(),
-    ).f(message);
+    Logger(printer: PrettyPrinter(lineLength: l), filter: _Filter()).f(message);
   }
 
   void t(dynamic message) {
-    Logger(
-      printer: PrettyPrinter(lineLength: l),
-      filter: _Filter(),
-    ).t(message);
+    Logger(printer: PrettyPrinter(lineLength: l), filter: _Filter()).t(message);
   }
 
   void log(Level level, dynamic message) {

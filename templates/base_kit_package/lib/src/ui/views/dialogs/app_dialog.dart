@@ -33,11 +33,7 @@ class _WidgetDialogState extends State<WidgetDialog> {
         child: CustomScrollView(
           slivers: [
             const SliverList(
-              delegate: SliverChildListDelegate.fixed(
-                [
-                  SizedBox(height: 150),
-                ],
-              ),
+              delegate: SliverChildListDelegate.fixed([SizedBox(height: 150)]),
             ),
             SliverToBoxAdapter(
               child: Center(

@@ -21,7 +21,8 @@ class GradientText extends StatelessWidget {
       shaderCallback: (bounds) => gradient.createShader(bounds),
       child: Text(
         text,
-        style: style?.copyWith(color: Colors.white) ??
+        style:
+            style?.copyWith(color: Colors.white) ??
             const TextStyle(color: Colors.white),
         textAlign: textAlign,
       ),

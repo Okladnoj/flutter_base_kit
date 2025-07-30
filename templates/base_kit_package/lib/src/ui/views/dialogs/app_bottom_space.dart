@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 class AppBottomSpace extends StatelessWidget {
   final int flex;
 
-  const AppBottomSpace({
-    super.key,
-    this.flex = 4,
-  });
+  const AppBottomSpace({super.key, this.flex = 4});
 
   @override
   Widget build(BuildContext context) {

@@ -14,9 +14,7 @@ part 'posts_cubit.freezed.dart';
 class PostsCubit extends BaseCubit<PostsState> {
   final PostsService _postsService;
 
-  PostsCubit(
-    this._postsService,
-  ) : super(const PostsState());
+  PostsCubit(this._postsService) : super(const PostsState());
 
   Future<void> init() async {
     safeAction(() async {

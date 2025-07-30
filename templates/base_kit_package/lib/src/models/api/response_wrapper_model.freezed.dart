@@ -12,10 +12,13 @@ part of 'response_wrapper_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 ResponseWrapperModels<T> _$ResponseWrapperModelsFromJson<T>(
-    Map<String, dynamic> json, T Function(Object?) fromJsonT) {
+  Map<String, dynamic> json,
+  T Function(Object?) fromJsonT,
+) {
   return _ResponseWrapperModels<T>.fromJson(json, fromJsonT);
 }
 
@@ -39,18 +42,23 @@ mixin _$ResponseWrapperModels<T> {
 
 /// @nodoc
 abstract class $ResponseWrapperModelsCopyWith<T, $Res> {
-  factory $ResponseWrapperModelsCopyWith(ResponseWrapperModels<T> value,
-          $Res Function(ResponseWrapperModels<T>) then) =
-      _$ResponseWrapperModelsCopyWithImpl<T, $Res, ResponseWrapperModels<T>>;
+  factory $ResponseWrapperModelsCopyWith(
+    ResponseWrapperModels<T> value,
+    $Res Function(ResponseWrapperModels<T>) then,
+  ) = _$ResponseWrapperModelsCopyWithImpl<T, $Res, ResponseWrapperModels<T>>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'errorMessages') List<String> messages,
-      @JsonKey(name: 'data') List<T> data});
+  $Res call({
+    @JsonKey(name: 'errorMessages') List<String> messages,
+    @JsonKey(name: 'data') List<T> data,
+  });
 }
 
 /// @nodoc
-class _$ResponseWrapperModelsCopyWithImpl<T, $Res,
-        $Val extends ResponseWrapperModels<T>>
+class _$ResponseWrapperModelsCopyWithImpl<
+  T,
+  $Res,
+  $Val extends ResponseWrapperModels<T>
+>
     implements $ResponseWrapperModelsCopyWith<T, $Res> {
   _$ResponseWrapperModelsCopyWithImpl(this._value, this._then);
 
@@ -63,20 +71,22 @@ class _$ResponseWrapperModelsCopyWithImpl<T, $Res,
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? messages = null,
-    Object? data = null,
-  }) {
-    return _then(_value.copyWith(
-      messages: null == messages
-          ? _value.messages
-          : messages // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as List<T>,
-    ) as $Val);
+  $Res call({Object? messages = null, Object? data = null}) {
+    return _then(
+      _value.copyWith(
+            messages:
+                null == messages
+                    ? _value.messages
+                    : messages // ignore: cast_nullable_to_non_nullable
+                        as List<String>,
+            data:
+                null == data
+                    ? _value.data
+                    : data // ignore: cast_nullable_to_non_nullable
+                        as List<T>,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -84,44 +94,50 @@ class _$ResponseWrapperModelsCopyWithImpl<T, $Res,
 abstract class _$$ResponseWrapperModelsImplCopyWith<T, $Res>
     implements $ResponseWrapperModelsCopyWith<T, $Res> {
   factory _$$ResponseWrapperModelsImplCopyWith(
-          _$ResponseWrapperModelsImpl<T> value,
-          $Res Function(_$ResponseWrapperModelsImpl<T>) then) =
-      __$$ResponseWrapperModelsImplCopyWithImpl<T, $Res>;
+    _$ResponseWrapperModelsImpl<T> value,
+    $Res Function(_$ResponseWrapperModelsImpl<T>) then,
+  ) = __$$ResponseWrapperModelsImplCopyWithImpl<T, $Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'errorMessages') List<String> messages,
-      @JsonKey(name: 'data') List<T> data});
+  $Res call({
+    @JsonKey(name: 'errorMessages') List<String> messages,
+    @JsonKey(name: 'data') List<T> data,
+  });
 }
 
 /// @nodoc
 class __$$ResponseWrapperModelsImplCopyWithImpl<T, $Res>
-    extends _$ResponseWrapperModelsCopyWithImpl<T, $Res,
-        _$ResponseWrapperModelsImpl<T>>
+    extends
+        _$ResponseWrapperModelsCopyWithImpl<
+          T,
+          $Res,
+          _$ResponseWrapperModelsImpl<T>
+        >
     implements _$$ResponseWrapperModelsImplCopyWith<T, $Res> {
   __$$ResponseWrapperModelsImplCopyWithImpl(
-      _$ResponseWrapperModelsImpl<T> _value,
-      $Res Function(_$ResponseWrapperModelsImpl<T>) _then)
-      : super(_value, _then);
+    _$ResponseWrapperModelsImpl<T> _value,
+    $Res Function(_$ResponseWrapperModelsImpl<T>) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ResponseWrapperModels
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? messages = null,
-    Object? data = null,
-  }) {
-    return _then(_$ResponseWrapperModelsImpl<T>(
-      messages: null == messages
-          ? _value.messages
-          : messages // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as List<T>,
-    ));
+  $Res call({Object? messages = null, Object? data = null}) {
+    return _then(
+      _$ResponseWrapperModelsImpl<T>(
+        messages:
+            null == messages
+                ? _value.messages
+                : messages // ignore: cast_nullable_to_non_nullable
+                    as List<String>,
+        data:
+            null == data
+                ? _value.data
+                : data // ignore: cast_nullable_to_non_nullable
+                    as List<T>,
+      ),
+    );
   }
 }
 
@@ -130,13 +146,15 @@ class __$$ResponseWrapperModelsImplCopyWithImpl<T, $Res>
 class _$ResponseWrapperModelsImpl<T>
     with DiagnosticableTreeMixin
     implements _ResponseWrapperModels<T> {
-  const _$ResponseWrapperModelsImpl(
-      {@JsonKey(name: 'errorMessages') this.messages = const [],
-      @JsonKey(name: 'data') this.data = const []});
+  const _$ResponseWrapperModelsImpl({
+    @JsonKey(name: 'errorMessages') this.messages = const [],
+    @JsonKey(name: 'data') this.data = const [],
+  });
 
   factory _$ResponseWrapperModelsImpl.fromJson(
-          Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
-      _$$ResponseWrapperModelsImplFromJson(json, fromJsonT);
+    Map<String, dynamic> json,
+    T Function(Object?) fromJsonT,
+  ) => _$$ResponseWrapperModelsImplFromJson(json, fromJsonT);
 
   @override
   @JsonKey(name: 'errorMessages')
@@ -171,9 +189,10 @@ class _$ResponseWrapperModelsImpl<T>
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(messages),
-      const DeepCollectionEquality().hash(data));
+    runtimeType,
+    const DeepCollectionEquality().hash(messages),
+    const DeepCollectionEquality().hash(data),
+  );
 
   /// Create a copy of ResponseWrapperModels
   /// with the given fields replaced by the non-null parameter values.
@@ -181,8 +200,10 @@ class _$ResponseWrapperModelsImpl<T>
   @override
   @pragma('vm:prefer-inline')
   _$$ResponseWrapperModelsImplCopyWith<T, _$ResponseWrapperModelsImpl<T>>
-      get copyWith => __$$ResponseWrapperModelsImplCopyWithImpl<T,
-          _$ResponseWrapperModelsImpl<T>>(this, _$identity);
+  get copyWith => __$$ResponseWrapperModelsImplCopyWithImpl<
+    T,
+    _$ResponseWrapperModelsImpl<T>
+  >(this, _$identity);
 
   @override
   Map<String, dynamic> toJson(Object? Function(T) toJsonT) {
@@ -191,14 +212,15 @@ class _$ResponseWrapperModelsImpl<T>
 }
 
 abstract class _ResponseWrapperModels<T> implements ResponseWrapperModels<T> {
-  const factory _ResponseWrapperModels(
-          {@JsonKey(name: 'errorMessages') final List<String> messages,
-          @JsonKey(name: 'data') final List<T> data}) =
-      _$ResponseWrapperModelsImpl<T>;
+  const factory _ResponseWrapperModels({
+    @JsonKey(name: 'errorMessages') final List<String> messages,
+    @JsonKey(name: 'data') final List<T> data,
+  }) = _$ResponseWrapperModelsImpl<T>;
 
   factory _ResponseWrapperModels.fromJson(
-          Map<String, dynamic> json, T Function(Object?) fromJsonT) =
-      _$ResponseWrapperModelsImpl<T>.fromJson;
+    Map<String, dynamic> json,
+    T Function(Object?) fromJsonT,
+  ) = _$ResponseWrapperModelsImpl<T>.fromJson;
 
   @override
   @JsonKey(name: 'errorMessages')
@@ -212,11 +234,13 @@ abstract class _ResponseWrapperModels<T> implements ResponseWrapperModels<T> {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ResponseWrapperModelsImplCopyWith<T, _$ResponseWrapperModelsImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 ResponseWrapperModel<T> _$ResponseWrapperModelFromJson<T>(
-    Map<String, dynamic> json, T Function(Object?) fromJsonT) {
+  Map<String, dynamic> json,
+  T Function(Object?) fromJsonT,
+) {
   return _ResponseWrapperModel<T>.fromJson(json, fromJsonT);
 }
 
@@ -240,18 +264,23 @@ mixin _$ResponseWrapperModel<T> {
 
 /// @nodoc
 abstract class $ResponseWrapperModelCopyWith<T, $Res> {
-  factory $ResponseWrapperModelCopyWith(ResponseWrapperModel<T> value,
-          $Res Function(ResponseWrapperModel<T>) then) =
-      _$ResponseWrapperModelCopyWithImpl<T, $Res, ResponseWrapperModel<T>>;
+  factory $ResponseWrapperModelCopyWith(
+    ResponseWrapperModel<T> value,
+    $Res Function(ResponseWrapperModel<T>) then,
+  ) = _$ResponseWrapperModelCopyWithImpl<T, $Res, ResponseWrapperModel<T>>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'errorMessages') List<String> messages,
-      @JsonKey(name: 'data') T? data});
+  $Res call({
+    @JsonKey(name: 'errorMessages') List<String> messages,
+    @JsonKey(name: 'data') T? data,
+  });
 }
 
 /// @nodoc
-class _$ResponseWrapperModelCopyWithImpl<T, $Res,
-        $Val extends ResponseWrapperModel<T>>
+class _$ResponseWrapperModelCopyWithImpl<
+  T,
+  $Res,
+  $Val extends ResponseWrapperModel<T>
+>
     implements $ResponseWrapperModelCopyWith<T, $Res> {
   _$ResponseWrapperModelCopyWithImpl(this._value, this._then);
 
@@ -264,20 +293,22 @@ class _$ResponseWrapperModelCopyWithImpl<T, $Res,
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? messages = null,
-    Object? data = freezed,
-  }) {
-    return _then(_value.copyWith(
-      messages: null == messages
-          ? _value.messages
-          : messages // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as T?,
-    ) as $Val);
+  $Res call({Object? messages = null, Object? data = freezed}) {
+    return _then(
+      _value.copyWith(
+            messages:
+                null == messages
+                    ? _value.messages
+                    : messages // ignore: cast_nullable_to_non_nullable
+                        as List<String>,
+            data:
+                freezed == data
+                    ? _value.data
+                    : data // ignore: cast_nullable_to_non_nullable
+                        as T?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -285,43 +316,50 @@ class _$ResponseWrapperModelCopyWithImpl<T, $Res,
 abstract class _$$ResponseWrapperModelImplCopyWith<T, $Res>
     implements $ResponseWrapperModelCopyWith<T, $Res> {
   factory _$$ResponseWrapperModelImplCopyWith(
-          _$ResponseWrapperModelImpl<T> value,
-          $Res Function(_$ResponseWrapperModelImpl<T>) then) =
-      __$$ResponseWrapperModelImplCopyWithImpl<T, $Res>;
+    _$ResponseWrapperModelImpl<T> value,
+    $Res Function(_$ResponseWrapperModelImpl<T>) then,
+  ) = __$$ResponseWrapperModelImplCopyWithImpl<T, $Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'errorMessages') List<String> messages,
-      @JsonKey(name: 'data') T? data});
+  $Res call({
+    @JsonKey(name: 'errorMessages') List<String> messages,
+    @JsonKey(name: 'data') T? data,
+  });
 }
 
 /// @nodoc
 class __$$ResponseWrapperModelImplCopyWithImpl<T, $Res>
-    extends _$ResponseWrapperModelCopyWithImpl<T, $Res,
-        _$ResponseWrapperModelImpl<T>>
+    extends
+        _$ResponseWrapperModelCopyWithImpl<
+          T,
+          $Res,
+          _$ResponseWrapperModelImpl<T>
+        >
     implements _$$ResponseWrapperModelImplCopyWith<T, $Res> {
-  __$$ResponseWrapperModelImplCopyWithImpl(_$ResponseWrapperModelImpl<T> _value,
-      $Res Function(_$ResponseWrapperModelImpl<T>) _then)
-      : super(_value, _then);
+  __$$ResponseWrapperModelImplCopyWithImpl(
+    _$ResponseWrapperModelImpl<T> _value,
+    $Res Function(_$ResponseWrapperModelImpl<T>) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ResponseWrapperModel
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? messages = null,
-    Object? data = freezed,
-  }) {
-    return _then(_$ResponseWrapperModelImpl<T>(
-      messages: null == messages
-          ? _value.messages
-          : messages // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as T?,
-    ));
+  $Res call({Object? messages = null, Object? data = freezed}) {
+    return _then(
+      _$ResponseWrapperModelImpl<T>(
+        messages:
+            null == messages
+                ? _value.messages
+                : messages // ignore: cast_nullable_to_non_nullable
+                    as List<String>,
+        data:
+            freezed == data
+                ? _value.data
+                : data // ignore: cast_nullable_to_non_nullable
+                    as T?,
+      ),
+    );
   }
 }
 
@@ -330,13 +368,15 @@ class __$$ResponseWrapperModelImplCopyWithImpl<T, $Res>
 class _$ResponseWrapperModelImpl<T>
     with DiagnosticableTreeMixin
     implements _ResponseWrapperModel<T> {
-  const _$ResponseWrapperModelImpl(
-      {@JsonKey(name: 'errorMessages') this.messages = const [],
-      @JsonKey(name: 'data') this.data});
+  const _$ResponseWrapperModelImpl({
+    @JsonKey(name: 'errorMessages') this.messages = const [],
+    @JsonKey(name: 'data') this.data,
+  });
 
   factory _$ResponseWrapperModelImpl.fromJson(
-          Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
-      _$$ResponseWrapperModelImplFromJson(json, fromJsonT);
+    Map<String, dynamic> json,
+    T Function(Object?) fromJsonT,
+  ) => _$$ResponseWrapperModelImplFromJson(json, fromJsonT);
 
   @override
   @JsonKey(name: 'errorMessages')
@@ -371,9 +411,10 @@ class _$ResponseWrapperModelImpl<T>
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(messages),
-      const DeepCollectionEquality().hash(data));
+    runtimeType,
+    const DeepCollectionEquality().hash(messages),
+    const DeepCollectionEquality().hash(data),
+  );
 
   /// Create a copy of ResponseWrapperModel
   /// with the given fields replaced by the non-null parameter values.
@@ -381,8 +422,10 @@ class _$ResponseWrapperModelImpl<T>
   @override
   @pragma('vm:prefer-inline')
   _$$ResponseWrapperModelImplCopyWith<T, _$ResponseWrapperModelImpl<T>>
-      get copyWith => __$$ResponseWrapperModelImplCopyWithImpl<T,
-          _$ResponseWrapperModelImpl<T>>(this, _$identity);
+  get copyWith => __$$ResponseWrapperModelImplCopyWithImpl<
+    T,
+    _$ResponseWrapperModelImpl<T>
+  >(this, _$identity);
 
   @override
   Map<String, dynamic> toJson(Object? Function(T) toJsonT) {
@@ -391,13 +434,15 @@ class _$ResponseWrapperModelImpl<T>
 }
 
 abstract class _ResponseWrapperModel<T> implements ResponseWrapperModel<T> {
-  const factory _ResponseWrapperModel(
-      {@JsonKey(name: 'errorMessages') final List<String> messages,
-      @JsonKey(name: 'data') final T? data}) = _$ResponseWrapperModelImpl<T>;
+  const factory _ResponseWrapperModel({
+    @JsonKey(name: 'errorMessages') final List<String> messages,
+    @JsonKey(name: 'data') final T? data,
+  }) = _$ResponseWrapperModelImpl<T>;
 
   factory _ResponseWrapperModel.fromJson(
-          Map<String, dynamic> json, T Function(Object?) fromJsonT) =
-      _$ResponseWrapperModelImpl<T>.fromJson;
+    Map<String, dynamic> json,
+    T Function(Object?) fromJsonT,
+  ) = _$ResponseWrapperModelImpl<T>.fromJson;
 
   @override
   @JsonKey(name: 'errorMessages')
@@ -411,7 +456,7 @@ abstract class _ResponseWrapperModel<T> implements ResponseWrapperModel<T> {
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ResponseWrapperModelImplCopyWith<T, _$ResponseWrapperModelImpl<T>>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 EmptyDataModel _$EmptyDataModelFromJson(Map<String, dynamic> json) {
@@ -427,8 +472,9 @@ mixin _$EmptyDataModel {
 /// @nodoc
 abstract class $EmptyDataModelCopyWith<$Res> {
   factory $EmptyDataModelCopyWith(
-          EmptyDataModel value, $Res Function(EmptyDataModel) then) =
-      _$EmptyDataModelCopyWithImpl<$Res, EmptyDataModel>;
+    EmptyDataModel value,
+    $Res Function(EmptyDataModel) then,
+  ) = _$EmptyDataModelCopyWithImpl<$Res, EmptyDataModel>;
 }
 
 /// @nodoc
@@ -447,9 +493,10 @@ class _$EmptyDataModelCopyWithImpl<$Res, $Val extends EmptyDataModel>
 
 /// @nodoc
 abstract class _$$EmptyDataModelImplCopyWith<$Res> {
-  factory _$$EmptyDataModelImplCopyWith(_$EmptyDataModelImpl value,
-          $Res Function(_$EmptyDataModelImpl) then) =
-      __$$EmptyDataModelImplCopyWithImpl<$Res>;
+  factory _$$EmptyDataModelImplCopyWith(
+    _$EmptyDataModelImpl value,
+    $Res Function(_$EmptyDataModelImpl) then,
+  ) = __$$EmptyDataModelImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -457,8 +504,9 @@ class __$$EmptyDataModelImplCopyWithImpl<$Res>
     extends _$EmptyDataModelCopyWithImpl<$Res, _$EmptyDataModelImpl>
     implements _$$EmptyDataModelImplCopyWith<$Res> {
   __$$EmptyDataModelImplCopyWithImpl(
-      _$EmptyDataModelImpl _value, $Res Function(_$EmptyDataModelImpl) _then)
-      : super(_value, _then);
+    _$EmptyDataModelImpl _value,
+    $Res Function(_$EmptyDataModelImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of EmptyDataModel
   /// with the given fields replaced by the non-null parameter values.
@@ -497,9 +545,7 @@ class _$EmptyDataModelImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$EmptyDataModelImplToJson(
-      this,
-    );
+    return _$$EmptyDataModelImplToJson(this);
   }
 }
 

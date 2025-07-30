@@ -29,18 +29,17 @@ class AppGradientButton extends StatelessWidget {
         width: double.infinity,
         padding: padding,
         decoration: BoxDecoration(
-          border: GradientBoxBorder(
-            gradient: context.designs.gradientButton,
-          ),
+          border: GradientBoxBorder(gradient: context.designs.gradientButton),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Text(
           text,
           textAlign: TextAlign.center,
           style: context.textTheme.titleMedium?.copyWith(
-              fontSize: fontSize,
-              fontWeight: FontWeight.w900,
-              color: context.designs.onPrimary),
+            fontSize: fontSize,
+            fontWeight: FontWeight.w900,
+            color: context.designs.onPrimary,
+          ),
         ),
       ),
     );

@@ -21,17 +21,17 @@ class AppSnackBar {
   void _showAlertSnackBar(String message, bool error) {
     ScaffoldMessenger.of(context).clearSnackBars();
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      _buildSnackBar(_buildContentByAlerts(error, message)),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(_buildSnackBar(_buildContentByAlerts(error, message)));
   }
 
   void _showSnackBar(String message) {
     ScaffoldMessenger.of(context).clearSnackBars();
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      _buildSnackBar(_buildContent(message)),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(_buildSnackBar(_buildContent(message)));
   }
 
   SnackBar _buildSnackBar(Widget content) {
@@ -66,16 +66,10 @@ class AppSnackBar {
 
   Widget _buildIcon(bool error) {
     if (error) {
-      return Icon(
-        Icons.error,
-        color: context.colorScheme.error,
-      );
+      return Icon(Icons.error, color: context.colorScheme.error);
     }
 
-    return Icon(
-      Icons.info_outline,
-      color: context.designs.primary,
-    );
+    return Icon(Icons.info_outline, color: context.designs.primary);
   }
 
   Widget _buildMessage(String message, bool error) {

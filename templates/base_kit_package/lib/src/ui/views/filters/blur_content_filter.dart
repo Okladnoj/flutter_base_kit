@@ -23,10 +23,7 @@ class BlurContentFilter extends StatelessWidget {
         ClipRRect(
           borderRadius: borderRadius,
           child: ImageFiltered(
-            imageFilter: ImageFilter.blur(
-              sigmaX: sigmaX,
-              sigmaY: sigmaY,
-            ),
+            imageFilter: ImageFilter.blur(sigmaX: sigmaX, sigmaY: sigmaY),
             child: child,
           ),
         ),

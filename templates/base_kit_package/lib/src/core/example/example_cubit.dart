@@ -14,9 +14,7 @@ part 'example_cubit.freezed.dart';
 class ExampleCubit extends BaseCubit<ExampleState> {
   final ExampleService _exampleService;
 
-  ExampleCubit(
-    this._exampleService,
-  ) : super(const ExampleState());
+  ExampleCubit(this._exampleService) : super(const ExampleState());
 
   Future<void> init() async {
     safeAction(() async {

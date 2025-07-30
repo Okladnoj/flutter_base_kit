@@ -13,7 +13,4 @@ _$ExampleModelImpl _$$ExampleModelImplFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$$ExampleModelImplToJson(_$ExampleModelImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-    };
+    <String, dynamic>{'id': instance.id, 'name': instance.name};

@@ -4,11 +4,7 @@ class SwipeDetector extends StatefulWidget {
   final Widget child;
   final ValueSetter<bool> onSwipe;
 
-  const SwipeDetector({
-    super.key,
-    required this.child,
-    required this.onSwipe,
-  });
+  const SwipeDetector({super.key, required this.child, required this.onSwipe});
 
   @override
   State<SwipeDetector> createState() => _SwipeDetectorState();

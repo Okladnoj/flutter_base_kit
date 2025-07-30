@@ -9,10 +9,7 @@ class StoreVersionService extends BaseService {
   final SharedPreferences _storage;
   final FlutterSecureStorage _secureStorage;
 
-  const StoreVersionService(
-    this._storage,
-    this._secureStorage,
-  );
+  const StoreVersionService(this._storage, this._secureStorage);
 
   Future<void> saveVersion(int version) async {
     await _storage.setInt(_localeKey, version);

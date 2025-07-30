@@ -96,7 +96,7 @@ lib/
 - **API** - Dio + Retrofit for server communication
 - **State** - Provider + Bloc for state management
 - **Themes** - Flexible theming with light/dark support
-- **Localization** - Support for Russian and English languages
+- **Localization** - Support for English and Spanish languages
 - **Code Generation** - Freezed, JSON, routes are generated automatically
 
 ## Command examples

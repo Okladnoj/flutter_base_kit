@@ -20,36 +20,99 @@ awk -F'.' -v OFS='.' '/version:/{++$3}1' pubspec.yaml > temp && mv temp pubspec.
 # Extract new version from pubspec.yaml
 new_version=$(awk -F' ' '/version:/{print $2}' pubspec.yaml)
 
-# Update version in README.md (remove the search_autocomplete line since it doesn't exist)
-# Note: README.md doesn't contain version references, so we skip this step
+echo -e "\033[32mNew version: $new_version\033[0m"
 
-# Form the changelog entry
+# Update version in README.md (if it contains version references)
+if grep -q "flutter_base_kit.*[0-9]\+\.[0-9]\+\.[0-9]\+" README.md; then
+    sed -i '' "s/flutter_base_kit.*[0-9]\+\.[0-9]\+\.[0-9]\+/flutter_base_kit $new_version/g" README.md
+    echo -e "\033[32mUpdated version in README.md\033[0m"
+fi
+
+# Update version in all template pubspec.yaml files
+echo -e "\033[32mUpdating versions in templates...\033[0m"
+
+# Update base_kit_app template
+if [ -f "templates/base_kit_app/pubspec.yaml" ]; then
+    sed -i '' "s/flutter_base_kit: \^[0-9]\+\.[0-9]\+\.[0-9]\+/flutter_base_kit: ^$new_version/g" templates/base_kit_app/pubspec.yaml
+    echo -e "\033[32mUpdated templates/base_kit_app/pubspec.yaml\033[0m"
+fi
+
+# Update base_kit_package template
+if [ -f "templates/base_kit_package/pubspec.yaml" ]; then
+    sed -i '' "s/flutter_base_kit: \^[0-9]\+\.[0-9]\+\.[0-9]\+/flutter_base_kit: ^$new_version/g" templates/base_kit_package/pubspec.yaml
+    echo -e "\033[32mUpdated templates/base_kit_package/pubspec.yaml\033[0m"
+fi
+
+# Update base_kit_tester template
+if [ -f "templates/base_kit_tester/pubspec.yaml" ]; then
+    sed -i '' "s/flutter_base_kit: \^[0-9]\+\.[0-9]\+\.[0-9]\+/flutter_base_kit: ^$new_version/g" templates/base_kit_tester/pubspec.yaml
+    echo -e "\033[32mUpdated templates/base_kit_tester/pubspec.yaml\033[0m"
+fi
+
+# Update CHANGELOG.md
+echo -e "\033[32mUpdating CHANGELOG.md...\033[0m"
+
+# Create changelog entry
 changelog_entry="## $new_version\n\n"
-for c in "${comments[@]}"; do
-    changelog_entry+="- $c\n"
+for comment in "${comments[@]}"; do
+    changelog_entry+="- $comment\n"
 done
+changelog_entry+="\n"
 
-# Update version and add comment in CHANGELOG.md
-echo -e "$changelog_entry\n$(cat CHANGELOG.md)" > CHANGELOG.md
+# Insert at the beginning of CHANGELOG.md (after the first line)
+sed -i '' "2i\\
+$changelog_entry" CHANGELOG.md
 
-set -e # Stop the script at the first error
+echo -e "\033[32mUpdated CHANGELOG.md\033[0m"
 
-flutter pub get
-
-# Code analysis
-echo -e "\033[32mAnalyzing the code...\033[0m"
+# Run code analysis
+echo -e "\033[32mRunning code analysis...\033[0m"
 flutter analyze
 
-# Dry run to verify the package before publishing
-echo -e "\033[32mVerifying package for publishing (dry run)...\033[0m"
-flutter pub publish --dry-run
+# Run tests (if any)
+echo -e "\033[32mRunning tests...\033[0m"
+flutter test
 
-# Format the code
-echo -e "\033[32mFormatting the code...\033[0m"
+# Format code
+echo -e "\033[32mFormatting code...\033[0m"
 dart format .
 
-# Publishing the package
-echo -e "\033[32mPublishing the package...\033[0m"
-flutter pub publish
+# Dry run to check for issues
+echo -e "\033[32mRunning dry-run...\033[0m"
+flutter pub publish --dry-run
 
-echo -e "\033[32mPublication complete!\033[0m"
+# Ask for confirmation
+echo -e "\033[33mDo you want to publish flutter_base_kit $new_version to pub.dev? (y/N)\033[0m"
+read -r response
+
+if [[ "$response" =~ ^[Yy]$ ]]; then
+    echo -e "\033[32mPublishing to pub.dev...\033[0m"
+    flutter pub publish
+    
+    if [ $? -eq 0 ]; then
+        echo -e "\033[32m✅ Successfully published flutter_base_kit $new_version!\033[0m"
+        echo -e "\033[32m📦 Package will be available on pub.dev in 5-10 minutes\033[0m"
+        
+        # Commit changes
+        echo -e "\033[32mCommitting changes...\033[0m"
+        git add .
+        git commit -m "Release $new_version
+        
+$(for comment in "${comments[@]}"; do echo "- $comment"; done)"
+        
+        # Create git tag
+        echo -e "\033[32mCreating git tag...\033[0m"
+        git tag -a "v$new_version" -m "Release $new_version"
+        
+        echo -e "\033[32m✅ Release $new_version completed successfully!\033[0m"
+        echo -e "\033[32m📋 Next steps:\033[0m"
+        echo -e "\033[32m   - Push changes: git push && git push --tags\033[0m"
+        echo -e "\033[32m   - Update global installation: dart pub global activate flutter_base_kit\033[0m"
+    else
+        echo -e "\033[31m❌ Failed to publish package\033[0m"
+        exit 1
+    fi
+else
+    echo -e "\033[33mPublishing cancelled\033[0m"
+    exit 0
+fi

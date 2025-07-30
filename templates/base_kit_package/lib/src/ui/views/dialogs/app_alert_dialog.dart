@@ -34,10 +34,7 @@ class AppAlertDialog extends StatelessWidget {
           child: ClipRRect(
             borderRadius: borderRadius,
             child: BackdropFilter(
-              filter: ImageFilter.blur(
-                sigmaX: 14,
-                sigmaY: 14,
-              ),
+              filter: ImageFilter.blur(sigmaX: 14, sigmaY: 14),
               child: Container(
                 width: double.infinity,
                 padding: const EdgeInsets.fromLTRB(16, 12, 16, 8),
@@ -87,12 +84,7 @@ class AppAlertDialog extends StatelessWidget {
   }
 
   Widget _buttons(BuildContext context) {
-    return SizedBox(
-      height: 44,
-      child: Row(
-        children: _buildActions(context),
-      ),
-    );
+    return SizedBox(height: 44, child: Row(children: _buildActions(context)));
   }
 
   List<Widget> _buildActions(BuildContext context) {
@@ -112,9 +104,7 @@ class AppAlertDialog extends StatelessWidget {
         onTap: () => onCancel?.call(context),
         borderRadius: borderRadius,
         child: DecoratedBox(
-          decoration: BoxDecoration(
-            borderRadius: borderRadius,
-          ),
+          decoration: BoxDecoration(borderRadius: borderRadius),
           child: SizedBox(
             height: 44,
             child: Row(

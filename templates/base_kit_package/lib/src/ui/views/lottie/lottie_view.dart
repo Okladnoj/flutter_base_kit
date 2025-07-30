@@ -33,15 +33,9 @@ class _LottieViewState extends State<LottieView>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: widget.duration,
-    );
+    _controller = AnimationController(vsync: this, duration: widget.duration);
 
-    _animation = CurvedAnimation(
-      parent: _controller,
-      curve: widget.curve,
-    );
+    _animation = CurvedAnimation(parent: _controller, curve: widget.curve);
 
     widget.repeat ? _controller.repeat() : _controller.forward();
   }
@@ -56,10 +50,7 @@ class _LottieViewState extends State<LottieView>
     }
 
     if (oldWidget.curve != widget.curve) {
-      _animation = CurvedAnimation(
-        parent: _controller,
-        curve: widget.curve,
-      );
+      _animation = CurvedAnimation(parent: _controller, curve: widget.curve);
     }
 
     if (oldWidget.repeat != widget.repeat) {

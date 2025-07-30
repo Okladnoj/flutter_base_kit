@@ -19,9 +19,9 @@ class AppExample extends StatelessWidget {
   Widget build(BuildContext context) {
     final state = context.watch<SettingsState>();
     return MediaQuery(
-      data: MediaQuery.of(context).copyWith(
-        textScaler: TextScaler.linear(state.textScaleFactor),
-      ),
+      data: MediaQuery.of(
+        context,
+      ).copyWith(textScaler: TextScaler.linear(state.textScaleFactor)),
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -43,10 +43,7 @@ class AppExample extends StatelessWidget {
         builder: (context, child) {
           return Stack(
             alignment: Alignment.center,
-            children: [
-              SizedBox(child: child),
-              const SnackMessagesView(),
-            ],
+            children: [SizedBox(child: child), const SnackMessagesView()],
           );
         },
       ),

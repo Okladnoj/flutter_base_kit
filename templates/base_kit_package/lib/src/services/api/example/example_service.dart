@@ -9,9 +9,7 @@ import '../../../models/example/example_model.dart';
 class ExampleService extends BaseService {
   final ExampleApi _api;
 
-  const ExampleService(
-    this._api,
-  );
+  const ExampleService(this._api);
 
   Future<ResponseWrapperModels<ExampleModel>> getPosts() async {
     return errorParser(() async {

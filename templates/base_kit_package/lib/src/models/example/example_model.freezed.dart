@@ -12,7 +12,8 @@ part of 'example_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 ExampleModel _$ExampleModelFromJson(Map<String, dynamic> json) {
   return _ExampleModel.fromJson(json);
@@ -38,11 +39,14 @@ mixin _$ExampleModel {
 /// @nodoc
 abstract class $ExampleModelCopyWith<$Res> {
   factory $ExampleModelCopyWith(
-          ExampleModel value, $Res Function(ExampleModel) then) =
-      _$ExampleModelCopyWithImpl<$Res, ExampleModel>;
+    ExampleModel value,
+    $Res Function(ExampleModel) then,
+  ) = _$ExampleModelCopyWithImpl<$Res, ExampleModel>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'id') String? id, @JsonKey(name: 'name') String? name});
+  $Res call({
+    @JsonKey(name: 'id') String? id,
+    @JsonKey(name: 'name') String? name,
+  });
 }
 
 /// @nodoc
@@ -59,20 +63,22 @@ class _$ExampleModelCopyWithImpl<$Res, $Val extends ExampleModel>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
-  }) {
-    return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  $Res call({Object? id = freezed, Object? name = freezed}) {
+    return _then(
+      _value.copyWith(
+            id:
+                freezed == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as String?,
+            name:
+                freezed == name
+                    ? _value.name
+                    : name // ignore: cast_nullable_to_non_nullable
+                        as String?,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -80,12 +86,15 @@ class _$ExampleModelCopyWithImpl<$Res, $Val extends ExampleModel>
 abstract class _$$ExampleModelImplCopyWith<$Res>
     implements $ExampleModelCopyWith<$Res> {
   factory _$$ExampleModelImplCopyWith(
-          _$ExampleModelImpl value, $Res Function(_$ExampleModelImpl) then) =
-      __$$ExampleModelImplCopyWithImpl<$Res>;
+    _$ExampleModelImpl value,
+    $Res Function(_$ExampleModelImpl) then,
+  ) = __$$ExampleModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'id') String? id, @JsonKey(name: 'name') String? name});
+  $Res call({
+    @JsonKey(name: 'id') String? id,
+    @JsonKey(name: 'name') String? name,
+  });
 }
 
 /// @nodoc
@@ -93,36 +102,39 @@ class __$$ExampleModelImplCopyWithImpl<$Res>
     extends _$ExampleModelCopyWithImpl<$Res, _$ExampleModelImpl>
     implements _$$ExampleModelImplCopyWith<$Res> {
   __$$ExampleModelImplCopyWithImpl(
-      _$ExampleModelImpl _value, $Res Function(_$ExampleModelImpl) _then)
-      : super(_value, _then);
+    _$ExampleModelImpl _value,
+    $Res Function(_$ExampleModelImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of ExampleModel
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? id = freezed,
-    Object? name = freezed,
-  }) {
-    return _then(_$ExampleModelImpl(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
+  $Res call({Object? id = freezed, Object? name = freezed}) {
+    return _then(
+      _$ExampleModelImpl(
+        id:
+            freezed == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as String?,
+        name:
+            freezed == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String?,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$ExampleModelImpl extends _ExampleModel with DiagnosticableTreeMixin {
-  const _$ExampleModelImpl(
-      {@JsonKey(name: 'id') this.id, @JsonKey(name: 'name') this.name})
-      : super._();
+  const _$ExampleModelImpl({
+    @JsonKey(name: 'id') this.id,
+    @JsonKey(name: 'name') this.name,
+  }) : super._();
 
   factory _$ExampleModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ExampleModelImplFromJson(json);
@@ -171,16 +183,15 @@ class _$ExampleModelImpl extends _ExampleModel with DiagnosticableTreeMixin {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ExampleModelImplToJson(
-      this,
-    );
+    return _$$ExampleModelImplToJson(this);
   }
 }
 
 abstract class _ExampleModel extends ExampleModel {
-  const factory _ExampleModel(
-      {@JsonKey(name: 'id') final String? id,
-      @JsonKey(name: 'name') final String? name}) = _$ExampleModelImpl;
+  const factory _ExampleModel({
+    @JsonKey(name: 'id') final String? id,
+    @JsonKey(name: 'name') final String? name,
+  }) = _$ExampleModelImpl;
   const _ExampleModel._() : super._();
 
   factory _ExampleModel.fromJson(Map<String, dynamic> json) =

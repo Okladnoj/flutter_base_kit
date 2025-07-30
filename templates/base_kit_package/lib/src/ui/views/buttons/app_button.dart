@@ -26,10 +26,7 @@ class AppButton extends StatelessWidget {
         Positioned.fill(
           child: Material(
             color: Colors.transparent,
-            child: InkWell(
-              borderRadius: _borderRadius,
-              onTap: onTap,
-            ),
+            child: InkWell(borderRadius: _borderRadius, onTap: onTap),
           ),
         ),
       ],

@@ -18,10 +18,7 @@ ThemeData _lightThemeData({String? fontFamily}) {
     primaryColor: design.background,
     appBarTheme: AppBarTheme(
       elevation: 0,
-      iconTheme: IconThemeData(
-        color: design.onSurface,
-        size: 24,
-      ),
+      iconTheme: IconThemeData(color: design.onSurface, size: 24),
       titleTextStyle: TextStyle(
         fontWeight: FontWeight.w500,
         fontStyle: FontStyle.normal,
@@ -33,26 +30,18 @@ ThemeData _lightThemeData({String? fontFamily}) {
     ),
     buttonTheme: ButtonThemeData(
       colorScheme: colorScheme,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         elevation: 4,
         foregroundColor: design.primary,
         backgroundColor: colorScheme.surface,
-        side: BorderSide(
-          color: colorScheme.surface,
-          width: 0,
-        ),
+        side: BorderSide(color: colorScheme.surface, width: 0),
         shadowColor: colorScheme.surface,
         padding: const EdgeInsets.all(20),
         shape: RoundedRectangleBorder(
-          side: BorderSide(
-            color: colorScheme.surface,
-            width: 0,
-          ),
+          side: BorderSide(color: colorScheme.surface, width: 0),
           borderRadius: BorderRadius.circular(12),
         ),
       ),
@@ -168,9 +157,7 @@ ThemeData _lightThemeData({String? fontFamily}) {
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       foregroundColor: design.primary,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(200),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(200)),
     ),
     tabBarTheme: TabBarThemeData(
       labelPadding: const EdgeInsets.symmetric(vertical: 8),
@@ -191,12 +178,7 @@ ThemeData _lightThemeData({String? fontFamily}) {
     canvasColor: design.primary,
     textButtonTheme: TextButtonThemeData(style: styleFrom),
     elevatedButtonTheme: ElevatedButtonThemeData(style: styleFrom),
-    colorScheme: colorScheme.copyWith(
-      surface: design.surface,
-    ),
-    extensions: [
-      design,
-      baseDesign,
-    ],
+    colorScheme: colorScheme.copyWith(surface: design.surface),
+    extensions: [design, baseDesign],
   );
 }

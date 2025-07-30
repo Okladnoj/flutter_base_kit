@@ -12,7 +12,8 @@ part of 'posts_cubit.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 /// @nodoc
 mixin _$PostsState {
@@ -30,8 +31,9 @@ mixin _$PostsState {
 /// @nodoc
 abstract class $PostsStateCopyWith<$Res> {
   factory $PostsStateCopyWith(
-          PostsState value, $Res Function(PostsState) then) =
-      _$PostsStateCopyWithImpl<$Res, PostsState>;
+    PostsState value,
+    $Res Function(PostsState) then,
+  ) = _$PostsStateCopyWithImpl<$Res, PostsState>;
   @useResult
   $Res call({StateStatus status, String message, List<ExampleModel> posts});
 }
@@ -55,20 +57,26 @@ class _$PostsStateCopyWithImpl<$Res, $Val extends PostsState>
     Object? message = null,
     Object? posts = null,
   }) {
-    return _then(_value.copyWith(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as StateStatus,
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-      posts: null == posts
-          ? _value.posts
-          : posts // ignore: cast_nullable_to_non_nullable
-              as List<ExampleModel>,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            status:
+                null == status
+                    ? _value.status
+                    : status // ignore: cast_nullable_to_non_nullable
+                        as StateStatus,
+            message:
+                null == message
+                    ? _value.message
+                    : message // ignore: cast_nullable_to_non_nullable
+                        as String,
+            posts:
+                null == posts
+                    ? _value.posts
+                    : posts // ignore: cast_nullable_to_non_nullable
+                        as List<ExampleModel>,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -76,8 +84,9 @@ class _$PostsStateCopyWithImpl<$Res, $Val extends PostsState>
 abstract class _$$PostsStateImplCopyWith<$Res>
     implements $PostsStateCopyWith<$Res> {
   factory _$$PostsStateImplCopyWith(
-          _$PostsStateImpl value, $Res Function(_$PostsStateImpl) then) =
-      __$$PostsStateImplCopyWithImpl<$Res>;
+    _$PostsStateImpl value,
+    $Res Function(_$PostsStateImpl) then,
+  ) = __$$PostsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({StateStatus status, String message, List<ExampleModel> posts});
@@ -88,8 +97,9 @@ class __$$PostsStateImplCopyWithImpl<$Res>
     extends _$PostsStateCopyWithImpl<$Res, _$PostsStateImpl>
     implements _$$PostsStateImplCopyWith<$Res> {
   __$$PostsStateImplCopyWithImpl(
-      _$PostsStateImpl _value, $Res Function(_$PostsStateImpl) _then)
-      : super(_value, _then);
+    _$PostsStateImpl _value,
+    $Res Function(_$PostsStateImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of PostsState
   /// with the given fields replaced by the non-null parameter values.
@@ -100,32 +110,37 @@ class __$$PostsStateImplCopyWithImpl<$Res>
     Object? message = null,
     Object? posts = null,
   }) {
-    return _then(_$PostsStateImpl(
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as StateStatus,
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-      posts: null == posts
-          ? _value._posts
-          : posts // ignore: cast_nullable_to_non_nullable
-              as List<ExampleModel>,
-    ));
+    return _then(
+      _$PostsStateImpl(
+        status:
+            null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                    as StateStatus,
+        message:
+            null == message
+                ? _value.message
+                : message // ignore: cast_nullable_to_non_nullable
+                    as String,
+        posts:
+            null == posts
+                ? _value._posts
+                : posts // ignore: cast_nullable_to_non_nullable
+                    as List<ExampleModel>,
+      ),
+    );
   }
 }
 
 /// @nodoc
 
 class _$PostsStateImpl extends _PostsState {
-  const _$PostsStateImpl(
-      {this.status = StateStatus.initial,
-      this.message = '',
-      final List<ExampleModel> posts = const []})
-      : _posts = posts,
-        super._();
+  const _$PostsStateImpl({
+    this.status = StateStatus.initial,
+    this.message = '',
+    final List<ExampleModel> posts = const [],
+  }) : _posts = posts,
+       super._();
 
   @override
   @JsonKey()
@@ -158,8 +173,12 @@ class _$PostsStateImpl extends _PostsState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, message,
-      const DeepCollectionEquality().hash(_posts));
+  int get hashCode => Object.hash(
+    runtimeType,
+    status,
+    message,
+    const DeepCollectionEquality().hash(_posts),
+  );
 
   /// Create a copy of PostsState
   /// with the given fields replaced by the non-null parameter values.
@@ -171,10 +190,11 @@ class _$PostsStateImpl extends _PostsState {
 }
 
 abstract class _PostsState extends PostsState {
-  const factory _PostsState(
-      {final StateStatus status,
-      final String message,
-      final List<ExampleModel> posts}) = _$PostsStateImpl;
+  const factory _PostsState({
+    final StateStatus status,
+    final String message,
+    final List<ExampleModel> posts,
+  }) = _$PostsStateImpl;
   const _PostsState._() : super._();
 
   @override

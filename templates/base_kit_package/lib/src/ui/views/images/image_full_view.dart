@@ -7,12 +7,14 @@ extension ImageFullViewExt on Widget {
   }
 
   Widget get canFull {
-    return Builder(builder: (context) {
-      return GestureDetector(
-        onTap: () => _openImageToFullScreen(context),
-        child: this,
-      );
-    });
+    return Builder(
+      builder: (context) {
+        return GestureDetector(
+          onTap: () => _openImageToFullScreen(context),
+          child: this,
+        );
+      },
+    );
   }
 }
 
@@ -35,10 +37,7 @@ class _ImageFullView extends StatelessWidget {
                 boundaryMargin: const EdgeInsets.all(double.infinity),
                 minScale: 0.5,
                 maxScale: 4.0,
-                child: AspectRatio(
-                  aspectRatio: 1,
-                  child: child,
-                ),
+                child: AspectRatio(aspectRatio: 1, child: child),
               ),
             ),
             Positioned(

@@ -5,10 +5,7 @@ class GradientBoxBorder extends BoxBorder {
 
   final double width;
 
-  const GradientBoxBorder({
-    required this.gradient,
-    this.width = 1.0,
-  });
+  const GradientBoxBorder({required this.gradient, this.width = 1.0});
 
   @override
   BorderSide get bottom => BorderSide.none;

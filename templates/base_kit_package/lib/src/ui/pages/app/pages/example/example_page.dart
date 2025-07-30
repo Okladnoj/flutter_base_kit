@@ -26,11 +26,7 @@ class ExamplePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
-              Icons.check_circle,
-              size: 80,
-              color: Colors.green,
-            ),
+            const Icon(Icons.check_circle, size: 80, color: Colors.green),
             const SizedBox(height: 20),
             const Text(
               'Example Page',
