@@ -161,6 +161,39 @@ flutter packages pub run build_runner build --delete-conflicting-outputs
 - `--template` - Template type (app, package, package+tester)
 - `--help` - Show help
 
+
+## Dependencies
+
+### Core Dependencies
+
+- `flutter_bloc`: State management
+- `get_it`: Dependency injection
+- `injectable`: Code generation for DI
+- `auto_route`: Declarative routing
+- `dio`: HTTP client
+- `retrofit`: Type-safe HTTP client
+- `freezed`: Immutable data classes
+- `json_annotation`: JSON serialization
+- `flutter_localizations`: Localization support
+
+### Development Dependencies
+
+- `build_runner`: Code generation
+- `injectable_generator`: DI code generation
+- `auto_route_generator`: Route code generation
+- `retrofit_generator`: Retrofit code generation
+- `json_serializable`: JSON code generation
+- `freezed`: Freezed code generation
+- `flutter_gen_runner`: Asset code generation
+
+## Configuration
+
+### Localization
+
+Add ARB files to `lib/l10n/`:
+- `app_en.arb` - English translations
+
+
 ## Troubleshooting
 
 ### Code generation errors
