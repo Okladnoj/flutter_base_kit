@@ -1,163 +1,166 @@
-# Flutter Base Kit
+# Flutter Base Kit 🚀
 
-A comprehensive Flutter development toolkit that provides a solid foundation for building modern Flutter applications with best practices, dependency injection, routing, networking, and more.
+**Ready-to-use toolkit for quick Flutter project setup**
 
-## Features
+Create new Flutter applications with pre-configured architecture: routing, DI, networking, localization, theming, and much more.
 
-- 🚀 **Project Templates**: Create apps, packages, or package+tester projects
-- 🔧 **Dependency Injection**: GetIt + Injectable for clean architecture
-- 🌐 **Networking**: Dio + Retrofit for API communication
-- 🌍 **Localization**: Multi-language support with ARB files
-- 🎨 **Theme System**: Flexible theming with BaseDesigns + CustomDesigns
-- 📱 **State Management**: Provider + Bloc for state management
-- 🔄 **Code Generation**: Freezed, JSON serialization, and more
-- 🛣️ **Routing**: AutoRoute for declarative navigation
-- 📦 **CLI Tool**: Command-line interface for project generation
+## Why Flutter Base Kit?
+
+- ⚡ **Quick Start** - don't waste time setting up architecture
+- 🏗️ **Ready Structure** - DI, routing, API, themes, localization
+- 📱 **Best Practices** - proven architecture from real projects
+- 🔧 **CLI Tool** - create projects with a single command
 
 ## Installation
 
-### Local Development (Recommended for now)
-
-Since the package is not yet published to pub.dev, you can use it locally:
-
-```bash
-git clone https://github.com/Okladnoj/flutter_base_kit.git
-cd flutter_base_kit
-dart pub get
-
-# Run the CLI tool locally
-dart run bin/flutter_base_kit.dart create my_app --template app
-```
-
-### Global Installation (After publication)
-
-Once published to pub.dev:
+### Activate package globally
 
 ```bash
 dart pub global activate flutter_base_kit
 ```
+<details>
+<summary>If command not found</summary>
 
-## Usage
+**Windows:**
+- Add to PATH: `%LOCALAPPDATA%\Pub\Cache\bin`
 
-### CLI Commands
+**macOS/Linux:**
+- Add to ~/.bashrc or ~/.zshrc: `export PATH="$PATH":"$HOME/.pub-cache/bin"`
 
-#### Create a new Flutter app
+📋 If you don't have Dart/Flutter SDK installed
 
+### Windows
+1. Download Flutter SDK from [flutter.dev](https://flutter.dev/docs/get-started/install/windows)
+2. Extract and add to PATH
+3. Run `flutter doctor`
+
+### macOS
 ```bash
-# Basic app creation
-flutter_base_kit create my_app
-
-# With organization identifier
-flutter_base_kit create my_app --org com.example
-
-# With verbose output
-flutter_base_kit create my_app --template app --org com.example --verbose
+brew install flutter
+flutter doctor
 ```
 
-#### Create a Flutter package
+### Linux
+```bash
+sudo snap install flutter --classic
+flutter doctor
+```
+
+</details>
+
+## How to use
+
+### Option 1: Create a new project
 
 ```bash
+# Create an app
+flutter_base_kit create my_app --template app
+
 # Create a package
 flutter_base_kit create my_package --template package
 
-# With organization identifier
-flutter_base_kit create my_package --template package --org com.example
-```
-
-#### Create a package with tester
-
-```bash
-# Create package + tester project
+# Create a package with tester
 flutter_base_kit create my_project --template package+tester
-
-# With organization identifier
-flutter_base_kit create my_project --template package+tester --org com.example
 ```
 
-#### Initialize existing project
+### Option 2: Add to existing project
 
 ```bash
-# Add flutter_base_kit to existing project
+# Navigate to your project folder
+cd my_existing_project
+
+# Initialize Flutter Base Kit
 flutter_base_kit init
 ```
 
-### Template Types
+## What you get in the project
 
-- **`app`**: Full Flutter application with all features
-- **`package`**: Flutter package/plugin template
-- **`package+tester`**: Package with separate tester application
-
-### CLI Options
-
-- `--org`: Organization identifier (e.g., com.example)
-- `--template`: Template type (app, package, package+tester)
-- `--verbose`: Enable verbose output
-- `--help`: Show help message
-
-## Project Structure
-
-### App Template
-
+### 📁 Application structure
 ```
 lib/
-├── api/           # API services and models
-├── core/          # Core functionality
+├── api/           # API and network requests
+├── core/          # Core logic
 ├── di/            # Dependency injection
-├── l10n/          # Localization
+├── l10n/          # Localization (EN, RU)
 ├── models/        # Data models
-├── routes/        # App routing
-├── services/      # Business logic services
-├── themes/        # App theming
+├── routes/        # Navigation
+├── services/      # Services
+├── themes/        # Theming
 ├── ui/            # UI components
 └── utils/         # Utilities
 ```
 
-### Package Template
+### 🛠️ Ready components
+- **Routing** - AutoRoute for navigation
+- **DI** - GetIt + Injectable for dependency management
+- **API** - Dio + Retrofit for server communication
+- **State** - Provider + Bloc for state management
+- **Themes** - Flexible theming with light/dark support
+- **Localization** - Support for Russian and English languages
+- **Code Generation** - Freezed, JSON, routes are generated automatically
 
+## Command examples
+
+```bash
+# Create an app
+flutter_base_kit create my_app --template app --org com.mycompany
+
+# Create a package
+flutter_base_kit create my_package --template package
+
+# Create a monorepo (package + tester)
+flutter_base_kit create my_library --template package+tester --org com.mycompany
+
+# Add to existing project
+flutter_base_kit init
 ```
-lib/
-├── src/           # Package source code
-│   ├── ui/        # UI components
-│   ├── themes/    # Theme system
-│   ├── utils/     # Utilities
-│   └── ...
-└── example/       # Example usage
-```
 
-### Package + Tester Template
+## Next steps
 
-```
-project_name/
-├── project_name_package/     # Package
-└── project_name_tester/      # Tester app
-```
+After creating a project:
 
-## Getting Started
-
-1. **Create a new project**:
-   ```bash
-   flutter_base_kit create my_app --template app --org com.example
-   ```
-
-2. **Navigate to project**:
+1. **Navigate to project folder**:
    ```bash
    cd my_app
    ```
 
-3. **Install dependencies**:
+2. **Install dependencies**:
    ```bash
    flutter pub get
    ```
 
-4. **Run code generation**:
+3. **Generate code**:
    ```bash
    flutter packages pub run build_runner build
    ```
 
-5. **Run the app**:
+4. **Run the app**:
    ```bash
    flutter run
    ```
+
+## Useful commands
+
+```bash
+# Show help
+flutter_base_kit --help
+
+# Generate code (in project)
+flutter packages pub run build_runner build --delete-conflicting-outputs
+```
+
+## Template types
+
+- **`app`** - Full Flutter application with all components
+- **`package`** - Flutter package/plugin for code reuse
+- **`package+tester`** - Package + separate testing application
+
+## Command options
+
+- `--org` - Organization identifier (e.g., com.mycompany)
+- `--template` - Template type (app, package, package+tester)
+- `--help` - Show help
+
 
 ## Dependencies
 
@@ -189,51 +192,25 @@ project_name/
 
 Add ARB files to `lib/l10n/`:
 - `app_en.arb` - English translations
-- `app_ru.arb` - Russian translations
+- `app_es.arb` - Spanish translations
 
-### Assets
 
-Configure assets in `pubspec.yaml`:
-```yaml
-flutter:
-  assets:
-    - assets/images/
-    - assets/svg/
-    - assets/lottie/
-    - assets/icons/
-  fonts:
-    - family: Nunito
-      fonts:
-        - asset: fonts/nunito/Nunito-Regular.ttf
-```
+## Troubleshooting
 
-### Code Generation
+### Code generation errors
 
-Run code generation after changes:
 ```bash
+# Clear cache and regenerate
+flutter packages pub run build_runner clean
 flutter packages pub run build_runner build --delete-conflicting-outputs
 ```
 
-## Contributing
+## Support
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+- 📖 **Documentation**: [GitHub](https://github.com/Okladnoj/flutter_base_kit)
+- 🐛 **Issues**: [Issues](https://github.com/Okladnoj/flutter_base_kit/issues)
+- 📝 **Changelog**: [CHANGELOG.md](CHANGELOG.md)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Support
-
-If you encounter any issues or have questions, please:
-
-1. Check the [documentation](https://github.com/Okladnoj/flutter_base_kit)
-2. Search existing [issues](https://github.com/Okladnoj/flutter_base_kit/issues)
-3. Create a new issue with detailed information
-
-## Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) for a list of changes and version history.
+MIT License - see [LICENSE](LICENSE) file

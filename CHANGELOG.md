@@ -1,3 +1,13 @@
+## 1.0.2
+
+- Fix verbose flag support for init command
+- Improve CLI argument parsing
+
+## 1.0.1
+
+- Fix template path resolution for globally installed package
+- Improve CLI tool compatibility with pub.dev installation
+
 ## 1.0.0
 
 - Initial release

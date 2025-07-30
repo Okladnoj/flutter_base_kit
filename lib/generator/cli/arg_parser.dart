@@ -30,8 +30,16 @@ class CliArgParser {
         help: 'Enable verbose output',
       );
 
+    final initCmd = ArgParser()
+      ..addFlag(
+        'verbose',
+        abbr: 'v',
+        defaultsTo: false,
+        help: 'Enable verbose output',
+      );
+
     parser.addCommand('create', createCmd);
-    parser.addCommand('init');
+    parser.addCommand('init', initCmd);
     parser.addFlag('help',
         abbr: 'h', defaultsTo: false, help: 'Show this help message');
     parser.addFlag('verbose',
