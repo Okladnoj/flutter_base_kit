@@ -1,3 +1,12 @@
+## 1.1.0
+
+- Final stable release
+- Complete English documentation
+- Fixed typos and improved README
+- Clean codebase with no Russian comments
+- Optimized CLI tool with proper error handling
+- Ready for production use
+
 ## 1.0.2
 
 - Fix verbose flag support for init command
