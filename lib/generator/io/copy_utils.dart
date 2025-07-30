@@ -103,17 +103,24 @@ class CopyUtils {
       final packageDir = findTemplatePath();
       final pubspecPath = path.join(packageDir, 'pubspec.yaml');
 
+      // Debug: print the path we're checking
+      stdout.writeln('🔍 Checking for pubspec.yaml at: $pubspecPath');
+
       final pubspecFile = File(pubspecPath);
       if (pubspecFile.existsSync()) {
         final content = pubspecFile.readAsStringSync();
         final versionMatch = RegExp(r'version:\s*([^\s]+)').firstMatch(content);
         if (versionMatch != null) {
-          return versionMatch.group(1);
+          final version = versionMatch.group(1);
+          stdout.writeln('✅ Found version: $version');
+          return version;
         }
       }
 
+      stdout.writeln('❌ Could not find version in pubspec.yaml');
       return null;
     } catch (e) {
+      stdout.writeln('❌ Error getting version: $e');
       return null;
     }
   }

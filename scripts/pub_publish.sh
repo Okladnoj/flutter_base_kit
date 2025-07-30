@@ -9,7 +9,10 @@
 cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
-comments=("Fixed typo in README.md" "Improved documentation")
+comments=(
+    "Enhance version detection in copy_utils.dart with debug output"
+    "Improved regex in pub_publish.sh for version updates"
+    )
 
 # Increment the version number
 echo -e "\033[32mIncrementing the version number...\033[0m"
@@ -33,19 +36,19 @@ echo -e "\033[32mUpdating versions in templates...\033[0m"
 
 # Update base_kit_app template
 if [ -f "templates/base_kit_app/pubspec.yaml" ]; then
-    sed -i '' "s/flutter_base_kit: \^[0-9]\+\.[0-9]\+\.[0-9]\+/flutter_base_kit: ^$new_version/g" templates/base_kit_app/pubspec.yaml
+    sed -i '' "s/flutter_base_kit: \^[0-9]*\.[0-9]*\.[0-9]*/flutter_base_kit: ^$new_version/g" templates/base_kit_app/pubspec.yaml
     echo -e "\033[32mUpdated templates/base_kit_app/pubspec.yaml\033[0m"
 fi
 
 # Update base_kit_package template
 if [ -f "templates/base_kit_package/pubspec.yaml" ]; then
-    sed -i '' "s/flutter_base_kit: \^[0-9]\+\.[0-9]\+\.[0-9]\+/flutter_base_kit: ^$new_version/g" templates/base_kit_package/pubspec.yaml
+    sed -i '' "s/flutter_base_kit: \^[0-9]*\.[0-9]*\.[0-9]*/flutter_base_kit: ^$new_version/g" templates/base_kit_package/pubspec.yaml
     echo -e "\033[32mUpdated templates/base_kit_package/pubspec.yaml\033[0m"
 fi
 
 # Update base_kit_tester template
 if [ -f "templates/base_kit_tester/pubspec.yaml" ]; then
-    sed -i '' "s/flutter_base_kit: \^[0-9]\+\.[0-9]\+\.[0-9]\+/flutter_base_kit: ^$new_version/g" templates/base_kit_tester/pubspec.yaml
+    sed -i '' "s/flutter_base_kit: \^[0-9]*\.[0-9]*\.[0-9]*/flutter_base_kit: ^$new_version/g" templates/base_kit_tester/pubspec.yaml
     echo -e "\033[32mUpdated templates/base_kit_tester/pubspec.yaml\033[0m"
 fi
 
