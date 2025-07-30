@@ -1,0 +1,86 @@
+name: base_kit_package
+description: "A new Flutter plugin project."
+version: 0.0.1
+
+environment:
+  sdk: ^3.7.2
+  flutter: '>=3.3.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_bloc: ^8.1.4
+  equatable: ^2.0.5
+  get_it: ^7.7.0
+  injectable: ^2.4.4
+  auto_route: ^8.1.4
+  dio: ^5.8.0+1
+  retrofit: ^4.2.0
+  pretty_dio_logger: ^1.4.0
+  freezed_annotation: ^2.4.4
+  json_annotation: ^4.8.1
+  intl: ^0.19.0
+  shared_preferences: ^2.2.3
+  flutter_secure_storage: ^9.2.4
+  flutter_svg: ^2.0.10+1
+  cached_network_image: ^3.4.1
+  lottie: ^3.3.1
+  logger: ^2.0.2+1
+  path: ^1.9.1
+  collection: ^1.18.0
+  device_info_plus: ^11.3.3
+  package_info_plus: ^8.3.0
+  flutter_base_kit:
+    path: ../../
+  provider: ^6.1.5
+  url_launcher: ^6.3.2
+  permission_handler: ^12.0.1
+  crypto: ^3.0.6
+  path_provider: ^2.1.5
+  universal_io: ^2.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.4.8
+  injectable_generator: ^2.6.2
+  json_serializable: ^6.7.1
+  freezed: ^2.5.2
+  retrofit_generator: ^8.2.1
+  auto_route_generator: ^8.0.0
+  flutter_gen_runner: ^5.6.0
+  flutter_native_splash: ^2.4.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  generate: true
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/svg/
+    - assets/lottie/
+    - assets/icons/
+  fonts:
+    - family: Nunito
+      fonts:
+        - asset: fonts/nunito/Nunito-ExtraLight.ttf
+          weight: 100 # Thin
+        - asset: fonts/nunito/Nunito-ExtraLight.ttf
+          weight: 200 # ExtraLight
+        - asset: fonts/nunito/Nunito-Light.ttf
+          weight: 300 # Light
+        - asset: fonts/nunito/Nunito-Regular.ttf
+          weight: 400 # Regular
+        - asset: fonts/nunito/Nunito-Medium.ttf
+          weight: 500 # Medium
+        - asset: fonts/nunito/Nunito-SemiBold.ttf
+          weight: 600 # SemiBold
+        - asset: fonts/nunito/Nunito-Bold.ttf
+          weight: 700 # Bold
+        - asset: fonts/nunito/Nunito-ExtraBold.ttf
+          weight: 800 # ExtraBold
+        - asset: fonts/nunito/Nunito-Black.ttf
+          weight: 900 # Black

@@ -1,0 +1,22 @@
+{
+    "@@locale": "es",
+    "flag": "🇪🇸",
+    "languages": "Idiomas",
+    "languageName": "Ucraniano",
+    "fonts": "Fuentes",
+    "serverErrorMessage": "Error del servidor",
+    "errorInternetConnection": "Error de conexión a Internet",
+    "theme": "Tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "oops": "Oops...",
+    "somethingWentWrong": "Algo salió mal. Inténtalo más tarde o actualiza la pantalla",
+    "weakPassword": "La contraseña proporcionada es demasiado débil.",
+    "emailAlreadyInUse": "Ya existe una cuenta con este correo electrónico.",
+    "userNotFound": "No se encontró ningún usuario con este correo electrónico.",
+    "invalidCredential": "Correo electrónico o contraseña incorrectos. Inténtalo de nuevo o regístrate con este email.",
+    "wrongPassword": "Contraseña incorrecta para este usuario.",
+    "noneAuthException": "Datos ingresados incorrectos",
+    "ok": "Aceptar",
+    "verification": "Verificación"
+}

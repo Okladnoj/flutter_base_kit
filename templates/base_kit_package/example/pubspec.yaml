@@ -1,0 +1,25 @@
+name: base_kit_package_example
+description: "Demonstrates how to use the base_kit_package plugin."
+publish_to: 'none'
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  base_kit_package:
+    path: ../
+  cupertino_icons: ^1.0.8
+  universal_io: ^2.2.2
+
+dev_dependencies:
+  integration_test:
+    sdk: flutter
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true

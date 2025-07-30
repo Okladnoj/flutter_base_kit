@@ -1,0 +1,426 @@
+{
+    "@@locale": "en",
+    "flag": "🇬🇧",
+    "languages": "Languages",
+    "languageName": "English",
+    "fonts": "Fonts",
+    "serverErrorMessage": "Server error occurred",
+    "errorInternetConnection": "Internet Connection Error",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "oops": "Ooops...",
+    "somethingWentWrong": "Something went wrong. Try again later or update the screen",
+    "weakPassword": "The password provided is too weak.",
+    "emailAlreadyInUse": "The account already exists for that email.",
+    "userNotFound": "No user found for that email.",
+    "invalidCredential": "Incorrect email or password. Please try again or register an account with this email.",
+    "wrongPassword": "Wrong password provided for that user.",
+    "noneAuthException": "Incorrect credential",
+    "fieldErrorPasswordNumbers": "Password must be include numbers",
+    "fieldErrorPasswordRegex": "Valid characters: \"A-Z, a-z, 0-9\"",
+    "fieldErrorPasswordMatch": "*Passwords need to match. Please try again.",
+    "fieldMustNotEmpty": "Field must not be empty",
+    "incorrectEmail": "Incorrect email",
+    "continueWithEmail": "Continue with Email",
+    "continueWithApple": "Continue with Apple",
+    "continueWithGoogle": "Continue with Google",
+    "connectionsForGenz": "connections for genz by genz",
+    "emailAddress": "Email Address",
+    "sendMagicLink": "Send Magic Link",
+    "weSentAMagic": "We sent a magic link to the email",
+    "goToYourEmail": "Go to your email and tap the link to sign you in.",
+    "openMailApp": "Open Mail App",
+    "resendLink": "Resend link",
+    "resendCode": "Resend code in {value} seconds...",
+    "@resendCode": {
+        "placeholders": {
+            "value": {
+                "type": "int"
+            }
+        }
+    },
+    "respectCode": "Respect Code",
+    "theseCommunityGuideLinesWill": "These community guidelines will help understand what it means to be a member of Promly. Your use of the Promly app is dependent on your following basic terms of use and being respectful to  your fellow users. Promly was created fro GenZ by GenZ to be a supportive place to connect with others. \nWe are constantly evolving so we encourage you to share your ideas",
+    "iAgreeToPromlyIs": "I agree to Promly ‘s terms and conditions",
+    "iAmBetween": "I am between  13-19 years old.",
+    "iAgree": "I agree",
+    "bySigningUpYou": "By signing up, you agree to the",
+    "termsAndConditions": "terms and conditions",
+    "and": "and",
+    "privacyPolicy": "privacy policy",
+    "interests": "Interests",
+    "promlyMatchesYou": "Promly matches you to your peers based on the things you like.",
+    "selectAtLeast": "Select at least 5.",
+    "next": "Next",
+    "enterLinkAfterOpened": "Enter Link after opened",
+    "login": "Login",
+    "profileInfo": "Profile Info",
+    "addAPhoto": "add a photo",
+    "name": "Name",
+    "userName": "@username",
+    "birthday": "Birthday",
+    "bio": "Bio",
+    "characters": "{number} characters",
+    "@characters": {
+        "placeholders": {
+            "number": {
+                "type": "int"
+            }
+        }
+    },
+    "confirm": "confirm",
+    "cancel": "cancel",
+    "skip": "Skip",
+    "afterSchoolClubs": "After School Clubs",
+    "connectWithCool": "Connect with cool, like-minded peeps",
+    "inviteYourContacts": "Invite Your Contacts",
+    "done": "Done",
+    "inviteSMS": "Hi there! I wanted to invite you to join me on Promly. It's a really cool platform and I think you'd really enjoy it. There's so much to explore and connect with others. Plus, it's a great way to stay in touch and keep up with what's going on in each other's lives \nAndroid:{linkAndroid}\niOS{linkIos}",
+    "@inviteSMS": {
+        "placeholders": {
+            "linkAndroid": {
+                "type": "String"
+            },
+            "linkIos": {
+                "type": "String"
+            }
+        }
+    },
+    "invite": "Invite",
+    "feed": "Feed",
+    "connect": "Connect",
+    "explore": "Explore",
+    "activity": "Activity",
+    "profile": "Profile",
+    "sheHer": "(She/Her)",
+    "edit": "Edit",
+    "levelPoints": "Level {level} - {points} points",
+    "@levelPoints": {
+        "placeholders": {
+            "level": {
+                "type": "int"
+            },
+            "points": {
+                "type": "int"
+            }
+        }
+    },
+    "myDay": "My Day",
+    "more": "more",
+    "twentyByTwenty": "20by20",
+    "makeYourTwentyByTwenty": "make your 20by20",
+    "myList": "My List",
+    "addATask": "add a task",
+    "connections": "connections",
+    "connectionsUpper": "Connections",
+    "save": "Save",
+    "comingSoon": "Coming soon",
+    "aboutMe": "About Me",
+    "age": "Age",
+    "answerAtLeast": "Answer at least 3 things about youse",
+    "userNameFirstUppercase": "Username",
+    "favoriteShow": "Favorite show",
+    "favoriteArtist": "Favorite artist",
+    "favoriteMusic": "Favorite music",
+    "favoriteMovieGenre": "Favorite movie genre",
+    "dreamDestination": "Dream destination",
+    "careerGoal": "Career goal",
+    "editProfile": "Edit Profile",
+    "changePhoto": "change photo",
+    "notifications": "Notifications",
+    "aboutPromly": "About Promly",
+    "deleteAccount": "Delete Account",
+    "logout": "Logout",
+    "respectText": "These community guidelines will help understand what it means to be a member of Promly. Your use of the Promly app is dependent on your following basic terms of use and being respectful to  your fellow users. Promly was created fro GenZ by GenZ to be a supportive place to connect with others. \n\nWe are constantly evolving so we encourage you to share your ideas about things you’d like to see and improvements you might make to the Promly app. There are many places for you to share your voice throughout the app. We are all in this together and we are glad you are here.\n\nYour use of Promly app is subject to these Community guidelines and Terms of Use:\n\n• Respect the copyrights of others. Don't use other users' personal photos and pass them as your own.\n\n• Don't show any nudity or upload content that is illegal or prohibited. Only content that is considered \"safe\" can be uploaded.\n\n• Do not use any profanity or discriminative language (such as disability discrimination, sexual orientation, religious discrimination, sexual orientation, religious discrimination, sexual harassment, race, color and sex). \n\n• Chat content is automatically moderated as \"safe\" or \"restricted\" using content moderation filters. Any content classified as \"restricted\" will be automatically banned.\n\n• If other users find your content or your profile inappropriate, they will flag it and we'll take necessary actions: such as removal of your content or deactivating your profile. We hope this app fosters more genuine connections and allows people to share their authentic selves.",
+    "ourCredo": "Our Credo",
+    "ourCredoText": "The Promly Credo: We believe our first responsibility is to GenZ and the Alpha Generation behind them. We must work together using a multigenerational approach to be sure the voice and needs of the under-18 generation are heard, validated, and responded to.\n\nWe will foster connectedness through our programs and in our work environment recognizing that human connectedness drives happiness. We will provide an inclusive online platform and services for our users reflecting diversity. We will also strive to provide a workplace that respects diversity, and as employers, will seek to value individuality and accommodate individual employees’ needs.\n\nPromly pledges to partner with organizations that also value GenZ, not as a commodity, but as people, that care about long-term outcomes, and demonstrate a commitment to destigmatize mental health and/or to create other social benefits appropriate for kids and teens. We and our business partners will have the opportunity to create a positive impact, and we require that they meaningfully demonstrate their ability to set and maintain high standards, especially with regards to minors, and that they value their reputation above profit. Promly will secure business partners that agree to provide a valued service, skills training and/or knowledge.\n\nWhere a partner engages in marketing, the organization must follow all applicable laws and best practices for minors and also that are applicable to the product. Our partners should strive to not only meet minimum requirements, but to set standards in their dealings with their clients and our users. This is essential, because trust is difficult to win, and easy to lose.\n\nIn order to maintain our users’ trust, Promly will strive to ensure that our tech-enabled solution partners prioritize the security and safety of our users. We will complement the ongoing process of platform enhancement with the continuous improvement of user protections.\n\nPromly commits to being a model of responsible technology, a driver of social impact and social enterprise, and a leader and change agent in the field of teen mental health and social media.",
+    "oneByTwoDay": "1by2day",
+    "article": "articles",
+    "videos": "videos",
+    "podcast": "podcasts",
+    "myDayType": "my day",
+    "event": "events",
+    "challenge": "challenges",
+    "userChallenge": "user challenges",
+    "promly": "Promly",
+    "earnPoints": "Earn: {points} points",
+    "@earnPoints": {
+        "placeholders": {
+            "points": {
+                "type": "int"
+            }
+        }
+    },
+    "accept": "Accept",
+    "sendMessage": "Send a message...",
+     "checkOutThese": "Check out these {count} new profiles for you",
+    "@checkOutThese": {
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "seeProfiles": "See Profiles",
+    "nextProfile": "Next Profile",
+    "sendFriendRequest": "Send Friend Request",
+    "youAreAllCaught": "You're All Caught Up!",
+    "youHaveReviewed": "You've reviewed all available profiles for today.",
+    "wantToSeeMoreProfiles": "Want to see more profiles?",
+    "useYourPoints": "Use your points to unlock them!",
+    "earnPointsByCompleting": "Earn points by completing challenges.",
+    "yourCurrentBalance": "Your current balance: {points} points",
+    "@yourCurrentBalance": {
+        "placeholders": {
+            "points": {
+                "type": "int"
+            }
+        }
+    },
+    "unlockMoreProfiles": "Unlock more Profiles",
+    "unlock": "Unlock",
+    "unlockProfilesWithPoints": "Unlock Profiles with Points",
+    "enterTheNumberOfProfiles": "Enter the number of profiles you'd like to unlock",
+    "numberOfProfiles": "Number of profiles",
+    "thisWillCostYou": "This will cost you: {points} points",
+    "@thisWillCostYou": {
+        "placeholders": {
+            "points": {
+                "type": "int"
+            }
+        }
+    },
+    "purchaseSuccessful": "Purchase Successful!",
+    "youHaveUnlocked": "You have unlocked 2 new profiles!",
+    "startExploringThemNow": "Start exploring them now!",
+    "challengeAccepted": "Challenge accepted!",
+    "seeMyGoals": "See My Goals",
+    "readTheArticle": "Read the Article",
+    "listenToPodcast": "Listen to Podcast",
+    "watchTheVideo": "Watch the Video",
+    "viewMyGoal": "View My Goal",
+    "viewGoal": "View Goal",
+    "myGoals": "My goals",
+    "promlyGoals": "Promly goals",
+    "complete": "Complete",
+    "challengeSubmission": "Challenge Submission",
+    "submitTheProof": "Submit the proof of your challenge completion. Select a format that you’d like to use.",
+    "text": "Text",
+    "image": "Image",
+    "video": "Video",
+    "addAVideo": "add a video",
+    "submit": "Submit",
+    "postAboutThings": "Post about 3 things you’re grateful for today",
+    "challengeCompleted": "Challenge completed!",
+    "youEarned": "You earned {points} points",
+    "@youEarned": {
+        "placeholders": {
+            "points": {
+                "type": "int"
+            }
+        }
+    },
+    "congratulations": "Congratulations!",
+    "youHaveAchieved": "You have achieved Level {level}",
+    "@youHaveAchieved": {
+        "placeholders": {
+            "level": {
+                "type": "int"
+            }
+        }
+    },
+    "oneProfileEqualsTo": "{counts} profile equals to {points} points",
+    "@oneProfileEqualsTo": {
+        "placeholders": {
+            "counts": {
+                "type": "int"
+            },
+            "points": {
+                "type": "int"
+            }
+        }
+    },
+    "cameraPermissionNotGranted": "Camera permission not granted!",
+    "upload": "Upload",
+    "unavailableLink": "Unavailable link: \"{linkPath}\"",
+    "@unavailableLink": {
+        "placeholders": {
+            "linkPath": {
+                "type": "Object?"
+            }
+        }
+    },
+    "report": "Report",
+    "tellUsWhy": "Tell us why you are reporting this.",
+    "sendReport": "Send Report",
+    "hustle": "Hustle",
+    "serve": "Serve",
+    "earn": "Earn",
+    "learn": "Learn",
+    "create": "Create",
+    "published": "published",
+    "archived": "archived",
+    "draft": "draft",
+    "none": "N/a",
+    "hustlesIsEmpty": "hustles is empty",
+    "weGotYou": "We Got You",
+    "talkToSomeone": "Talk to someone",
+    "helpMeFeelBetter": "Help me feel better",
+    "anxietyReduxNow": "Anxiety redux now",
+    "immediateHelp": "Immediate help!",
+    "iDLikeToTalk": "I’d like to talk to someone",
+    "stressedOut": "Stressed out?",
+    "call": "Call",
+    "helpMe": "help me",
+    "suicidePrevention": "Suicide prevention hotline",
+    "crisisTextLine": "Crisis text line",
+    "chat": "Chat",
+    "myDaySubmission": "MyDay Submission",
+    "shareAPartOfYour": "Share a part of your day. It can be a highlight, can be low point. Just keep it real",
+    "myDaIsBeing": "MyDay is being uploaded",
+    "isBeing": "{date} is being uploaded",
+    "@isBeing": {
+        "placeholders": {
+            "date": {
+                "type": "String"
+            }
+        }
+    },
+    "thanksForSharing": "Thanks for sharing your day's highlights with us. Check the Feed soon for your post.",
+    "settings": "Settings",
+    "selectImageFrom": "Select Image From",
+    "selectImageSourceContent": "Choose where to get your image from",
+    "gallery": "Gallery",
+    "camera": "Camera",
+    "accepted": "accepted",
+    "pending": "pending",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "findFriends": "Find Friends",
+    "search": "Search",
+    "cancelUpper": "Cancel",
+    "requested": "requested",
+    "add": "add",
+    "addUpper": "Add",
+    "surpriseMe": "Surprise Me",
+    "adventure": "Adventure",
+    "activism": "Activism",
+    "books": "Books",
+    "entertainment": "Entertainment",
+    "finance": "Finance",
+    "food": "Food",
+    "lifestyle": "Lifestyle",
+    "mental": "Mental Health",
+    "music": "Music",
+    "my": "My Picks",
+    "resources": "Resources",
+    "social": "Social",
+    "socialEvents": "Social Events",
+    "sports": "Sports",
+    "stem": "STEM",
+    "travel": "Travel",
+    "unknown": "Unknown",
+    "refresh": "Refresh",
+    "listen": "Listen",
+    "setAGoal": "Set a goal:",
+    "set": "set",
+    "created": "Created {date}",
+    "@created": {
+        "placeholders": {
+            "date": {
+                "type": "String"
+            }
+        }
+    },
+    "markAsCompleted": "Mark as Completed",
+    "editGoal": "Edit Goal",
+    "deleteGoal": "Delete Goal",
+    "onlyMe": "Only Me",
+    "friendsCanSee": "Friends Can See",
+    "promlyNetwork": "Promly Network",
+    "open": "Open",
+    "calibrationText": "Calibration",
+    "placeAndHold": "Place and hold your index finger over your camera",
+    "keepYourFingerOn": "Keep your finger on the camera. The calibration takes up to 30 sec",
+    "detected": "Detected",
+    "undetected": "Undetected",
+    "ohNo": "Oh No!",
+    "itLooksLikeWe": "It looks like we don’t have permission to access you camera",
+    "goToAppSettingsTo": "Go to app settings to allow access to camera and start the calibration.",
+    "goToSettings": "Go To Settings",
+    "bpm": "{value} bpm",
+    "@bpm": {
+        "placeholders": {
+            "value": {
+                "type": "int"
+            }
+        }
+    },
+    "heartRate": "{value} Heart Rate",
+    "@heartRate": {
+        "placeholders": {
+            "value": {
+                "type": "String"
+            }
+        }
+    },
+    "hide": "Hide",
+    "show": "Show",
+    "scanningHeartRate": "Scanning Heart Rate",
+    "keepYourFinger": "Keep your finger on the camera",
+    "time": "TIME",
+    "duringPanicOurBodies": "During panic, our bodies hyperventilate to bring in more oxygen and our heart rates elevate so that we can fight or run away to best survive the threat.",
+    "finishTracking": "Finish Tracking",
+    "shareDetails": "Share details",
+    "weAreCollectingAnonymous": "We’re collecting anonymous data to develop a cutting-edge anxiety attack prediction algorithm.",
+    "howDoYouFeelNow": "How do you feel now?",
+    "rateYouAnxietyAttack": "Rate you anxiety attack",
+    "didYouHaveAtLeast": "Did you have at least 8 hours of sleep?",
+    "didYouConsumeAnyEnergy": "Did you consume any energy drinks today?",
+    "didYouConsumeCaffeineToday": "Did you consume caffeine today?",
+    "low": "Low",
+    "normal": "Normal",
+    "high": "High",
+    "summary": "Summary",
+    "heartRateText": "Heart Rate",
+    "yourRestingHeartRate": "Your resting heart rate is the lowest amount of blood your heart pumps when you are not physically active. It is typically between 60 and 100 beats per minute when you are relaxed, calm, and in good health while sitting or lying down.",
+    "duration": "Duration",
+    "recentAttack": "RECENT ATTACK",
+    "anxietyAttacksUsuallyLastForAbout": "Anxiety attacks usually last for about 30 minutes, and the intensity of symptoms usually increases in the middle of the attack. Recognizing triggers that lead to anxiety is important, as it can accumulate for hours or even days before an attack, which can help in preventing or managing them.",
+    "seeCopingStrategies": "See Coping Strategies",
+    "finish": "Finish",
+    "letIsChat": "Let’s Chat",
+    "readArticle": "Read Article",
+    "checkItOut": "Check it Out",
+    "watchVideo": "Watch Video",
+    "spinMe": "Spin Me",
+    "inCollabWith": "In collab with",
+    "ok": "OK",
+    "verification": "Verification",
+    "promlyHasPartneredWithYoti": "Promly has partnered with Yoti\nto ensure the safety\nof the platform.",
+    "continueToProceedWithThe": "Continue to proceed with the age verification process. Don’t worry this will take just a minute and your privacy is guaranteed.",
+    "continueButton": "Continue",
+    "placeHeadInFrame": "Place head in frame",
+    "byContinueYouAgreeTo": "By continuing, you agree to have your age estimated by our partner Yoti. Your photo will  then be deleted immediately and not used for any other purpose.",
+    "verificationComplete": "Verification Complete",
+    "yourAgeHasBeenVerified": "Your age has been verified.\nConnect with friends now.",
+    "letsGo": "Let’s go!",
+    "oopsSomethingWentWrong": "Oops, something went wrong.",
+    "ageVerificationHasFailed": "Age verification has failed.\nIf this is a mistake, please contact us.",
+    "contactUs": "Contact us",
+    "tryAgain": "Try again",
+    "yourChallengeIsBeingUploaded": "Your challenge is being uploaded",
+    "yourContentDidNotMeetAll": "Your content didn't meet all our guidelines, so it's not posted yet. An admin will review it shortly.",
+    "reject": "reject",
+    "youAreAllCaughtUp": "You're all caught up! No new notifications right now.",
+    "challengeComplete": "Challenge Complete!",
+    "level": "Level {date}",
+    "@level": {
+        "placeholders": {
+            "date": {
+                "type": "int"
+            }
+        }
+    }
+}
