@@ -192,6 +192,7 @@ flutter packages pub run build_runner build --delete-conflicting-outputs
 
 Add ARB files to `lib/l10n/`:
 - `app_en.arb` - English translations
+- `app_es.arb` - Spanish translations
 
 
 ## Troubleshooting
