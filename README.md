@@ -81,7 +81,7 @@ lib/
 ├── api/           # API and network requests
 ├── core/          # Core logic
 ├── di/            # Dependency injection
-├── l10n/          # Localization (EN, RU)
+├── l10n/          # Localization (EN, ES)
 ├── models/        # Data models
 ├── routes/        # Navigation
 ├── services/      # Services
