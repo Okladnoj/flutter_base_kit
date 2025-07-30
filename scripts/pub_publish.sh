@@ -8,13 +8,17 @@
 # Change to the root directory of the project
 cd "$(dirname "$0")/.."
 
+
+
 # Your comments for the changelog split by "/"
 comments=(
-  "Enhance version detection in copy_utils.dart to return the latest flutter_base_kit version"
-  "Add debug output to version detection in copy_utils.dart"
-  "Improve pubspec_utils.dart to update or add flutter_base_kit dependency with resolved version"
-  "Ensure proper version handling and verbose logging in pubspec_utils.dart"
-  "Improve regex logic in pub_publish.sh for accurate version updates"
+  "Refactor app template generation to use flutter create + content copying approach"
+  "Add proper Android configuration handling for single app generation"
+  "Implement unified approach for package+tester and single app generation"
+  "Add test directory removal for single app generation"
+  "Fix pubspec.yaml name replacement for app templates"
+  "Update main.dart copying for app templates"
+  "Improve error handling and verbose logging throughout generation process"
 )
 
 # Increment the version number
@@ -97,30 +101,40 @@ echo -e "\033[33mDo you want to publish flutter_base_kit $new_version to pub.dev
 read -r response
 
 if [[ "$response" =~ ^[Yy]$ ]]; then
+    # Commit changes first
+    echo -e "\033[32mCommitting changes...\033[0m"
+    git add .
+    git commit -m "Release $new_version
+    
+$(for comment in "${comments[@]}"; do echo "- $comment"; done)"
+    
+    # Create git tag
+    echo -e "\033[32mCreating git tag...\033[0m"
+    git tag -a "v$new_version" -m "Release $new_version"
+    
+    # Push changes to remote
+    echo -e "\033[32mPushing changes to remote...\033[0m"
+    git push && git push --tags
+    
+    if [ $? -ne 0 ]; then
+        echo -e "\033[31m❌ Failed to push changes to remote\033[0m"
+        echo -e "\033[33mPlease push manually: git push && git push --tags\033[0m"
+        exit 1
+    fi
+    
+    # Now publish to pub.dev
     echo -e "\033[32mPublishing to pub.dev...\033[0m"
     flutter pub publish
     
     if [ $? -eq 0 ]; then
         echo -e "\033[32m✅ Successfully published flutter_base_kit $new_version!\033[0m"
-        echo -e "\033[32m📦 Package will be available on pub.dev in 5-10 minutes\033[0m"
-        
-        # Commit changes
-        echo -e "\033[32mCommitting changes...\033[0m"
-        git add .
-        git commit -m "Release $new_version
-        
-$(for comment in "${comments[@]}"; do echo "- $comment"; done)"
-        
-        # Create git tag
-        echo -e "\033[32mCreating git tag...\033[0m"
-        git tag -a "v$new_version" -m "Release $new_version"
-        
         echo -e "\033[32m✅ Release $new_version completed successfully!\033[0m"
         echo -e "\033[32m📋 Next steps:\033[0m"
-        echo -e "\033[32m   - Push changes: git push && git push --tags\033[0m"
         echo -e "\033[32m   - Update global installation: dart pub global activate flutter_base_kit\033[0m"
+        echo -e "\033[32m   - Package will be available on pub.dev in 5-10 minutes\033[0m"
     else
         echo -e "\033[31m❌ Failed to publish package\033[0m"
+        echo -e "\033[33mChanges have been committed and pushed, but package publishing failed\033[0m"
         exit 1
     fi
 else

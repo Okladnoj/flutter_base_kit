@@ -1,3 +1,14 @@
+## 1.1.6
+
+- Refactor app template generation to use flutter create + content copying approach
+- Add proper Android configuration handling for single app generation
+- Implement unified approach for package+tester and single app generation
+- Add test directory removal for single app generation
+- Fix pubspec.yaml name replacement for app templates
+- Update main.dart copying for app templates
+- Improve error handling and verbose logging throughout generation process
+
+
 ## 1.1.5
 
 - Enhance version detection in copy_utils.dart to return the latest flutter_base_kit version
