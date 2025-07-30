@@ -1,3 +1,12 @@
+## 1.1.5
+
+- Enhance version detection in copy_utils.dart to return the latest flutter_base_kit version
+- Add debug output to version detection in copy_utils.dart
+- Improve pubspec_utils.dart to update or add flutter_base_kit dependency with resolved version
+- Ensure proper version handling and verbose logging in pubspec_utils.dart
+- Improve regex logic in pub_publish.sh for accurate version updates
+
+
 ## 1.1.4
 
 - Fix CHANGELOG.md formatting issues

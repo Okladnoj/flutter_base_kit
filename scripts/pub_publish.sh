@@ -10,9 +10,12 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-    "Enhance version detection in copy_utils.dart with debug output"
-    "Improved regex in pub_publish.sh for version updates"
-    )
+  "Enhance version detection in copy_utils.dart to return the latest flutter_base_kit version"
+  "Add debug output to version detection in copy_utils.dart"
+  "Improve pubspec_utils.dart to update or add flutter_base_kit dependency with resolved version"
+  "Ensure proper version handling and verbose logging in pubspec_utils.dart"
+  "Improve regex logic in pub_publish.sh for accurate version updates"
+)
 
 # Increment the version number
 echo -e "\033[32mIncrementing the version number...\033[0m"

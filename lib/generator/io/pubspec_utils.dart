@@ -32,26 +32,20 @@ class PubspecUtils {
     );
 
     // Add flutter_base_kit dependency if not exists
-    await _addFlutterBaseKitDependency(content, pubspecFile, verbose);
+    await _addFlutterBaseKitDependency(pubspecFile, verbose);
 
     if (verbose) {
       stdout.writeln('${Constants.updateMessage} Updated pubspec.yaml');
     }
   }
 
-  /// Add flutter_base_kit dependency to pubspec.yaml
+  /// Add or update flutter_base_kit dependency to pubspec.yaml
   static Future<void> _addFlutterBaseKitDependency(
-    String content,
     File pubspecFile,
     bool verbose,
   ) async {
-    if (content.contains('${Constants.flutterBaseKitPackage}:')) {
-      if (verbose) {
-        stdout.writeln(
-            '${Constants.infoMessage} flutter_base_kit dependency already exists');
-      }
-      return;
-    }
+    // Read current content
+    String content = await pubspecFile.readAsString();
 
     // Get current package version
     final currentVersion = CopyUtils.getCurrentPackageVersion();
@@ -62,22 +56,38 @@ class PubspecUtils {
       }
     }
 
-    // Find dependencies section and add flutter_base_kit from pub.dev
+    final versionString =
+        currentVersion != null ? '^$currentVersion' : '^1.1.1';
+
+    // Find dependencies section and add/update flutter_base_kit from pub.dev
     final lines = content.split('\n');
     final dependenciesIndex =
         lines.indexWhere((line) => line.trim() == 'dependencies:');
 
     if (dependenciesIndex != -1) {
-      final versionString =
-          currentVersion != null ? '^$currentVersion' : '^1.1.1';
-      lines.insert(dependenciesIndex + 1,
-          '  ${Constants.flutterBaseKitPackage}: $versionString');
+      // Check if flutter_base_kit dependency already exists
+      final existingIndex = lines.indexWhere((line) =>
+          line.trim().startsWith('${Constants.flutterBaseKitPackage}:'));
+
+      if (existingIndex != -1) {
+        // Update existing dependency
+        lines[existingIndex] =
+            '  ${Constants.flutterBaseKitPackage}: $versionString';
+        if (verbose) {
+          stdout.writeln(
+              '${Constants.infoMessage} Updated flutter_base_kit dependency to version $versionString');
+        }
+      } else {
+        // Add new dependency
+        lines.insert(dependenciesIndex + 1,
+            '  ${Constants.flutterBaseKitPackage}: $versionString');
+        if (verbose) {
+          stdout.writeln(
+              '${Constants.infoMessage} Added flutter_base_kit dependency from pub.dev (version $versionString)');
+        }
+      }
 
       await pubspecFile.writeAsString(lines.join('\n'));
-      if (verbose) {
-        stdout.writeln(
-            '${Constants.infoMessage} Added flutter_base_kit dependency from pub.dev (version $versionString)');
-      }
     }
   }
 

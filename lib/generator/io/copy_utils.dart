@@ -68,15 +68,31 @@ class CopyUtils {
     );
 
     if (Directory(pubCacheDir).existsSync()) {
-      // Find flutter_base_kit package directory (any version)
+      // Find flutter_base_kit package directory (latest version)
       final entries = Directory(pubCacheDir).listSync();
+      String? latestVersionPath;
+      String? latestVersion;
+
       for (final entry in entries) {
         if (entry is Directory && entry.path.contains('flutter_base_kit-')) {
           final globalTemplatesDir = path.join(entry.path, 'templates');
           if (Directory(globalTemplatesDir).existsSync()) {
-            return entry.path;
+            // Extract version from path
+            final pathParts = entry.path.split('flutter_base_kit-');
+            if (pathParts.length > 1) {
+              final version = pathParts.last;
+              if (latestVersion == null ||
+                  _compareVersions(version, latestVersion) > 0) {
+                latestVersion = version;
+                latestVersionPath = entry.path;
+              }
+            }
           }
         }
+      }
+
+      if (latestVersionPath != null) {
+        return latestVersionPath;
       }
     }
 
@@ -94,6 +110,26 @@ class CopyUtils {
         stdout.writeln('📁 Created directory: $dirPath');
       }
     }
+  }
+
+  /// Compare two version strings
+  static int _compareVersions(String version1, String version2) {
+    final parts1 = version1.split('.').map(int.parse).toList();
+    final parts2 = version2.split('.').map(int.parse).toList();
+
+    // Pad with zeros if needed
+    while (parts1.length < parts2.length) {
+      parts1.add(0);
+    }
+    while (parts2.length < parts1.length) {
+      parts2.add(0);
+    }
+
+    for (int i = 0; i < parts1.length; i++) {
+      if (parts1[i] > parts2[i]) return 1;
+      if (parts1[i] < parts2[i]) return -1;
+    }
+    return 0;
   }
 
   /// Get current package version from pubspec.yaml
