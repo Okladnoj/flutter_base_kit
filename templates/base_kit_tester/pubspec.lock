@@ -192,10 +192,11 @@ packages:
   flutter_base_kit:
     dependency: transitive
     description:
-      path: "../.."
-      relative: true
-    source: path
-    version: "0.0.1"
+      name: flutter_base_kit
+      sha256: "4c2f51eff44bc0e9d9f65b60efc52e21b1e09da9d94df1f1be3aa38131f41eef"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.5"
   flutter_bloc:
     dependency: transitive
     description:

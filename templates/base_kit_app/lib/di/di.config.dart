@@ -75,10 +75,6 @@ Future<_i174.GetIt> $initGetIt(
         gh<_i460.SharedPreferences>(),
         gh<_i558.FlutterSecureStorage>(),
       ));
-  gh.lazySingleton<_i810.AppInfoService>(
-    () => _i810.AppInfoServiceDev(gh<_i655.PackageInfo>()),
-    registerFor: {_dev},
-  );
   gh.factory<_i700.TokenService>(
       () => _i700.TokenService(gh<_i558.FlutterSecureStorage>()));
   gh.factory<_i247.LocaleService>(
@@ -87,6 +83,10 @@ Future<_i174.GetIt> $initGetIt(
       () => _i977.ThemeService(gh<_i460.SharedPreferences>()));
   gh.factory<_i490.FontsService>(
       () => _i490.FontsService(gh<_i460.SharedPreferences>()));
+  gh.lazySingleton<_i810.AppInfoService>(
+    () => _i810.AppInfoServiceDev(gh<_i655.PackageInfo>()),
+    registerFor: {_dev},
+  );
   gh.singleton<_i751.SettingsState>(() => _i751.SettingsState(
         gh<_i247.LocaleService>(),
         gh<_i977.ThemeService>(),
@@ -104,10 +104,10 @@ Future<_i174.GetIt> $initGetIt(
       () => _i229.ExampleService(gh<_i1045.ExampleApi>()));
   gh.lazySingleton<_i354.PostsService>(
       () => _i354.PostsService(gh<_i652.PostsApi>()));
-  gh.factory<_i180.ExampleCubit>(
-      () => _i180.ExampleCubit(gh<_i229.ExampleService>()));
   gh.factory<_i286.PostsCubit>(
       () => _i286.PostsCubit(gh<_i354.PostsService>()));
+  gh.factory<_i180.ExampleCubit>(
+      () => _i180.ExampleCubit(gh<_i229.ExampleService>()));
   return getIt;
 }
 
