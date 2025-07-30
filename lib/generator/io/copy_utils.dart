@@ -60,16 +60,24 @@ class CopyUtils {
 
     // Check if we're running from a globally installed package
     // Look for the package in pub cache
-    final pubCachePath = path.join(
+    final pubCacheDir = path.join(
       Platform.environment['HOME'] ?? '',
       '.pub-cache',
       'hosted',
       'pub.dev',
-      'flutter_base_kit-1.0.0',
     );
-    final globalTemplatesDir = path.join(pubCachePath, 'templates');
-    if (Directory(globalTemplatesDir).existsSync()) {
-      return pubCachePath;
+    
+    if (Directory(pubCacheDir).existsSync()) {
+      // Find flutter_base_kit package directory (any version)
+      final entries = Directory(pubCacheDir).listSync();
+      for (final entry in entries) {
+        if (entry is Directory && entry.path.contains('flutter_base_kit-')) {
+          final globalTemplatesDir = path.join(entry.path, 'templates');
+          if (Directory(globalTemplatesDir).existsSync()) {
+            return entry.path;
+          }
+        }
+      }
     }
 
     // If still not found, return current directory

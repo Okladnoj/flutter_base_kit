@@ -1,3 +1,9 @@
+## 1.1.1
+
+- Fix template path resolution for globally installed package
+- Improved search algorithm to find any version of the package
+- Better compatibility with pub.dev installation
+
 ## 1.1.0
 
 - Final stable release
