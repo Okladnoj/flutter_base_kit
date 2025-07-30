@@ -43,8 +43,9 @@ class AppPrimaryButton extends StatelessWidget {
           style: context.textTheme.titleMedium?.copyWith(
             fontSize: fontSize ?? 17,
             fontWeight: fontWeight ?? FontWeight.w700,
-            color:
-                isActive ? context.designs.onPrimary : context.designs.primary,
+            color: isActive
+                ? context.designs.onPrimary
+                : context.designs.textDisabled,
           ),
         ),
       ),

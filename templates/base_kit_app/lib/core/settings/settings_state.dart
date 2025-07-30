@@ -45,6 +45,12 @@ class SettingsState extends BaseProvider {
     await _themeService.saveTheme(themeType);
   }
 
+  Future<void> switchTheme() async {
+    themeType = themeType == ThemeType.dark ? ThemeType.light : ThemeType.dark;
+    notifyListeners();
+    await _themeService.saveTheme(themeType);
+  }
+
   Future<void> changeFontFamily(String fontFamily) async {
     this.fontFamily = fontFamily;
     notifyListeners();

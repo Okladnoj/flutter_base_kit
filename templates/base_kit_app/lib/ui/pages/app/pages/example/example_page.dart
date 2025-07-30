@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../routes/router.dart';
 import '../../../../../themes/app_theme.dart';
+import '../../../../views/app_bars/empty_title.dart';
 
 @RoutePage()
 class ExamplePage extends StatelessWidget {
@@ -12,8 +13,8 @@ class ExamplePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.designs.background,
-      appBar: AppBar(
-        title: const Text('Example Page'),
+      appBar: EmptyTitle(
+        titleText: 'Example Page',
         actions: [
           IconButton(
             icon: const Icon(Icons.settings),

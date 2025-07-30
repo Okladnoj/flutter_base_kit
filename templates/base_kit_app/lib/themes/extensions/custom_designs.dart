@@ -41,31 +41,31 @@ class CustomDesigns extends ThemeExtension<CustomDesigns> {
   factory CustomDesigns.light() {
     final base = BaseDesigns.instance;
     return CustomDesigns._(
-      primary: base.primary,
-      secondary: base.secondary,
-      background: base.background,
-      surface: base.surface,
+      primary: base.sunsetPeach,
+      secondary: base.spicedBrick,
+      background: base.vanillaCream,
+      surface: base.sunsetPeach,
       error: base.error,
-      onPrimary: Colors.white,
-      onSecondary: Colors.white,
-      onBackground: base.dark,
-      onSurface: base.dark,
-      onError: Colors.white,
-      textPrimary: base.dark,
-      textSecondary: base.dark.withValues(alpha: 0.7),
-      textDisabled: base.dark.withValues(alpha: 0.5),
+      onPrimary: base.black,
+      onSecondary: base.black,
+      onBackground: base.black,
+      onSurface: base.abyssBlack,
+      onError: base.error,
+      textPrimary: base.black,
+      textSecondary: base.black.withValues(alpha: 0.7),
+      textDisabled: base.black.withValues(alpha: 0.5),
       gradientButton: LinearGradient(
-        colors: [base.primary, base.secondary],
+        colors: [base.spicedBrick, base.sunsetPeach],
         begin: Alignment.centerLeft,
         end: Alignment.centerRight,
       ),
       gradientInactiveButton: LinearGradient(
-        colors: [base.background, base.background],
+        colors: [base.vanillaCream, base.white],
         begin: Alignment.centerLeft,
         end: Alignment.centerRight,
       ),
       gradientAppBar: LinearGradient(
-        colors: [base.primary, base.secondary],
+        colors: [base.burntMerlot, base.sunsetPeach],
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
       ),
@@ -75,31 +75,31 @@ class CustomDesigns extends ThemeExtension<CustomDesigns> {
   factory CustomDesigns.dark() {
     final base = BaseDesigns.instance;
     return CustomDesigns._(
-      primary: base.primary,
-      secondary: base.secondary,
-      background: base.background,
-      surface: base.surface,
+      primary: base.burntMerlot,
+      secondary: base.sunsetPeach,
+      background: base.abyssBlack,
+      surface: base.burntMerlot,
       error: base.error,
-      onPrimary: Colors.white,
-      onSecondary: Colors.white,
-      onBackground: base.light,
-      onSurface: base.light,
-      onError: Colors.white,
-      textPrimary: base.light,
-      textSecondary: base.light.withValues(alpha: 0.7),
-      textDisabled: base.light.withValues(alpha: 0.5),
+      onPrimary: base.white,
+      onSecondary: base.white,
+      onBackground: base.white,
+      onSurface: base.vanillaCream,
+      onError: base.error,
+      textPrimary: base.white,
+      textSecondary: base.white.withValues(alpha: 0.7),
+      textDisabled: base.white.withValues(alpha: 0.5),
       gradientButton: LinearGradient(
-        colors: [base.primary, base.secondary],
+        colors: [base.burntMerlot, base.spicedBrick],
         begin: Alignment.centerLeft,
         end: Alignment.centerRight,
       ),
       gradientInactiveButton: LinearGradient(
-        colors: [base.background, base.background],
+        colors: [base.white, base.vanillaCream],
         begin: Alignment.centerLeft,
         end: Alignment.centerRight,
       ),
       gradientAppBar: LinearGradient(
-        colors: [base.primary, base.secondary],
+        colors: [base.burntMerlot, base.abyssBlack],
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
       ),
@@ -177,54 +177,59 @@ class CustomDesigns extends ThemeExtension<CustomDesigns> {
 
 @immutable
 class BaseDesigns extends ThemeExtension<BaseDesigns> {
-  final Color primary;
-  final Color secondary;
-  final Color background;
-  final Color surface;
+  final Color vanillaCream;
+  final Color sunsetPeach;
+  final Color spicedBrick;
+  final Color burntMerlot;
+  final Color abyssBlack;
   final Color error;
-  final Color dark;
-  final Color light;
+  final Color black;
+  final Color white;
 
   const BaseDesigns._({
-    required this.primary,
-    required this.secondary,
-    required this.background,
-    required this.surface,
+    required this.vanillaCream,
+    required this.sunsetPeach,
+    required this.spicedBrick,
+    required this.burntMerlot,
+    required this.abyssBlack,
     required this.error,
-    required this.dark,
-    required this.light,
+    required this.black,
+    required this.white,
   });
 
   static BaseDesigns get instance {
     return const BaseDesigns._(
-      primary: Color(0xFF2196F3),
-      secondary: Color(0xFF03DAC6),
-      background: Color(0xFF555555),
-      surface: Color(0xFF7F9FAC),
+      vanillaCream: Color(0xFFFEF4DB),
+      sunsetPeach: Color(0xFFF8A86A),
+      spicedBrick: Color(0xFFB54213),
+      burntMerlot: Color(0xFF4D0C02),
+      abyssBlack: Color(0xFF040000),
       error: Color(0xFFB00020),
-      dark: Color(0xFF2B3E46),
-      light: Color(0xFF7F9FAC),
+      black: Color(0xFF000000),
+      white: Color(0xFF7F9FAC),
     );
   }
 
   @override
   ThemeExtension<BaseDesigns> copyWith({
-    Color? primary,
-    Color? secondary,
-    Color? background,
-    Color? surface,
+    Color? vanillaCream,
+    Color? sunsetPeach,
+    Color? spicedBrick,
+    Color? burntMerlot,
+    Color? abyssBlack,
     Color? error,
-    Color? dark,
-    Color? light,
+    Color? black,
+    Color? white,
   }) {
     return BaseDesigns._(
-      primary: primary ?? this.primary,
-      secondary: secondary ?? this.secondary,
-      background: background ?? this.background,
-      surface: surface ?? this.surface,
+      vanillaCream: vanillaCream ?? this.vanillaCream,
+      sunsetPeach: sunsetPeach ?? this.sunsetPeach,
+      spicedBrick: spicedBrick ?? this.spicedBrick,
+      burntMerlot: burntMerlot ?? this.burntMerlot,
+      abyssBlack: abyssBlack ?? this.abyssBlack,
       error: error ?? this.error,
-      dark: dark ?? this.dark,
-      light: light ?? this.light,
+      black: black ?? this.black,
+      white: white ?? this.white,
     );
   }
 
@@ -237,13 +242,14 @@ class BaseDesigns extends ThemeExtension<BaseDesigns> {
       return this;
     }
     return BaseDesigns._(
-      primary: Color.lerp(primary, other.primary, t)!,
-      secondary: Color.lerp(secondary, other.secondary, t)!,
-      background: Color.lerp(background, other.background, t)!,
-      surface: Color.lerp(surface, other.surface, t)!,
+      vanillaCream: Color.lerp(vanillaCream, other.vanillaCream, t)!,
+      sunsetPeach: Color.lerp(sunsetPeach, other.sunsetPeach, t)!,
+      spicedBrick: Color.lerp(spicedBrick, other.spicedBrick, t)!,
+      burntMerlot: Color.lerp(burntMerlot, other.burntMerlot, t)!,
+      abyssBlack: Color.lerp(abyssBlack, other.abyssBlack, t)!,
       error: Color.lerp(error, other.error, t)!,
-      dark: Color.lerp(dark, other.dark, t)!,
-      light: Color.lerp(light, other.light, t)!,
+      black: Color.lerp(black, other.black, t)!,
+      white: Color.lerp(white, other.white, t)!,
     );
   }
 }

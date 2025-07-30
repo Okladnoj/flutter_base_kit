@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:base_kit_package/src/core/providers.dart';
 import 'package:base_kit_package/src/di/di.dart';
+import 'package:base_kit_package/src/ui/pages/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
@@ -11,7 +12,6 @@ import 'package:universal_io/io.dart';
 import 'app_example.dart';
 import 'models/enums/di_environment.dart';
 import 'routes/router.dart';
-import 'ui/pages/splash/splash_page.dart';
 
 Future<void> _simulateLoading() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -19,7 +19,7 @@ ThemeData _darkThemeData({String? fontFamily}) {
     appBarTheme: AppBarTheme(
       elevation: 0,
       iconTheme: IconThemeData(
-        color: design.primary,
+        color: design.onSurface,
         size: 24,
       ),
       titleTextStyle: TextStyle(
@@ -27,7 +27,7 @@ ThemeData _darkThemeData({String? fontFamily}) {
         fontStyle: FontStyle.normal,
         fontFamily: fontFamily,
         fontSize: 20,
-        color: design.textPrimary,
+        color: design.onSurface,
       ),
       backgroundColor: design.background,
     ),
@@ -186,7 +186,7 @@ ThemeData _darkThemeData({String? fontFamily}) {
       ),
     ),
     scaffoldBackgroundColor: design.background,
-    primaryColorLight: design.background,
+    primaryColorLight: design.primary,
     dividerColor: design.primary,
     canvasColor: design.primary,
     textButtonTheme: TextButtonThemeData(style: styleFrom),

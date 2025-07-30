@@ -5,13 +5,13 @@ ThemeData _lightThemeData({String? fontFamily}) {
   final baseDesign = BaseDesigns.instance;
   final colorScheme = ColorScheme.light(
     brightness: Brightness.light,
-    primary: design.background,
-    secondary: design.background,
+    primary: design.primary,
+    secondary: design.secondary,
   );
 
   final styleFrom = ElevatedButton.styleFrom(
-    backgroundColor: design.background,
-    foregroundColor: design.onBackground,
+    backgroundColor: design.surface,
+    foregroundColor: design.onSurface,
   );
   return ThemeData(
     useMaterial3: true,
@@ -19,7 +19,7 @@ ThemeData _lightThemeData({String? fontFamily}) {
     appBarTheme: AppBarTheme(
       elevation: 0,
       iconTheme: IconThemeData(
-        color: design.primary,
+        color: design.onSurface,
         size: 24,
       ),
       titleTextStyle: TextStyle(
@@ -27,7 +27,7 @@ ThemeData _lightThemeData({String? fontFamily}) {
         fontStyle: FontStyle.normal,
         fontFamily: fontFamily,
         fontSize: 20,
-        color: design.textPrimary,
+        color: design.onSurface,
       ),
       backgroundColor: design.background,
     ),
@@ -192,7 +192,7 @@ ThemeData _lightThemeData({String? fontFamily}) {
     textButtonTheme: TextButtonThemeData(style: styleFrom),
     elevatedButtonTheme: ElevatedButtonThemeData(style: styleFrom),
     colorScheme: colorScheme.copyWith(
-      surface: design.primary,
+      surface: design.surface,
     ),
     extensions: [
       design,

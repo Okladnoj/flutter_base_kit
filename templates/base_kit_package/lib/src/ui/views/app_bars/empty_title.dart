@@ -10,6 +10,7 @@ class EmptyTitle extends StatelessWidget implements PreferredSizeWidget {
   final double? elevation;
   final bool centerTitle;
   final double? titleSpacing;
+  final String? titleText;
 
   const EmptyTitle({
     super.key,
@@ -20,6 +21,7 @@ class EmptyTitle extends StatelessWidget implements PreferredSizeWidget {
     this.elevation,
     this.centerTitle = true,
     this.titleSpacing,
+    this.titleText = '',
   });
 
   @override
@@ -37,6 +39,7 @@ class EmptyTitle extends StatelessWidget implements PreferredSizeWidget {
           gradient: context.designs.gradientAppBar,
         ),
       ),
+      title: Text(titleText ?? ''),
     );
   }
 
