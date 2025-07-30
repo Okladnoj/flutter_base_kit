@@ -1,5 +1,7 @@
 # Flutter Base Kit 🚀
 
+[![pub package](https://img.shields.io/pub/v/flutter_base_kit.svg)](https://pub.dev/packages/flutter_base_kit)
+
 **Ready-to-use toolkit for quick Flutter project setup**
 
 Create new Flutter applications with pre-configured architecture: routing, DI, networking, localization, theming, and much more.
@@ -210,6 +212,18 @@ flutter packages pub run build_runner build --delete-conflicting-outputs
 - 📖 **Documentation**: [GitHub](https://github.com/Okladnoj/flutter_base_kit)
 - 🐛 **Issues**: [Issues](https://github.com/Okladnoj/flutter_base_kit/issues)
 - 📝 **Changelog**: [CHANGELOG.md](CHANGELOG.md)
+
+## Support the project
+
+If you find this package helpful, consider supporting its development:
+
+<a href="https://www.buymeacoffee.com/okji" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="Buy Me A Coffee" style="max-width: 160px;"/>
+</a>
+
+<a href="https://www.paypal.com/donate?hosted_button_id=NBYVPYB7XDW6A">
+  <img src="https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal" alt="Donate" />
+</a>
 
 ## License
 
