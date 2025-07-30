@@ -1,3 +1,12 @@
+## 1.0.0
+
+- Initial release
+- Flutter app template generator with modular CLI
+- Support for app, package, and package+tester templates
+- Built-in routing, DI, networking, localization, and theme system
+- Global CLI tool with `flutter_base_kit` and `fbkit` commands
+- Template customization with organization and template type options
+
 ## 0.0.1
 
 - Initial Package
