@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:args/args.dart';
 import '../../constants.dart';
+import '../../io/copy_utils.dart';
 
 /// Command for initializing current project with Flutter Base Kit
 class InitCommand {
@@ -46,20 +47,27 @@ class InitCommand {
       return;
     }
 
-    // Find dependencies section and add flutter_base_kit
+    // Get current package version
+    final currentVersion = CopyUtils.getCurrentPackageVersion();
+    if (currentVersion == null) {
+      stderr.writeln(
+          '${Constants.errorMessage} Error: Could not determine package version');
+      exit(1);
+    }
+
+    // Find dependencies section and add flutter_base_kit from pub.dev
     final lines = content.split('\n');
     final dependenciesIndex =
         lines.indexWhere((line) => line.trim() == 'dependencies:');
 
     if (dependenciesIndex != -1) {
-      lines.insert(
-          dependenciesIndex + 1, '  ${Constants.flutterBaseKitPackage}:');
-      lines.insert(dependenciesIndex + 2, '    path: ../');
+      lines.insert(dependenciesIndex + 1,
+          '  ${Constants.flutterBaseKitPackage}: ^$currentVersion');
 
       await pubspecFile.writeAsString(lines.join('\n'));
       if (verbose) {
         stdout.writeln(
-            '${Constants.infoMessage} Added flutter_base_kit dependency');
+            '${Constants.infoMessage} Added flutter_base_kit dependency from pub.dev (version ^$currentVersion)');
       }
     }
   }

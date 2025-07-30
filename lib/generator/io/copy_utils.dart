@@ -95,4 +95,26 @@ class CopyUtils {
       }
     }
   }
+
+  /// Get current package version from pubspec.yaml
+  static String? getCurrentPackageVersion() {
+    try {
+      // First try to find pubspec.yaml in the package directory (for global installation)
+      final packageDir = findTemplatePath();
+      final pubspecPath = path.join(packageDir, 'pubspec.yaml');
+
+      final pubspecFile = File(pubspecPath);
+      if (pubspecFile.existsSync()) {
+        final content = pubspecFile.readAsStringSync();
+        final versionMatch = RegExp(r'version:\s*([^\s]+)').firstMatch(content);
+        if (versionMatch != null) {
+          return versionMatch.group(1);
+        }
+      }
+
+      return null;
+    } catch (e) {
+      return null;
+    }
+  }
 }

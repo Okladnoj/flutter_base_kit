@@ -1,3 +1,9 @@
+## 1.1.2
+
+- Fix init command to use correct version from pub.dev instead of local path
+- Automate version detection to prevent hardcoded version numbers
+- Improved error handling for version detection
+
 ## 1.1.1
 
 - Fix template path resolution for globally installed package

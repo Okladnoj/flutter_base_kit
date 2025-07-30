@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:path/path.dart' as path;
 import '../constants.dart';
+import 'copy_utils.dart';
 
 /// Utilities for working with pubspec.yaml files
 class PubspecUtils {
@@ -52,19 +53,30 @@ class PubspecUtils {
       return;
     }
 
+    // Get current package version
+    final currentVersion = CopyUtils.getCurrentPackageVersion();
+    if (currentVersion == null) {
+      if (verbose) {
+        stdout.writeln(
+            '${Constants.errorMessage} Could not determine package version, using latest');
+      }
+    }
+
     // Find dependencies section and add flutter_base_kit from pub.dev
     final lines = content.split('\n');
     final dependenciesIndex =
         lines.indexWhere((line) => line.trim() == 'dependencies:');
 
     if (dependenciesIndex != -1) {
+      final versionString =
+          currentVersion != null ? '^$currentVersion' : '^1.1.1';
       lines.insert(dependenciesIndex + 1,
-          '  ${Constants.flutterBaseKitPackage}: ^1.0.0');
+          '  ${Constants.flutterBaseKitPackage}: $versionString');
 
       await pubspecFile.writeAsString(lines.join('\n'));
       if (verbose) {
         stdout.writeln(
-            '${Constants.infoMessage} Added flutter_base_kit dependency from pub.dev');
+            '${Constants.infoMessage} Added flutter_base_kit dependency from pub.dev (version $versionString)');
       }
     }
   }
