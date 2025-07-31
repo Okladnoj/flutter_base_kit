@@ -2,9 +2,7 @@ import 'dart:io';
 import 'package:path/path.dart' as path;
 import '../constants.dart';
 
-/// Utilities for copying files and directories
 class CopyUtils {
-  /// Copy a directory recursively, excluding certain files/directories
   static Future<void> copyDirectory(
     String source,
     String destination,
@@ -39,7 +37,6 @@ class CopyUtils {
     }
   }
 
-  /// Find the correct template path for both local and global usage
   static String findTemplatePath() {
     // First check if we're in the source project directory
     final scriptDir = path.dirname(Platform.script.path);
@@ -100,7 +97,6 @@ class CopyUtils {
     return Directory.current.path;
   }
 
-  /// Check if directory exists and create it if needed
   static Future<void> ensureDirectoryExists(
       String dirPath, bool verbose) async {
     final dir = Directory(dirPath);
@@ -112,7 +108,6 @@ class CopyUtils {
     }
   }
 
-  /// Compare two version strings
   static int _compareVersions(String version1, String version2) {
     final parts1 = version1.split('.').map(int.parse).toList();
     final parts2 = version2.split('.').map(int.parse).toList();
@@ -132,7 +127,6 @@ class CopyUtils {
     return 0;
   }
 
-  /// Get current package version from pubspec.yaml
   static String? getCurrentPackageVersion() {
     try {
       // First try to find pubspec.yaml in the package directory (for global installation)

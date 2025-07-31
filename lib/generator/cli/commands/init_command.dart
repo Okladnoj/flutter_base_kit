@@ -3,15 +3,12 @@ import 'package:args/args.dart';
 import '../../constants.dart';
 import '../../io/copy_utils.dart';
 
-/// Command for initializing current project with Flutter Base Kit
 class InitCommand {
-  /// Handle init command
   static Future<void> handle(ArgResults cmd) async {
     final verbose = cmd['verbose'] as bool;
     await _initProject(verbose);
   }
 
-  /// Initialize current project with Flutter Base Kit
   static Future<void> _initProject(bool verbose) async {
     stdout.writeln(
         '${Constants.initMessage} Initializing current project with Flutter Base Kit');
@@ -34,7 +31,6 @@ class InitCommand {
       ..writeln('  Import flutter_base_kit in your main.dart');
   }
 
-  /// Add flutter_base_kit dependency to current project
   static Future<void> _addDependency(bool verbose) async {
     final pubspecFile = File(Constants.pubspecFileName);
     String content = await pubspecFile.readAsString();

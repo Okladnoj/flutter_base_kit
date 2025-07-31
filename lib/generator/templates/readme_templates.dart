@@ -1,6 +1,4 @@
-/// Templates for README files
 class ReadmeTemplates {
-  /// Generate README for app template
   static String appReadme(String name) => '''
 # $name
 
@@ -15,7 +13,6 @@ flutter run
 ```
 ''';
 
-  /// Generate README for package template
   static String packageReadme(String name) => '''
 # $name
 
@@ -30,7 +27,6 @@ flutter test
 ```
 ''';
 
-  /// Generate README for tester template
   static String testerReadme(String tester, String package) => '''
 # $tester
 
@@ -44,7 +40,6 @@ flutter run
 ```
 ''';
 
-  /// Generate README for root directory (package+tester)
   static String rootReadme(String repo, String package, String tester) => '''
 # $repo
 

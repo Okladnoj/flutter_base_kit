@@ -3,9 +3,7 @@ import 'package:path/path.dart' as path;
 import '../constants.dart';
 import 'copy_utils.dart';
 
-/// Utilities for working with pubspec.yaml files
 class PubspecUtils {
-  /// Update pubspec.yaml with project name and dependencies
   static Future<void> updatePubspec(
     String projectDir,
     String templateName,
@@ -42,7 +40,6 @@ class PubspecUtils {
     }
   }
 
-  /// Add or update flutter_base_kit dependency to pubspec.yaml
   static Future<void> _addFlutterBaseKitDependency(
     File pubspecFile,
     bool verbose,
@@ -94,7 +91,6 @@ class PubspecUtils {
     }
   }
 
-  /// Update app pubspec.yaml with dependencies and configuration
   static Future<void> updateAppPubspec(
     String appDir,
     String appName,
@@ -134,7 +130,6 @@ class PubspecUtils {
     }
   }
 
-  /// Update package pubspec.yaml with dependencies and configuration
   static Future<void> updatePackagePubspec(
     String packageDir,
     String packageName,
@@ -179,7 +174,6 @@ class PubspecUtils {
     await _updatePackageAnalysisOptions(packageDir, verbose);
   }
 
-  /// Update tester pubspec.yaml to include package dependency
   static Future<void> updateTesterPubspec(
     String testerDir,
     String testerName,
@@ -248,7 +242,6 @@ class PubspecUtils {
     }
   }
 
-  /// Update package main library file with exports
   static Future<void> _updatePackageMainFile(
     String packageDir,
     String packageName,
@@ -274,7 +267,6 @@ export 'src/app_loader.dart';
     }
   }
 
-  /// Remove default test directory created by flutter create
   static Future<void> _removeDefaultTestDirectory(
     String packageDir,
     bool verbose,
@@ -289,7 +281,6 @@ export 'src/app_loader.dart';
     }
   }
 
-  /// Update package analysis_options.yaml with template content
   static Future<void> _updatePackageAnalysisOptions(
     String packageDir,
     bool verbose,

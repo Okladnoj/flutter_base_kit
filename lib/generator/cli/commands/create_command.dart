@@ -6,9 +6,7 @@ import '../../io/copy_utils.dart';
 import '../../io/pubspec_utils.dart';
 import '../../templates/readme_templates.dart';
 
-/// Command for creating new Flutter projects
 class CreateCommand {
-  /// Run dart pub get in the specified directory
   static Future<void> _runPubGet(String directory, bool verbose) async {
     if (verbose) {
       stdout.writeln('📦 Running dart pub get in: $directory');
@@ -25,7 +23,6 @@ class CreateCommand {
     }
   }
 
-  /// Handle create command
   static Future<void> handle(ArgResults cmd) async {
     final verbose = cmd['verbose'] as bool;
 
@@ -41,7 +38,6 @@ class CreateCommand {
     await _createProject(name, org, template, verbose);
   }
 
-  /// Create project based on template type
   static Future<void> _createProject(
     String name,
     String? org,
@@ -73,7 +69,6 @@ class CreateCommand {
     }
   }
 
-  /// Create app template
   static Future<void> _createAppTemplate(
     String name,
     String? org,
@@ -124,7 +119,6 @@ class CreateCommand {
       ..writeln('  flutter run');
   }
 
-  /// Create package template
   static Future<void> _createPackageTemplate(
     String name,
     String? org,
@@ -173,7 +167,6 @@ class CreateCommand {
       ..writeln('  flutter test');
   }
 
-  /// Create package with tester template
   static Future<void> _createPackageWithTester(
     String name,
     String? org,
@@ -264,7 +257,6 @@ class CreateCommand {
       ..writeln('  flutter run');
   }
 
-  /// Create README file
   static Future<void> _createReadme(
     String projectDir,
     String name,
@@ -278,7 +270,6 @@ class CreateCommand {
     }
   }
 
-  /// Copy template content (assets, fonts, configs) to created projects
   static Future<void> _copyTemplateContent(
     String packageDir,
     String testerDir,
@@ -315,7 +306,6 @@ class CreateCommand {
     await _copyTesterMainFile(testerDir, packageName, verbose);
   }
 
-  /// Copy package template content (assets, fonts, configs) to created package
   static Future<void> _copyPackageTemplateContent(
     String packageDir,
     bool verbose,
@@ -342,7 +332,6 @@ class CreateCommand {
     await _copyPackageLibContent(packageDir, verbose);
   }
 
-  /// Copy app template content (assets, fonts, configs, lib) to created app
   static Future<void> _copyAppTemplateContent(
     String appDir,
     bool verbose,
@@ -371,7 +360,6 @@ class CreateCommand {
     await _copyAppMainFile(appDir, verbose);
   }
 
-  /// Copy app lib directory content
   static Future<void> _copyAppLibContent(
     String appDir,
     bool verbose,
@@ -408,7 +396,6 @@ class CreateCommand {
     }
   }
 
-  /// Copy app main.dart file from template
   static Future<void> _copyAppMainFile(
     String appDir,
     bool verbose,
@@ -427,7 +414,6 @@ class CreateCommand {
     }
   }
 
-  /// Remove default test directory created by flutter create
   static Future<void> _removeDefaultTestDirectory(
     String projectDir,
     bool verbose,
@@ -442,7 +428,6 @@ class CreateCommand {
     }
   }
 
-  /// Copy package lib directory content
   static Future<void> _copyPackageLibContent(
     String packageDir,
     bool verbose,
@@ -479,7 +464,6 @@ class CreateCommand {
     }
   }
 
-  /// Copy directory if it exists in source
   static Future<void> _copyDirectoryIfExists(
     String sourceDir,
     String destDir,
@@ -497,7 +481,6 @@ class CreateCommand {
     }
   }
 
-  /// Copy file if it exists in source
   static Future<void> _copyFileIfExists(
     String sourceDir,
     String destDir,
@@ -515,7 +498,6 @@ class CreateCommand {
     }
   }
 
-  /// Copy tester main.dart file with proper imports
   static Future<void> _copyTesterMainFile(
     String testerDir,
     String packageName,
