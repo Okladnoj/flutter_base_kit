@@ -49,7 +49,7 @@ Future<bool?> _showErrorDialog(BuildContext context, [String? info]) async {
   final result = await AppDialog.of(context).showAlert<bool>(
     info: info ?? StringsSet.somethingWentWrong,
     cancelText: StringsSet.ok,
-    onCancel: (context) => Navigator.of(context).maybePop(),
+    onCancel: (context) => Navigator.pop(context),
   );
 
   return result;
