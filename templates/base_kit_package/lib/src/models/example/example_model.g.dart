@@ -6,11 +6,8 @@ part of 'example_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ExampleModelImpl _$$ExampleModelImplFromJson(Map<String, dynamic> json) =>
-    _$ExampleModelImpl(
-      id: json['id'] as String?,
-      name: json['name'] as String?,
-    );
+_ExampleModel _$ExampleModelFromJson(Map<String, dynamic> json) =>
+    _ExampleModel(id: json['id'] as String?, name: json['name'] as String?);
 
-Map<String, dynamic> _$$ExampleModelImplToJson(_$ExampleModelImpl instance) =>
+Map<String, dynamic> _$ExampleModelToJson(_ExampleModel instance) =>
     <String, dynamic>{'id': instance.id, 'name': instance.name};

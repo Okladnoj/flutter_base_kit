@@ -12,13 +12,9 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-  "Refactor app template generation to use flutter create + content copying approach"
-  "Add proper Android configuration handling for single app generation"
-  "Implement unified approach for package+tester and single app generation"
-  "Add test directory removal for single app generation"
-  "Fix pubspec.yaml name replacement for app templates"
-  "Update main.dart copying for app templates"
-  "Improve error handling and verbose logging throughout generation process"
+  "Update dependencies in pubspec.yaml(s)"
+  "Note: build_runner has cyclic dependency issues in package template"
+  "Update json_annotation to ^4.9.0"
 )
 
 # Increment the version number

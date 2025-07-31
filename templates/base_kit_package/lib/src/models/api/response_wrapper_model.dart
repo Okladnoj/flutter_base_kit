@@ -9,7 +9,7 @@ typedef RWMs<T> = ResponseWrapperModels<T>;
 typedef RWMEmpty = ResponseWrapperModel<EmptyDataModel>;
 
 @Freezed(makeCollectionsUnmodifiable: false, genericArgumentFactories: true)
-class ResponseWrapperModels<T> with _$ResponseWrapperModels<T> {
+abstract class ResponseWrapperModels<T> with _$ResponseWrapperModels<T> {
   const factory ResponseWrapperModels({
     @JsonKey(name: 'errorMessages') @Default([]) List<String> messages,
     @JsonKey(name: 'data') @Default([]) List<T> data,
@@ -22,7 +22,7 @@ class ResponseWrapperModels<T> with _$ResponseWrapperModels<T> {
 }
 
 @Freezed(makeCollectionsUnmodifiable: false, genericArgumentFactories: true)
-class ResponseWrapperModel<T> with _$ResponseWrapperModel<T> {
+abstract class ResponseWrapperModel<T> with _$ResponseWrapperModel<T> {
   const factory ResponseWrapperModel({
     @JsonKey(name: 'errorMessages') @Default([]) List<String> messages,
     @JsonKey(name: 'data') T? data,
@@ -36,7 +36,7 @@ class ResponseWrapperModel<T> with _$ResponseWrapperModel<T> {
 
 @immutable
 @Freezed(makeCollectionsUnmodifiable: false)
-class EmptyDataModel with _$EmptyDataModel {
+abstract class EmptyDataModel with _$EmptyDataModel {
   const factory EmptyDataModel() = _EmptyDataModel;
 
   factory EmptyDataModel.fromJson(Map<String, dynamic> json) =>

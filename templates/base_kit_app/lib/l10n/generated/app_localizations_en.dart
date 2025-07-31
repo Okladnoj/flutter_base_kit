@@ -39,8 +39,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get oops => 'Ooops...';
 
   @override
-  String get somethingWentWrong =>
-      'Something went wrong. Try again later or update the screen';
+  String get somethingWentWrong => 'Something went wrong. Try again later or update the screen';
 
   @override
   String get weakPassword => 'The password provided is too weak.';
@@ -52,8 +51,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get userNotFound => 'No user found for that email.';
 
   @override
-  String get invalidCredential =>
-      'Incorrect email or password. Please try again or register an account with this email.';
+  String get invalidCredential => 'Incorrect email or password. Please try again or register an account with this email.';
 
   @override
   String get wrongPassword => 'Wrong password provided for that user.';
@@ -68,8 +66,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get fieldErrorPasswordRegex => 'Valid characters: \"A-Z, a-z, 0-9\"';
 
   @override
-  String get fieldErrorPasswordMatch =>
-      '*Passwords need to match. Please try again.';
+  String get fieldErrorPasswordMatch => '*Passwords need to match. Please try again.';
 
   @override
   String get fieldMustNotEmpty => 'Field must not be empty';
@@ -99,8 +96,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get weSentAMagic => 'We sent a magic link to the email';
 
   @override
-  String get goToYourEmail =>
-      'Go to your email and tap the link to sign you in.';
+  String get goToYourEmail => 'Go to your email and tap the link to sign you in.';
 
   @override
   String get openMailApp => 'Open Mail App';
@@ -117,8 +113,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get respectCode => 'Respect Code';
 
   @override
-  String get theseCommunityGuideLinesWill =>
-      'These community guidelines will help understand what it means to be a member of Promly. Your use of the Promly app is dependent on your following basic terms of use and being respectful to  your fellow users. Promly was created fro GenZ by GenZ to be a supportive place to connect with others. \nWe are constantly evolving so we encourage you to share your ideas';
+  String get theseCommunityGuideLinesWill => 'These community guidelines will help understand what it means to be a member of Promly. Your use of the Promly app is dependent on your following basic terms of use and being respectful to  your fellow users. Promly was created fro GenZ by GenZ to be a supportive place to connect with others. \nWe are constantly evolving so we encourage you to share your ideas';
 
   @override
   String get iAgreeToPromlyIs => 'I agree to Promly ‘s terms and conditions';
@@ -145,8 +140,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get interests => 'Interests';
 
   @override
-  String get promlyMatchesYou =>
-      'Promly matches you to your peers based on the things you like.';
+  String get promlyMatchesYou => 'Promly matches you to your peers based on the things you like.';
 
   @override
   String get selectAtLeast => 'Select at least 5.';
@@ -317,15 +311,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get logout => 'Logout';
 
   @override
-  String get respectText =>
-      'These community guidelines will help understand what it means to be a member of Promly. Your use of the Promly app is dependent on your following basic terms of use and being respectful to  your fellow users. Promly was created fro GenZ by GenZ to be a supportive place to connect with others. \n\nWe are constantly evolving so we encourage you to share your ideas about things you’d like to see and improvements you might make to the Promly app. There are many places for you to share your voice throughout the app. We are all in this together and we are glad you are here.\n\nYour use of Promly app is subject to these Community guidelines and Terms of Use:\n\n• Respect the copyrights of others. Don\'t use other users\' personal photos and pass them as your own.\n\n• Don\'t show any nudity or upload content that is illegal or prohibited. Only content that is considered \"safe\" can be uploaded.\n\n• Do not use any profanity or discriminative language (such as disability discrimination, sexual orientation, religious discrimination, sexual orientation, religious discrimination, sexual harassment, race, color and sex). \n\n• Chat content is automatically moderated as \"safe\" or \"restricted\" using content moderation filters. Any content classified as \"restricted\" will be automatically banned.\n\n• If other users find your content or your profile inappropriate, they will flag it and we\'ll take necessary actions: such as removal of your content or deactivating your profile. We hope this app fosters more genuine connections and allows people to share their authentic selves.';
+  String get respectText => 'These community guidelines will help understand what it means to be a member of Promly. Your use of the Promly app is dependent on your following basic terms of use and being respectful to  your fellow users. Promly was created fro GenZ by GenZ to be a supportive place to connect with others. \n\nWe are constantly evolving so we encourage you to share your ideas about things you’d like to see and improvements you might make to the Promly app. There are many places for you to share your voice throughout the app. We are all in this together and we are glad you are here.\n\nYour use of Promly app is subject to these Community guidelines and Terms of Use:\n\n• Respect the copyrights of others. Don\'t use other users\' personal photos and pass them as your own.\n\n• Don\'t show any nudity or upload content that is illegal or prohibited. Only content that is considered \"safe\" can be uploaded.\n\n• Do not use any profanity or discriminative language (such as disability discrimination, sexual orientation, religious discrimination, sexual orientation, religious discrimination, sexual harassment, race, color and sex). \n\n• Chat content is automatically moderated as \"safe\" or \"restricted\" using content moderation filters. Any content classified as \"restricted\" will be automatically banned.\n\n• If other users find your content or your profile inappropriate, they will flag it and we\'ll take necessary actions: such as removal of your content or deactivating your profile. We hope this app fosters more genuine connections and allows people to share their authentic selves.';
 
   @override
   String get ourCredo => 'Our Credo';
 
   @override
-  String get ourCredoText =>
-      'The Promly Credo: We believe our first responsibility is to GenZ and the Alpha Generation behind them. We must work together using a multigenerational approach to be sure the voice and needs of the under-18 generation are heard, validated, and responded to.\n\nWe will foster connectedness through our programs and in our work environment recognizing that human connectedness drives happiness. We will provide an inclusive online platform and services for our users reflecting diversity. We will also strive to provide a workplace that respects diversity, and as employers, will seek to value individuality and accommodate individual employees’ needs.\n\nPromly pledges to partner with organizations that also value GenZ, not as a commodity, but as people, that care about long-term outcomes, and demonstrate a commitment to destigmatize mental health and/or to create other social benefits appropriate for kids and teens. We and our business partners will have the opportunity to create a positive impact, and we require that they meaningfully demonstrate their ability to set and maintain high standards, especially with regards to minors, and that they value their reputation above profit. Promly will secure business partners that agree to provide a valued service, skills training and/or knowledge.\n\nWhere a partner engages in marketing, the organization must follow all applicable laws and best practices for minors and also that are applicable to the product. Our partners should strive to not only meet minimum requirements, but to set standards in their dealings with their clients and our users. This is essential, because trust is difficult to win, and easy to lose.\n\nIn order to maintain our users’ trust, Promly will strive to ensure that our tech-enabled solution partners prioritize the security and safety of our users. We will complement the ongoing process of platform enhancement with the continuous improvement of user protections.\n\nPromly commits to being a model of responsible technology, a driver of social impact and social enterprise, and a leader and change agent in the field of teen mental health and social media.';
+  String get ourCredoText => 'The Promly Credo: We believe our first responsibility is to GenZ and the Alpha Generation behind them. We must work together using a multigenerational approach to be sure the voice and needs of the under-18 generation are heard, validated, and responded to.\n\nWe will foster connectedness through our programs and in our work environment recognizing that human connectedness drives happiness. We will provide an inclusive online platform and services for our users reflecting diversity. We will also strive to provide a workplace that respects diversity, and as employers, will seek to value individuality and accommodate individual employees’ needs.\n\nPromly pledges to partner with organizations that also value GenZ, not as a commodity, but as people, that care about long-term outcomes, and demonstrate a commitment to destigmatize mental health and/or to create other social benefits appropriate for kids and teens. We and our business partners will have the opportunity to create a positive impact, and we require that they meaningfully demonstrate their ability to set and maintain high standards, especially with regards to minors, and that they value their reputation above profit. Promly will secure business partners that agree to provide a valued service, skills training and/or knowledge.\n\nWhere a partner engages in marketing, the organization must follow all applicable laws and best practices for minors and also that are applicable to the product. Our partners should strive to not only meet minimum requirements, but to set standards in their dealings with their clients and our users. This is essential, because trust is difficult to win, and easy to lose.\n\nIn order to maintain our users’ trust, Promly will strive to ensure that our tech-enabled solution partners prioritize the security and safety of our users. We will complement the ongoing process of platform enhancement with the continuous improvement of user protections.\n\nPromly commits to being a model of responsible technology, a driver of social impact and social enterprise, and a leader and change agent in the field of teen mental health and social media.';
 
   @override
   String get oneByTwoDay => '1by2day';
@@ -383,8 +375,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get youAreAllCaught => 'You\'re All Caught Up!';
 
   @override
-  String get youHaveReviewed =>
-      'You\'ve reviewed all available profiles for today.';
+  String get youHaveReviewed => 'You\'ve reviewed all available profiles for today.';
 
   @override
   String get wantToSeeMoreProfiles => 'Want to see more profiles?';
@@ -410,8 +401,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get unlockProfilesWithPoints => 'Unlock Profiles with Points';
 
   @override
-  String get enterTheNumberOfProfiles =>
-      'Enter the number of profiles you\'d like to unlock';
+  String get enterTheNumberOfProfiles => 'Enter the number of profiles you\'d like to unlock';
 
   @override
   String get numberOfProfiles => 'Number of profiles';
@@ -464,8 +454,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get challengeSubmission => 'Challenge Submission';
 
   @override
-  String get submitTheProof =>
-      'Submit the proof of your challenge completion. Select a format that you’d like to use.';
+  String get submitTheProof => 'Submit the proof of your challenge completion. Select a format that you’d like to use.';
 
   @override
   String get text => 'Text';
@@ -596,8 +585,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get myDaySubmission => 'MyDay Submission';
 
   @override
-  String get shareAPartOfYour =>
-      'Share a part of your day. It can be a highlight, can be low point. Just keep it real';
+  String get shareAPartOfYour => 'Share a part of your day. It can be a highlight, can be low point. Just keep it real';
 
   @override
   String get myDaIsBeing => 'MyDay is being uploaded';
@@ -608,8 +596,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get thanksForSharing =>
-      'Thanks for sharing your day\'s highlights with us. Check the Feed soon for your post.';
+  String get thanksForSharing => 'Thanks for sharing your day\'s highlights with us. Check the Feed soon for your post.';
 
   @override
   String get settings => 'Settings';
@@ -752,12 +739,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get calibrationText => 'Calibration';
 
   @override
-  String get placeAndHold =>
-      'Place and hold your index finger over your camera';
+  String get placeAndHold => 'Place and hold your index finger over your camera';
 
   @override
-  String get keepYourFingerOn =>
-      'Keep your finger on the camera. The calibration takes up to 30 sec';
+  String get keepYourFingerOn => 'Keep your finger on the camera. The calibration takes up to 30 sec';
 
   @override
   String get detected => 'Detected';
@@ -769,12 +754,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get ohNo => 'Oh No!';
 
   @override
-  String get itLooksLikeWe =>
-      'It looks like we don’t have permission to access you camera';
+  String get itLooksLikeWe => 'It looks like we don’t have permission to access you camera';
 
   @override
-  String get goToAppSettingsTo =>
-      'Go to app settings to allow access to camera and start the calibration.';
+  String get goToAppSettingsTo => 'Go to app settings to allow access to camera and start the calibration.';
 
   @override
   String get goToSettings => 'Go To Settings';
@@ -805,8 +788,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get time => 'TIME';
 
   @override
-  String get duringPanicOurBodies =>
-      'During panic, our bodies hyperventilate to bring in more oxygen and our heart rates elevate so that we can fight or run away to best survive the threat.';
+  String get duringPanicOurBodies => 'During panic, our bodies hyperventilate to bring in more oxygen and our heart rates elevate so that we can fight or run away to best survive the threat.';
 
   @override
   String get finishTracking => 'Finish Tracking';
@@ -815,8 +797,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get shareDetails => 'Share details';
 
   @override
-  String get weAreCollectingAnonymous =>
-      'We’re collecting anonymous data to develop a cutting-edge anxiety attack prediction algorithm.';
+  String get weAreCollectingAnonymous => 'We’re collecting anonymous data to develop a cutting-edge anxiety attack prediction algorithm.';
 
   @override
   String get howDoYouFeelNow => 'How do you feel now?';
@@ -828,8 +809,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get didYouHaveAtLeast => 'Did you have at least 8 hours of sleep?';
 
   @override
-  String get didYouConsumeAnyEnergy =>
-      'Did you consume any energy drinks today?';
+  String get didYouConsumeAnyEnergy => 'Did you consume any energy drinks today?';
 
   @override
   String get didYouConsumeCaffeineToday => 'Did you consume caffeine today?';
@@ -850,8 +830,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get heartRateText => 'Heart Rate';
 
   @override
-  String get yourRestingHeartRate =>
-      'Your resting heart rate is the lowest amount of blood your heart pumps when you are not physically active. It is typically between 60 and 100 beats per minute when you are relaxed, calm, and in good health while sitting or lying down.';
+  String get yourRestingHeartRate => 'Your resting heart rate is the lowest amount of blood your heart pumps when you are not physically active. It is typically between 60 and 100 beats per minute when you are relaxed, calm, and in good health while sitting or lying down.';
 
   @override
   String get duration => 'Duration';
@@ -860,8 +839,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get recentAttack => 'RECENT ATTACK';
 
   @override
-  String get anxietyAttacksUsuallyLastForAbout =>
-      'Anxiety attacks usually last for about 30 minutes, and the intensity of symptoms usually increases in the middle of the attack. Recognizing triggers that lead to anxiety is important, as it can accumulate for hours or even days before an attack, which can help in preventing or managing them.';
+  String get anxietyAttacksUsuallyLastForAbout => 'Anxiety attacks usually last for about 30 minutes, and the intensity of symptoms usually increases in the middle of the attack. Recognizing triggers that lead to anxiety is important, as it can accumulate for hours or even days before an attack, which can help in preventing or managing them.';
 
   @override
   String get seeCopingStrategies => 'See Coping Strategies';
@@ -894,12 +872,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get verification => 'Verification';
 
   @override
-  String get promlyHasPartneredWithYoti =>
-      'Promly has partnered with Yoti\nto ensure the safety\nof the platform.';
+  String get promlyHasPartneredWithYoti => 'Promly has partnered with Yoti\nto ensure the safety\nof the platform.';
 
   @override
-  String get continueToProceedWithThe =>
-      'Continue to proceed with the age verification process. Don’t worry this will take just a minute and your privacy is guaranteed.';
+  String get continueToProceedWithThe => 'Continue to proceed with the age verification process. Don’t worry this will take just a minute and your privacy is guaranteed.';
 
   @override
   String get continueButton => 'Continue';
@@ -908,15 +884,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get placeHeadInFrame => 'Place head in frame';
 
   @override
-  String get byContinueYouAgreeTo =>
-      'By continuing, you agree to have your age estimated by our partner Yoti. Your photo will  then be deleted immediately and not used for any other purpose.';
+  String get byContinueYouAgreeTo => 'By continuing, you agree to have your age estimated by our partner Yoti. Your photo will  then be deleted immediately and not used for any other purpose.';
 
   @override
   String get verificationComplete => 'Verification Complete';
 
   @override
-  String get yourAgeHasBeenVerified =>
-      'Your age has been verified.\nConnect with friends now.';
+  String get yourAgeHasBeenVerified => 'Your age has been verified.\nConnect with friends now.';
 
   @override
   String get letsGo => 'Let’s go!';
@@ -925,8 +899,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get oopsSomethingWentWrong => 'Oops, something went wrong.';
 
   @override
-  String get ageVerificationHasFailed =>
-      'Age verification has failed.\nIf this is a mistake, please contact us.';
+  String get ageVerificationHasFailed => 'Age verification has failed.\nIf this is a mistake, please contact us.';
 
   @override
   String get contactUs => 'Contact us';
@@ -938,15 +911,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get yourChallengeIsBeingUploaded => 'Your challenge is being uploaded';
 
   @override
-  String get yourContentDidNotMeetAll =>
-      'Your content didn\'t meet all our guidelines, so it\'s not posted yet. An admin will review it shortly.';
+  String get yourContentDidNotMeetAll => 'Your content didn\'t meet all our guidelines, so it\'s not posted yet. An admin will review it shortly.';
 
   @override
   String get reject => 'reject';
 
   @override
-  String get youAreAllCaughtUp =>
-      'You\'re all caught up! No new notifications right now.';
+  String get youAreAllCaughtUp => 'You\'re all caught up! No new notifications right now.';
 
   @override
   String get challengeComplete => 'Challenge Complete!';

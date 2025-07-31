@@ -9,12 +9,12 @@ import '../ui/pages/splash/splash_page.dart';
 part 'router.gr.dart';
 
 @AutoRouterConfig(replaceInRouteName: 'Page|View|Tab|Screen,Route')
-class AppRouter extends _$AppRouter {
+class AppRouter extends RootStackRouter {
   @override
-  RouteType get defaultRouteType => const RouteType.custom(
+  RouteType get defaultRouteType => RouteType.custom(
     transitionsBuilder: TransitionsBuilders.slideRightWithFade,
-    durationInMilliseconds: 300,
-    reverseDurationInMilliseconds: 300,
+    duration: const Duration(milliseconds: 300),
+    reverseDuration: const Duration(milliseconds: 300),
     barrierColor: Colors.transparent,
   );
 

@@ -1,7 +1,7 @@
 part of 'posts_cubit.dart';
 
 @freezed
-class PostsState extends BaseStateI with _$PostsState {
+abstract class PostsState extends BaseStateI with _$PostsState {
   const PostsState._();
 
   const factory PostsState({

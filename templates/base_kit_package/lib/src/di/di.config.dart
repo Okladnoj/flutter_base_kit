@@ -1,3 +1,4 @@
+// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
@@ -24,9 +25,7 @@ import '../core/example/example_cubit.dart' as _i180;
 import '../core/posts/posts_cubit.dart' as _i286;
 import '../core/settings/settings_state.dart' as _i751;
 import '../core/snack_messages/snack_messages_state.dart' as _i935;
-import '../routes/module/route_module.dart' as _i402;
 import '../routes/observer/app_observer.dart' as _i694;
-import '../routes/router.dart' as _i393;
 import '../services/api/example/example_service.dart' as _i229;
 import '../services/api/posts/posts_service.dart' as _i354;
 import '../services/other/app_info/app_info_service.dart' as _i810;
@@ -48,7 +47,6 @@ Future<_i174.GetIt> $initGetIt(
 }) async {
   final gh = _i526.GetItHelper(getIt, environment, environmentFilter);
   final diModule = _$DiModule();
-  final routeModule = _$RouteModule();
   final dioModule = _$DioModule();
   final postsApiModule = _$PostsApiModule();
   final exampleApiModule = _$ExampleApiModule();
@@ -64,7 +62,6 @@ Future<_i174.GetIt> $initGetIt(
   gh.factory<_i833.DeviceInfoPlugin>(() => diModule.deviceInfo);
   gh.factory<_i694.AppObserver>(() => _i694.AppObserver());
   gh.singleton<_i935.SnackMessagesState>(() => _i935.SnackMessagesState());
-  gh.lazySingleton<_i393.AppRouter>(() => routeModule.router());
   gh.lazySingleton<_i792.UrlLauncherService>(
     () => const _i792.UrlLauncherService(),
   );
@@ -73,10 +70,6 @@ Future<_i174.GetIt> $initGetIt(
       gh<_i460.SharedPreferences>(),
       gh<_i558.FlutterSecureStorage>(),
     ),
-  );
-  gh.lazySingleton<_i810.AppInfoService>(
-    () => _i810.AppInfoServiceDev(gh<_i655.PackageInfo>()),
-    registerFor: {_dev},
   );
   gh.factory<_i700.TokenService>(
     () => _i700.TokenService(gh<_i558.FlutterSecureStorage>()),
@@ -90,15 +83,19 @@ Future<_i174.GetIt> $initGetIt(
   gh.factory<_i490.FontsService>(
     () => _i490.FontsService(gh<_i460.SharedPreferences>()),
   );
+  gh.lazySingleton<_i810.AppInfoService>(
+    () => _i810.AppInfoServiceDev(gh<_i655.PackageInfo>()),
+    registerFor: {_dev},
+  );
+  gh.lazySingleton<_i956.ApiInterceptor>(
+    () => _i956.ApiInterceptor(gh<_i700.TokenService>()),
+  );
   gh.singleton<_i751.SettingsState>(
     () => _i751.SettingsState(
       gh<_i247.LocaleService>(),
       gh<_i977.ThemeService>(),
       gh<_i490.FontsService>(),
     ),
-  );
-  gh.lazySingleton<_i956.ApiInterceptor>(
-    () => _i956.ApiInterceptor(gh<_i700.TokenService>()),
   );
   gh.lazySingleton<_i361.Dio>(
     () => dioModule.client(gh<_i956.ApiInterceptor>()),
@@ -112,11 +109,11 @@ Future<_i174.GetIt> $initGetIt(
   gh.lazySingleton<_i229.ExampleService>(
     () => _i229.ExampleService(gh<_i1045.ExampleApi>()),
   );
-  gh.lazySingleton<_i354.PostsService>(
-    () => _i354.PostsService(gh<_i652.PostsApi>()),
-  );
   gh.factory<_i180.ExampleCubit>(
     () => _i180.ExampleCubit(gh<_i229.ExampleService>()),
+  );
+  gh.lazySingleton<_i354.PostsService>(
+    () => _i354.PostsService(gh<_i652.PostsApi>()),
   );
   gh.factory<_i286.PostsCubit>(
     () => _i286.PostsCubit(gh<_i354.PostsService>()),
@@ -125,8 +122,6 @@ Future<_i174.GetIt> $initGetIt(
 }
 
 class _$DiModule extends _i831.DiModule {}
-
-class _$RouteModule extends _i402.RouteModule {}
 
 class _$DioModule extends _i1023.DioModule {}
 

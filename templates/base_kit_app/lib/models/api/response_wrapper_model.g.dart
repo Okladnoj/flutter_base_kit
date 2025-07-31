@@ -6,11 +6,11 @@ part of 'response_wrapper_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ResponseWrapperModelsImpl<T> _$$ResponseWrapperModelsImplFromJson<T>(
+_ResponseWrapperModels<T> _$ResponseWrapperModelsFromJson<T>(
   Map<String, dynamic> json,
   T Function(Object? json) fromJsonT,
 ) =>
-    _$ResponseWrapperModelsImpl<T>(
+    _ResponseWrapperModels<T>(
       messages: (json['errorMessages'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -19,8 +19,8 @@ _$ResponseWrapperModelsImpl<T> _$$ResponseWrapperModelsImplFromJson<T>(
           (json['data'] as List<dynamic>?)?.map(fromJsonT).toList() ?? const [],
     );
 
-Map<String, dynamic> _$$ResponseWrapperModelsImplToJson<T>(
-  _$ResponseWrapperModelsImpl<T> instance,
+Map<String, dynamic> _$ResponseWrapperModelsToJson<T>(
+  _ResponseWrapperModels<T> instance,
   Object? Function(T value) toJsonT,
 ) =>
     <String, dynamic>{
@@ -28,11 +28,11 @@ Map<String, dynamic> _$$ResponseWrapperModelsImplToJson<T>(
       'data': instance.data.map(toJsonT).toList(),
     };
 
-_$ResponseWrapperModelImpl<T> _$$ResponseWrapperModelImplFromJson<T>(
+_ResponseWrapperModel<T> _$ResponseWrapperModelFromJson<T>(
   Map<String, dynamic> json,
   T Function(Object? json) fromJsonT,
 ) =>
-    _$ResponseWrapperModelImpl<T>(
+    _ResponseWrapperModel<T>(
       messages: (json['errorMessages'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
@@ -40,8 +40,8 @@ _$ResponseWrapperModelImpl<T> _$$ResponseWrapperModelImplFromJson<T>(
       data: _$nullableGenericFromJson(json['data'], fromJsonT),
     );
 
-Map<String, dynamic> _$$ResponseWrapperModelImplToJson<T>(
-  _$ResponseWrapperModelImpl<T> instance,
+Map<String, dynamic> _$ResponseWrapperModelToJson<T>(
+  _ResponseWrapperModel<T> instance,
   Object? Function(T value) toJsonT,
 ) =>
     <String, dynamic>{
@@ -61,9 +61,8 @@ Object? _$nullableGenericToJson<T>(
 ) =>
     input == null ? null : toJson(input);
 
-_$EmptyDataModelImpl _$$EmptyDataModelImplFromJson(Map<String, dynamic> json) =>
-    _$EmptyDataModelImpl();
+_EmptyDataModel _$EmptyDataModelFromJson(Map<String, dynamic> json) =>
+    _EmptyDataModel();
 
-Map<String, dynamic> _$$EmptyDataModelImplToJson(
-        _$EmptyDataModelImpl instance) =>
+Map<String, dynamic> _$EmptyDataModelToJson(_EmptyDataModel instance) =>
     <String, dynamic>{};

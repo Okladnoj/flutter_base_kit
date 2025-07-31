@@ -6,7 +6,7 @@ part 'example_model.g.dart';
 
 @immutable
 @Freezed(makeCollectionsUnmodifiable: false)
-class ExampleModel with _$ExampleModel {
+abstract class ExampleModel with _$ExampleModel {
   const ExampleModel._();
 
   const factory ExampleModel({

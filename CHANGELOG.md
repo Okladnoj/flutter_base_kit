@@ -1,3 +1,10 @@
+## 1.1.7
+
+- Update dependencies in pubspec.yaml(s)
+- Note: build_runner has cyclic dependency issues in package template
+- Update json_annotation to ^4.9.0
+
+
 ## 1.1.6
 
 - Refactor app template generation to use flutter create + content copying approach

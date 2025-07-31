@@ -1,7 +1,7 @@
 part of 'example_cubit.dart';
 
 @freezed
-class ExampleState extends BaseStateI with _$ExampleState {
+abstract class ExampleState extends BaseStateI with _$ExampleState {
   const ExampleState._();
 
   const factory ExampleState({
