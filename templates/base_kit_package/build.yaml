@@ -1,0 +1,11 @@
+targets:
+  $default:
+    sources:
+      include:
+        - lib/**
+      exclude:
+        - example/**
+        - test/**
+        - integration_test/**
+        - "**/ephemeral/**"
+        - "**/.plugin_symlinks/**"

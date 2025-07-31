@@ -12,9 +12,8 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-  "Update dependencies in pubspec.yaml(s)"
-  "Note: build_runner has cyclic dependency issues in package template"
-  "Update json_annotation to ^4.9.0"
+  "Refactor asset and font generation"
+  "Refactor build.yaml to exclude plugin symlinks"
 )
 
 # Increment the version number

@@ -1,3 +1,9 @@
+## 1.1.8
+
+- Refactor asset and font generation
+- Refactor build.yaml to exclude plugin symlinks
+
+
 ## 1.1.7
 
 - Update dependencies in pubspec.yaml(s)

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_base_kit/flutter_base_kit.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../gen/fonts.gen.dart';
+import '../../../gen/fonts.gen.dart';
 import '../../l10n/localization_helper.dart';
 import '../../services/storage/fonts/fonts_service.dart';
 import '../../services/storage/locale/locale_service.dart';
