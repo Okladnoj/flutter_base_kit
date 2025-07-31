@@ -12,8 +12,8 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-  "Refactor asset and font generation"
-  "Refactor build.yaml to exclude plugin symlinks"
+  "Fix Navigator null check error in app_listener.dart"
+  "Add WASM compatibility for logger with conditional compilation"
 )
 
 # Increment the version number

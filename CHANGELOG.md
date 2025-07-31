@@ -1,3 +1,9 @@
+## 1.2.0
+
+- Fix Navigator null check error in app_listener.dart
+- Add WASM compatibility for logger with conditional compilation
+
+
 ## 1.1.8
 
 - Refactor asset and font generation
