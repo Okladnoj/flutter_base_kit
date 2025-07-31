@@ -1,9 +1,9 @@
-/// Constants used throughout the Flutter Base Kit
 class Constants {
   // Template names
   static const String appTemplate = 'app';
   static const String packageTemplate = 'package';
   static const String packageWithTesterTemplate = 'package+tester';
+  static const String moduleCommand = 'module';
 
   // Template directories
   static const String baseKitAppTemplate = 'base_kit_app';
@@ -27,6 +27,7 @@ class Constants {
   static const String infoMessage = '📦';
   static const String createMessage = '🚀';
   static const String initMessage = '🔧';
+  static const String moduleMessage = '📦';
   static const String fileMessage = '📄';
   static const String readmeMessage = '📖';
   static const String updateMessage = '📝';

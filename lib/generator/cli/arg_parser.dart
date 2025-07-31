@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:args/args.dart';
 import '../constants.dart';
 
-/// Argument parser for Flutter Base Kit CLI
 class CliArgParser {
   static ArgParser createParser() {
     final parser = ArgParser();
@@ -38,8 +37,22 @@ class CliArgParser {
         help: 'Enable verbose output',
       );
 
+    final moduleCmd = ArgParser()
+      ..addOption(
+        'name',
+        abbr: 'n',
+        help: 'Module name (e.g., user_store, product_item, order)',
+      )
+      ..addFlag(
+        'verbose',
+        abbr: 'v',
+        defaultsTo: false,
+        help: 'Enable verbose output',
+      );
+
     parser.addCommand('create', createCmd);
     parser.addCommand('init', initCmd);
+    parser.addCommand('module', moduleCmd);
     parser.addFlag('help',
         abbr: 'h', defaultsTo: false, help: 'Show this help message');
     parser.addFlag('verbose',
@@ -57,6 +70,7 @@ class CliArgParser {
     stdout.writeln('Commands:');
     stdout.writeln('  create <name>  Create new Flutter app from template');
     stdout.writeln('  init           Initialize current project with base kit');
+    stdout.writeln('  module         Add API → Service → Cubit → Page module');
     stdout.writeln('');
     stdout.writeln('Options:');
     stdout.writeln('  -h, --help     Show this help message');
@@ -65,6 +79,7 @@ class CliArgParser {
         '  --org          Organization identifier (e.g., com.example)');
     stdout.writeln(
         '  --template     Template type: app, package, or package+tester');
+    stdout.writeln('  --name         Module name for module command');
     stdout.writeln('');
     stdout.writeln('Examples:');
     stdout.writeln('  flutter_base_kit create my_app');
@@ -73,5 +88,6 @@ class CliArgParser {
     stdout.writeln('  flutter_base_kit create my_package --template package');
     stdout.writeln(
         '  flutter_base_kit create my_project --template package+tester');
+    stdout.writeln('  flutter_base_kit module --name user');
   }
 }
