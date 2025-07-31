@@ -346,10 +346,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_base_kit
-      sha256: "4d4c7e92b3744c821cdeaad4f5f1c572586df905d605f0606a6c9d9258e1a1b6"
+      sha256: cca76e19db5e0035072bb7e62b6422dc795666c4f2d46cd19d8719f860d8e94f
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.0"
+    version: "1.2.2"
   flutter_bloc:
     dependency: "direct main"
     description:

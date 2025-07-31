@@ -12,9 +12,11 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-  "Make BaseService WASM-compatible with HTTP-based internet check"
-  "Remove universal_io dependency to avoid WASM conflicts"
-  "Ensure full WASM compatibility across all core components"
+  "Add module command for generating complete API → Service → Cubit → Page modules"
+  "Add UI component library (AppKitLoader, AppDialog, AppSnackBar, AppBuilder)"
+  "Add automatic snake_case to PascalCase conversion"
+  "Add build runner integration after module creation"
+  "Update README with complete documentation for new features"
 )
 
 # Increment the version number

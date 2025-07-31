@@ -43,7 +43,6 @@ class InitCommand {
       return;
     }
 
-    // Get current package version
     final currentVersion = CopyUtils.getCurrentPackageVersion();
     if (currentVersion == null) {
       stderr.writeln(
@@ -51,7 +50,6 @@ class InitCommand {
       exit(1);
     }
 
-    // Find dependencies section and add flutter_base_kit from pub.dev
     final lines = content.split('\n');
     final dependenciesIndex =
         lines.indexWhere((line) => line.trim() == 'dependencies:');

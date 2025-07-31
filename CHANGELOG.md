@@ -1,3 +1,12 @@
+## 1.2.3
+
+- Add module command for generating complete API → Service → Cubit → Page modules
+- Add UI component library (AppKitLoader, AppDialog, AppSnackBar, AppBuilder)
+- Add automatic snake_case to PascalCase conversion
+- Add build runner integration after module creation
+- Update README with complete documentation for new features
+
+
 ## 1.2.2
 
 - Make BaseService WASM-compatible with HTTP-based internet check

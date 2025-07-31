@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:args/args.dart';
 import 'package:path/path.dart' as path;
 import '../../constants.dart';
+import '../../io/copy_utils.dart';
 
 class ModuleCommand {
   static Future<void> handle(ArgResults cmd) async {
@@ -14,9 +15,9 @@ class ModuleCommand {
       exit(1);
     }
 
-    if (!_isValidSnakeCase(name)) {
+    if (!_isValidModuleName(name)) {
       stderr.writeln(
-          '${Constants.errorMessage} Error: Module name must be in snake_case format (e.g., user_store, product_item)');
+          '${Constants.errorMessage} Error: Module name must be valid (e.g., user, user_store, product_item)');
       exit(1);
     }
 
@@ -36,9 +37,13 @@ class ModuleCommand {
     }
 
     final isPackage = _isPackageProject(libDir);
-    final templateDir = _getTemplatePath();
+    final baseTemplateDir = CopyUtils.findTemplatePath();
+    final templateDir =
+        path.join(baseTemplateDir, 'templates', 'base_kit_app', 'lib');
 
     await _copyModuleFiles(name, libDir, templateDir, isPackage, verbose);
+
+    await _runBuildRunner(verbose);
 
     final prefix = isPackage ? 'lib/src' : 'lib';
     stdout.writeln(
@@ -52,56 +57,22 @@ class ModuleCommand {
   }
 
   static bool _isPackageProject(String libDir) {
-    final pubspecFile = File(path.join(path.dirname(libDir), 'pubspec.yaml'));
-    if (!pubspecFile.existsSync()) return false;
-
-    final content = pubspecFile.readAsStringSync();
-    return content.contains('publish_to:') &&
-        !content.contains('publish_to: \'none\'');
-  }
-
-  static String _getTemplatePath() {
-    final currentDir = Directory.current.path;
-    final templateDir =
-        path.join(currentDir, 'templates', 'base_kit_app', 'lib');
-
-    if (Directory(templateDir).existsSync()) {
-      return templateDir;
-    }
-
-    // Если мы в глобально установленном пакете
-    final globalTemplateDir = path.join(
-        path.dirname(path.dirname(path.dirname(currentDir))),
-        'templates',
-        'base_kit_app',
-        'lib');
-
-    if (Directory(globalTemplateDir).existsSync()) {
-      return globalTemplateDir;
-    }
-
-    stderr.writeln(
-        '${Constants.errorMessage} Error: Template directory not found');
-    exit(1);
+    final srcDir = path.join(libDir, 'src');
+    return Directory(srcDir).existsSync();
   }
 
   static Future<void> _copyModuleFiles(String name, String libDir,
       String templateDir, bool isPackage, bool verbose) async {
     final baseDir = isPackage ? path.join(libDir, 'src') : libDir;
 
-    // Копируем API
     await _copyApiFiles(name, baseDir, templateDir, verbose);
 
-    // Копируем Service
     await _copyServiceFiles(name, baseDir, templateDir, verbose);
 
-    // Копируем Model
     await _copyModelFiles(name, baseDir, templateDir, verbose);
 
-    // Копируем Cubit
     await _copyCubitFiles(name, baseDir, templateDir, verbose);
 
-    // Копируем Page
     await _copyPageFiles(name, baseDir, templateDir, verbose);
   }
 
@@ -175,7 +146,6 @@ class ModuleCommand {
 
     await _ensureDirectoryExists(targetDir, verbose);
 
-    // Копируем cubit файл
     final sourceCubitFile = File(path.join(sourceDir, 'example_cubit.dart'));
     final targetCubitFile = File(path.join(targetDir, '${name}_cubit.dart'));
 
@@ -190,7 +160,6 @@ class ModuleCommand {
       }
     }
 
-    // Копируем state файл
     final sourceStateFile = File(path.join(sourceDir, 'example_state.dart'));
     final targetStateFile = File(path.join(targetDir, '${name}_state.dart'));
 
@@ -229,7 +198,6 @@ class ModuleCommand {
   }
 
   static String _replaceNames(String content, String oldName, String newName) {
-    final oldPascalCase = _toPascalCase(oldName);
     final newPascalCase = _toPascalCase(newName);
 
     return content
@@ -251,29 +219,44 @@ class ModuleCommand {
 
   static String _toPascalCase(String input) {
     if (input.isEmpty) return input;
-    return input.split('_').map((word) {
+
+    // Handle snake_case and simple names
+    final words = input.split('_').where((word) => word.isNotEmpty);
+
+    return words.map((word) {
       if (word.isEmpty) return word;
-      return word[0].toUpperCase() + word.substring(1);
+      return word[0].toUpperCase() + word.substring(1).toLowerCase();
     }).join('');
   }
 
-  static String _toTitleCase(String input) {
-    if (input.isEmpty) return input;
-    return input[0].toUpperCase() + input.substring(1);
-  }
-
-  static bool _isValidSnakeCase(String input) {
+  static bool _isValidModuleName(String input) {
     if (input.isEmpty) return false;
 
-    // Проверяем, что строка содержит только строчные буквы, цифры и подчеркивания
-    final snakeCaseRegex = RegExp(r'^[a-z][a-z0-9_]*$');
+    // Allow snake_case and simple lowercase names
+    final validNameRegex = RegExp(r'^[a-z][a-z0-9_]*$');
 
-    // Проверяем, что нет двойных подчеркиваний
     if (input.contains('__')) return false;
 
-    // Проверяем, что не заканчивается на подчеркивание
     if (input.endsWith('_')) return false;
 
-    return snakeCaseRegex.hasMatch(input);
+    return validNameRegex.hasMatch(input);
+  }
+
+  static Future<void> _runBuildRunner(bool verbose) async {
+    if (verbose) {
+      stdout.writeln('${Constants.infoMessage} Running build_runner...');
+    }
+
+    final result = await Process.run(
+      'dart',
+      ['pub', 'run', 'build_runner', 'build', '--delete-conflicting-outputs'],
+      workingDirectory: Directory.current.path,
+    );
+
+    if (result.exitCode != 0) {
+      stderr.writeln('⚠️ Warning: build_runner failed: ${result.stderr}');
+    } else if (verbose) {
+      stdout.writeln('✅ build_runner completed successfully');
+    }
   }
 }

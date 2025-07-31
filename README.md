@@ -79,6 +79,13 @@ cd my_existing_project
 flutter_base_kit init
 ```
 
+### Option 3: Add new modules to existing project
+
+```bash
+# Add a complete module (API → Service → Cubit → Page)
+flutter_base_kit module --name user_store
+```
+
 ## What you get in the project
 
 ### 📁 Application structure
@@ -96,6 +103,16 @@ lib/
 └── utils/         # Utilities
 ```
 
+### 📁 Module structure (created with `module` command)
+```
+lib/
+├── api/retrofit/{module_name}/     # API interface
+├── services/api/{module_name}/     # Business logic
+├── models/{module_name}/           # Data models
+├── core/{module_name}/             # State management
+└── ui/pages/app/pages/{module_name}/ # UI page
+```
+
 ### 🛠️ Ready components
 - **Routing** - AutoRoute for navigation
 - **DI** - GetIt + Injectable for dependency management
@@ -104,6 +121,17 @@ lib/
 - **Themes** - Flexible theming with light/dark support
 - **Localization** - Support for English and Spanish languages
 - **Code Generation** - Freezed, JSON, routes are generated automatically
+
+### 🧩 Module Generator
+- **Complete Module Creation** - Generate API → Service → Cubit → Page structure
+- **Automatic Naming** - Converts snake_case to PascalCase automatically
+- **Build Runner Integration** - Automatically runs code generation after module creation
+
+### 🎨 UI Components
+- **AppKitLoader** - Global loading widget with customizable presets
+- **AppDialog** - Comprehensive dialog system
+- **AppSnackBar** - Enhanced snackbar with error, success, and info variants
+- **AppBuilder** - Reactive widget builder with built-in loading/error states
 
 ## Command examples
 
@@ -119,7 +147,12 @@ flutter_base_kit create my_library --template package+tester --org com.mycompany
 
 # Add to existing project
 flutter_base_kit init
+
+# Add new module
+flutter_base_kit module --name user_store
 ```
+
+
 
 ## Next steps
 
@@ -145,6 +178,8 @@ After creating a project:
    flutter run
    ```
 
+
+
 ## Useful commands
 
 ```bash
@@ -153,6 +188,9 @@ flutter_base_kit --help
 
 # Generate code (in project)
 flutter packages pub run build_runner build --delete-conflicting-outputs
+
+# Create a new module
+flutter_base_kit module --name user_store
 ```
 
 ## Template types
@@ -165,7 +203,12 @@ flutter packages pub run build_runner build --delete-conflicting-outputs
 
 - `--org` - Organization identifier (e.g., com.mycompany)
 - `--template` - Template type (app, package, package+tester)
+- `--name` - Module name (must be in lowercase or snake_case format, e.g., user, user_store, product_item)
 - `--help` - Show help
+
+## Module naming rules
+
+Module name must be in lowercase or snake_case format (e.g., `user`, `user_store`, `product_item`)
 
 
 ## Dependencies
