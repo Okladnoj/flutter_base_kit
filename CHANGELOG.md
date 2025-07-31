@@ -1,3 +1,10 @@
+## 1.2.2
+
+- Make BaseService WASM-compatible with HTTP-based internet check
+- Remove universal_io dependency to avoid WASM conflicts
+- Ensure full WASM compatibility across all core components
+
+
 ## 1.2.1
 
 - Add comprehensive documentation for all core components

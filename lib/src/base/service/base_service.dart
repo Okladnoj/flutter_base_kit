@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:universal_io/io.dart';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
@@ -12,6 +11,17 @@ import '../exceptions/api_exception.dart';
 abstract class BaseService {
   const BaseService();
 
+  /// Check internet connection using HTTP request (WASM compatible)
+  Future<bool> _checkInternetConnection() async {
+    try {
+      // Use a simple HTTP request to check connectivity
+      final response = await Dio().get('https://httpbin.org/status/200');
+      return response.statusCode == 200;
+    } catch (e) {
+      return false;
+    }
+  }
+
   Future<T> errorParser<T>(
     AsyncValueGetter<T> callback, {
     ValueChanged<ApplicationException>? failureCall,
@@ -22,6 +32,7 @@ abstract class BaseService {
       throw await _getProcessedDioError(exception);
     } catch (exception, stackTrace) {
       final error = exception.toString();
+
       loggerApp.e(error, error: exception, stackTrace: stackTrace);
       final appException = exception is String
           ? ApplicationException(exception)
@@ -50,9 +61,8 @@ abstract class BaseService {
   }
 
   Future<ApiException> _getProcessedDioError(DioException exception) async {
-    try {
-      await InternetAddress.lookup('example.com');
-    } on SocketException catch (_) {
+    final hasInternet = await _checkInternetConnection();
+    if (!hasInternet) {
       return ApiException(
         message: 'Internet Connection Error',
         errors: 'Internet Connection Error',

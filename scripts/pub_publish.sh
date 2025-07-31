@@ -12,10 +12,9 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-  "Add comprehensive documentation for all core components"
-  "Add automatic dart pub get after project generation"
-  "Fix library directive in main export file"
-  "Update example with API → Service → Cubit → Consumer pattern"
+  "Make BaseService WASM-compatible with HTTP-based internet check"
+  "Remove universal_io dependency to avoid WASM conflicts"
+  "Ensure full WASM compatibility across all core components"
 )
 
 # Increment the version number

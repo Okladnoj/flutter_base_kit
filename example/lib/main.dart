@@ -171,23 +171,22 @@ class UsersCubit extends BaseCubit<UsersState> {
 
   Future<void> fetchUsers() async {
     emit(state.copyWith(status: StateStatus.loading));
-
     final result = await safeAction(() {
       return _apiService.getUsers();
     });
+    emit(state.copyWith(status: StateStatus.loaded));
 
-    if (result != null) {
-      emit(state.copyWith(status: StateStatus.loaded, users: result));
-    }
+    if (result == null) return;
+    emit(state.copyWith(users: result));
   }
 
   Future<void> fetchUsersWithError() async {
     emit(state.copyWith(status: StateStatus.refresh));
 
     final result = await safeAction(_apiService.getUsersWithError);
+    emit(state.copyWith(status: StateStatus.loaded));
 
-    if (result != null) {
-      emit(state.copyWith(status: StateStatus.loaded, users: result));
-    }
+    if (result == null) return;
+    emit(state.copyWith(users: result));
   }
 }
