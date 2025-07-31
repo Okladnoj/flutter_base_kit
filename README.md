@@ -1,8 +1,12 @@
 # Flutter Base Kit 🚀
 
+<div align="center">
+  <img src="docs/flutter_base_kit-logo.png" alt="Flutter Base Kit Logo" width="400">
+</div>
+
 [![pub package](https://img.shields.io/pub/v/flutter_base_kit.svg)](https://pub.dev/packages/flutter_base_kit)
 
-**Ready-to-use toolkit for quick Flutter project setup**
+**One-click configuration of project foundation using best practices and time-tested templates**
 
 Create new Flutter applications with pre-configured architecture: routing, DI, networking, localization, theming, and much more.
 
