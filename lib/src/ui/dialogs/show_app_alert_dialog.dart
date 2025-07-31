@@ -145,15 +145,19 @@ class AppDialog {
       content: Text(info),
       actions: [
         if (onCancel != null)
-          TextButton(
-            onPressed: () => onCancel(_context),
-            child: Text(cancelText),
-          ),
+          Builder(builder: (context) {
+            return TextButton(
+              onPressed: () => onCancel(context),
+              child: Text(cancelText),
+            );
+          }),
         if (onAccept != null)
-          TextButton(
-            onPressed: () => onAccept(_context),
-            child: Text(acceptText),
-          ),
+          Builder(builder: (context) {
+            return TextButton(
+              onPressed: () => onAccept(context),
+              child: Text(acceptText),
+            );
+          }),
       ],
     );
   }
