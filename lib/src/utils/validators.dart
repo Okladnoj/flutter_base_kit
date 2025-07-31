@@ -1,4 +1,44 @@
-/// Utility class for common validations
+/// Utility class for common form validations
+///
+/// Provides a comprehensive set of validation methods for common
+/// form fields including email, phone, password, and general text validation.
+///
+/// Features:
+/// - Email validation with regex pattern
+/// - Phone number validation (basic international format)
+/// - Password strength validation
+/// - Required field validation
+/// - Length validation (min/max)
+/// - Customizable error messages
+///
+/// Usage:
+/// ```dart
+/// // Email validation
+/// final emailError = Validators.validateEmail(
+///   emailController.text,
+///   emptyMessage: 'Email is required',
+///   invalidMessage: 'Please enter a valid email',
+/// );
+///
+/// // Password validation
+/// final passwordError = Validators.validatePassword(
+///   passwordController.text,
+///   weakMessage: 'Password is too weak',
+/// );
+///
+/// // Required field validation
+/// final nameError = Validators.validateRequired(
+///   nameController.text,
+///   message: 'Name is required',
+/// );
+///
+/// // Length validation
+/// final bioError = Validators.validateMaxLength(
+///   bioController.text,
+///   500,
+///   message: 'Bio must be less than 500 characters',
+/// );
+/// ```
 abstract class Validators {
   /// Email validation pattern
   static const String _emailPattern =
@@ -12,6 +52,12 @@ abstract class Validators {
       r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*?&]{8,}$';
 
   /// Validate email address
+  ///
+  /// [value] - Email string to validate
+  /// [emptyMessage] - Custom message for empty field
+  /// [invalidMessage] - Custom message for invalid email format
+  ///
+  /// Returns error message if validation fails, null if valid
   static String? validateEmail(
     String? value, {
     String? emptyMessage,
@@ -27,6 +73,12 @@ abstract class Validators {
   }
 
   /// Validate phone number
+  ///
+  /// [value] - Phone string to validate
+  /// [emptyMessage] - Custom message for empty field
+  /// [invalidMessage] - Custom message for invalid phone format
+  ///
+  /// Returns error message if validation fails, null if valid
   static String? validatePhone(
     String? value, {
     String? emptyMessage,
@@ -42,6 +94,12 @@ abstract class Validators {
   }
 
   /// Validate password strength
+  ///
+  /// [value] - Password string to validate
+  /// [emptyMessage] - Custom message for empty field
+  /// [weakMessage] - Custom message for weak password
+  ///
+  /// Returns error message if validation fails, null if valid
   static String? validatePassword(
     String? value, {
     String? emptyMessage,
@@ -61,6 +119,11 @@ abstract class Validators {
   }
 
   /// Validate required field
+  ///
+  /// [value] - String to validate
+  /// [message] - Custom message for empty field
+  ///
+  /// Returns error message if validation fails, null if valid
   static String? validateRequired(String? value, {String? message}) {
     if (value == null || value.trim().isEmpty) {
       return message ?? 'This field is required';
@@ -69,6 +132,12 @@ abstract class Validators {
   }
 
   /// Validate minimum length
+  ///
+  /// [value] - String to validate
+  /// [minLength] - Minimum required length
+  /// [message] - Custom message for validation failure
+  ///
+  /// Returns error message if validation fails, null if valid
   static String? validateMinLength(
     String? value,
     int minLength, {
@@ -81,6 +150,12 @@ abstract class Validators {
   }
 
   /// Validate maximum length
+  ///
+  /// [value] - String to validate
+  /// [maxLength] - Maximum allowed length
+  /// [message] - Custom message for validation failure
+  ///
+  /// Returns error message if validation fails, null if valid
   static String? validateMaxLength(
     String? value,
     int maxLength, {

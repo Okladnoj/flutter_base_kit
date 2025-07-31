@@ -1,3 +1,11 @@
+## 1.2.1
+
+- Add comprehensive documentation for all core components
+- Add automatic dart pub get after project generation
+- Fix library directive in main export file
+- Update example with API → Service → Cubit → Consumer pattern
+
+
 ## 1.2.0
 
 - Fix Navigator null check error in app_listener.dart

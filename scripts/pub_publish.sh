@@ -12,8 +12,10 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-  "Fix Navigator null check error in app_listener.dart"
-  "Add WASM compatibility for logger with conditional compilation"
+  "Add comprehensive documentation for all core components"
+  "Add automatic dart pub get after project generation"
+  "Fix library directive in main export file"
+  "Update example with API → Service → Cubit → Consumer pattern"
 )
 
 # Increment the version number

@@ -8,6 +8,23 @@ import '../../templates/readme_templates.dart';
 
 /// Command for creating new Flutter projects
 class CreateCommand {
+  /// Run dart pub get in the specified directory
+  static Future<void> _runPubGet(String directory, bool verbose) async {
+    if (verbose) {
+      stdout.writeln('📦 Running dart pub get in: $directory');
+    }
+
+    final result =
+        await Process.run('dart', ['pub', 'get'], workingDirectory: directory);
+
+    if (result.exitCode != 0) {
+      stderr
+          .writeln('⚠️ Warning: Failed to run dart pub get: ${result.stderr}');
+    } else if (verbose) {
+      stdout.writeln('✅ Dependencies installed successfully');
+    }
+  }
+
   /// Handle create command
   static Future<void> handle(ArgResults cmd) async {
     final verbose = cmd['verbose'] as bool;
@@ -96,12 +113,14 @@ class CreateCommand {
     await _createReadme(
         projectDir, name, ReadmeTemplates.appReadme(name), verbose);
 
+    // Run flutter pub get
+    await _runPubGet(projectDir, verbose);
+
     stdout
       ..writeln('${Constants.successMessage} Flutter app created successfully!')
       ..writeln('')
       ..writeln('Next steps:')
       ..writeln('  cd $name')
-      ..writeln('  flutter pub get')
       ..writeln('  flutter run');
   }
 
@@ -142,13 +161,15 @@ class CreateCommand {
     await _createReadme(
         projectDir, name, ReadmeTemplates.packageReadme(name), verbose);
 
+    // Run flutter pub get
+    await _runPubGet(projectDir, verbose);
+
     stdout
       ..writeln(
           '${Constants.successMessage} Flutter package created successfully!')
       ..writeln('')
       ..writeln('Next steps:')
       ..writeln('  cd $name')
-      ..writeln('  flutter pub get')
       ..writeln('  flutter test');
   }
 
@@ -227,17 +248,19 @@ class CreateCommand {
     await _createReadme(projectDir, name,
         ReadmeTemplates.rootReadme(name, packageName, testerName), verbose);
 
+    // Run flutter pub get for both package and tester
+    await _runPubGet(packageDir, verbose);
+    await _runPubGet(testerDir, verbose);
+
     stdout
       ..writeln(
           '${Constants.successMessage} Flutter package with tester created successfully!')
       ..writeln('')
       ..writeln('Next steps:')
       ..writeln('  cd $name/$packageName')
-      ..writeln('  flutter pub get')
       ..writeln('  flutter test')
       ..writeln('')
       ..writeln('  cd ../$testerName')
-      ..writeln('  flutter pub get')
       ..writeln('  flutter run');
   }
 
