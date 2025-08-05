@@ -293,6 +293,7 @@ class CreateCommand {
     await _copyFileIfExists(
         packageTemplate, packageDir, 'flutter_native_splash.yaml', verbose);
     await _copyFileIfExists(packageTemplate, packageDir, 'l10n.yaml', verbose);
+    await _copyFileIfExists(packageTemplate, packageDir, 'build.yaml', verbose);
 
     // Copy assets, fonts, and configs to tester
     await _copyDirectoryIfExists(testerTemplate, testerDir, 'assets', verbose);
@@ -327,6 +328,7 @@ class CreateCommand {
     await _copyFileIfExists(packageTemplate, packageDir, 'l10n.yaml', verbose);
     await _copyFileIfExists(
         packageTemplate, packageDir, 'analysis_options.yaml', verbose);
+    await _copyFileIfExists(packageTemplate, packageDir, 'build.yaml', verbose);
 
     // Copy lib directory content
     await _copyPackageLibContent(packageDir, verbose);

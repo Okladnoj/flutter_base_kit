@@ -193,10 +193,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_base_kit
-      sha256: cca76e19db5e0035072bb7e62b6422dc795666c4f2d46cd19d8719f860d8e94f
+      sha256: "42aa91b314d4cf0900bb663c667b014e38a3a57e2bd423ec22f92e25e9ba56de"
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.2"
+    version: "1.2.3"
   flutter_bloc:
     dependency: transitive
     description:

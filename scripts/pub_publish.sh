@@ -12,11 +12,11 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-  "Add module command for generating complete API → Service → Cubit → Page modules"
-  "Add UI component library (AppKitLoader, AppDialog, AppSnackBar, AppBuilder)"
-  "Add automatic snake_case to PascalCase conversion"
-  "Add build runner integration after module creation"
-  "Update README with complete documentation for new features"
+  "Fix build.yaml not being copied from package template"
+  "Add proper file copying for package+tester template"
+  "Update create command to include build.yaml in package generation"
+  "Ensure all template files are properly copied during project creation"
+  "Improve template copying logic for better consistency"
 )
 
 # Increment the version number

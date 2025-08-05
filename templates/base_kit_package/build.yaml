@@ -2,6 +2,8 @@ targets:
   $default:
     sources:
       include:
+        - pubspec.yaml
+        - $package$
         - lib/**
       exclude:
         - example/**
@@ -9,3 +11,4 @@ targets:
         - integration_test/**
         - "**/ephemeral/**"
         - "**/.plugin_symlinks/**"
+
