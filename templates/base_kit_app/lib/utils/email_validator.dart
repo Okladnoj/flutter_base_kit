@@ -1,7 +1,7 @@
 import '../l10n/localization_helper.dart';
 
 abstract class EmailValidator {
-  static String? validator(value) {
+  static String? validator(String? value) {
     final strings = getLocaleLocalizations();
     if (value == null || value.isEmpty) {
       return strings.fieldMustNotEmpty;

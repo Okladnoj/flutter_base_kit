@@ -2,7 +2,7 @@
     "@@locale": "es",
     "flag": "🇪🇸",
     "languages": "Idiomas",
-    "languageName": "Ucraniano",
+    "languageName": "Español",
     "fonts": "Fuentes",
     "serverErrorMessage": "Error del servidor",
     "errorInternetConnection": "Error de conexión a Internet",
@@ -17,6 +17,13 @@
     "invalidCredential": "Correo electrónico o contraseña incorrectos. Inténtalo de nuevo o regístrate con este email.",
     "wrongPassword": "Contraseña incorrecta para este usuario.",
     "noneAuthException": "Datos ingresados incorrectos",
+    "fieldErrorPasswordNumbers": "La contraseña debe incluir números",
+    "fieldErrorPasswordRegex": "Caracteres válidos: \"A-Z, a-z, 0-9\"",
+    "fieldErrorPasswordMatch": "*Las contraseñas deben coincidir. Por favor, inténtalo de nuevo.",
+    "fieldMustNotEmpty": "El campo no debe estar vacío",
+    "incorrectEmail": "Correo electrónico incorrecto",
+    "confirm": "confirmar",
+    "cancel": "cancelar",
     "ok": "Aceptar",
     "verification": "Verificación"
 }

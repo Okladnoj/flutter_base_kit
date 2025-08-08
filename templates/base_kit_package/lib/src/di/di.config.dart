@@ -19,6 +19,7 @@ import 'package:shared_preferences/shared_preferences.dart' as _i460;
 
 import '../api/dio/dio_api.dart' as _i1023;
 import '../api/interceptors/api_interceptors.dart' as _i956;
+import '../api/request_tracker/request_tracker.dart' as _i250;
 import '../api/retrofit/example/example_api.dart' as _i1045;
 import '../api/retrofit/posts/posts_api.dart' as _i652;
 import '../core/example/example_cubit.dart' as _i180;
@@ -65,6 +66,7 @@ Future<_i174.GetIt> $initGetIt(
   gh.factory<_i833.DeviceInfoPlugin>(() => diModule.deviceInfo);
   gh.factory<_i694.AppObserver>(() => _i694.AppObserver());
   gh.singleton<_i935.SnackMessagesState>(() => _i935.SnackMessagesState());
+  gh.lazySingleton<_i250.RequestTracker>(() => _i250.RequestTracker());
   gh.lazySingleton<_i393.AppRouter>(() => routeModule.router());
   gh.lazySingleton<_i792.UrlLauncherService>(
     () => const _i792.UrlLauncherService(),
@@ -91,14 +93,17 @@ Future<_i174.GetIt> $initGetIt(
     () => _i810.AppInfoServiceDev(gh<_i655.PackageInfo>()),
     registerFor: {_dev},
   );
-  gh.lazySingleton<_i956.ApiInterceptor>(
-    () => _i956.ApiInterceptor(gh<_i700.TokenService>()),
-  );
   gh.singleton<_i751.SettingsState>(
     () => _i751.SettingsState(
       gh<_i247.LocaleService>(),
       gh<_i977.ThemeService>(),
       gh<_i490.FontsService>(),
+    ),
+  );
+  gh.lazySingleton<_i956.ApiInterceptor>(
+    () => _i956.ApiInterceptor(
+      gh<_i700.TokenService>(),
+      gh<_i250.RequestTracker>(),
     ),
   );
   gh.lazySingleton<_i361.Dio>(

@@ -7,13 +7,16 @@ import 'package:injectable/injectable.dart';
 
 import '../../services/storage/token/token_service.dart';
 import '../constants/api_constants.dart';
+import '../request_tracker/request_tracker.dart';
 
 @lazySingleton
 class ApiInterceptor extends Interceptor {
   final TokenService _tokenService;
+  final RequestTracker _requestTracker;
 
   ApiInterceptor(
     this._tokenService,
+    this._requestTracker,
   );
 
   bool _isRefreshing = false;
@@ -47,7 +50,17 @@ class ApiInterceptor extends Interceptor {
     }
 
     if (_isLog) _logRequest(options);
+    _requestTracker.start();
     return super.onRequest(options, handler);
+  }
+
+  @override
+  Future<void> onResponse(
+    Response<dynamic> response,
+    ResponseInterceptorHandler handler,
+  ) async {
+    _requestTracker.done();
+    return super.onResponse(response, handler);
   }
 
   @override
@@ -75,12 +88,15 @@ class ApiInterceptor extends Interceptor {
             sendTimeout: err.requestOptions.sendTimeout,
           ),
         );
+        _requestTracker.done();
         return handler.resolve(newRequest);
       } catch (e) {
+        _requestTracker.done();
         return handler.reject(err);
       }
     }
 
+    _requestTracker.done();
     return super.onError(err, handler);
   }
 

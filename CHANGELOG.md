@@ -1,3 +1,22 @@
+## 1.3.0
+
+- Update all dependencies to latest compatible versions after Flutter SDK update
+- Fix intl dependency conflict by updating to ^0.20.2 in all templates
+- Upgrade flutter_lints from ^5.0.0 to ^6.0.0 across all projects
+- Update freezed to ^3.2.0 in main project and example
+- Update freezed to ^3.1.0 in templates for source_gen compatibility
+- Update json_serializable to ^6.10.0 in main project and example
+- Add source_gen ^3.0.0 to main project and example
+- Update retrofit to ^4.7.1 in base_kit_package template
+- Update auto_route_generator to ^10.2.3 in base_kit_package template
+- Add new request_tracker functionality to app and package templates
+- Update homepage URL to resume-okji.web.app
+- Add screenshots section to pubspec.yaml
+- Move freezed and json_serializable from dev_dependencies to dependencies
+- Regenerate localization files with updated dependencies
+- Update DI configuration files with new dependencies
+
+
 ## 1.2.4
 
 - Fix build.yaml not being copied from package template

@@ -43,7 +43,7 @@ class _AppMultipleTapState extends State<AppMultipleTap> {
     });
   }
 
-  _onCompleted() {
+  void _onCompleted() {
     if (_count >= widget.taps) {
       widget.onMultipleTap.call();
 
