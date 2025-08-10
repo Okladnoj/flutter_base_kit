@@ -1,6 +1,6 @@
 name: flutter_base_kit
 description: "A comprehensive Flutter development kit with base classes, utilities, and common patterns for faster app development."
-version: 1.3.0
+version: 1.3.1
 
 homepage: https://okladnoj-bio.web.app/
 repository: https://github.com/Okladnoj/flutter_base_kit
@@ -8,7 +8,7 @@ issue_tracker: https://github.com/Okladnoj/flutter_base_kit/issues
 
 screenshots:
   - description: "flutter base kit"
-    path: docs/flutter_base_kit-logo.png
+    path: ass/flutter_base_kit-logo.png
 
 environment:
   sdk: ^3.4.3
@@ -26,9 +26,9 @@ dependencies:
   provider: ^6.1.5
   path: ^1.9.1
   args: ^2.7.0
-  freezed: ^3.2.0
-  json_serializable: ^6.10.0
-  source_gen: ^3.0.0
+  freezed: ^3.1.0
+  json_serializable: ^6.9.5
+  source_gen: ^2.0.0
 
 dev_dependencies:
   flutter_test:

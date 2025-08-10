@@ -1,3 +1,11 @@
+## 1.3.1
+
+- Remove unnecessary dependencies from main package to keep it lightweight
+- Ensure compatibility between main package and all templates
+- Update build_runner to ^2.4.8 for better compatibility
+- Fix dependency conflicts between templates and main package
+
+
 ## 1.3.0
 
 - Update all dependencies to latest compatible versions after Flutter SDK update

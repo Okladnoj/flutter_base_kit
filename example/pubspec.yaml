@@ -12,9 +12,9 @@ dependencies:
   flutter_base_kit:
     path: ../
   flutter_bloc: ^9.1.1
-  freezed: ^3.2.0
-  json_serializable: ^6.10.0
-  source_gen: ^3.0.0
+  freezed: ^3.1.0
+  json_serializable: ^6.9.5
+  source_gen: ^2.0.0
 
 dev_dependencies:
   flutter_test:
