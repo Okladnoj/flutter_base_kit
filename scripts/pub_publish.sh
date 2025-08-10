@@ -12,10 +12,9 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-  "Remove unnecessary dependencies from main package to keep it lightweight"
-  "Ensure compatibility between main package and all templates"
-  "Update build_runner to ^2.4.8 for better compatibility"
-  "Fix dependency conflicts between templates and main package"
+  "Update all dependencies to maximum compatible versions after Flutter SDK update"
+  "Remove unnecessary dependencies and fix compatibility issues between main package and templates"
+  "Add new request_tracker functionality and improve overall package structure"
 )
 
 # Increment the version number

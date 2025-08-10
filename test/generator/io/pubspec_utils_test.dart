@@ -74,8 +74,8 @@ dev_dependencies:
             tempDir.path, 'test_app', 'com.test', false);
 
         final content = await pubspecFile.readAsString();
-        // Should update to current version (1.3.0)
-        expect(content, contains('flutter_base_kit: ^1.3.0'));
+        // Should update to current version (1.3.1)
+        expect(content, contains('flutter_base_kit: ^1.3.1'));
       });
 
       test('should handle missing pubspec.yaml', () async {

@@ -1,3 +1,10 @@
+## 1.3.2
+
+- Update all dependencies to maximum compatible versions after Flutter SDK update
+- Remove unnecessary dependencies and fix compatibility issues between main package and templates
+- Add new request_tracker functionality and improve overall package structure
+
+
 ## 1.3.1
 
 - Remove unnecessary dependencies from main package to keep it lightweight

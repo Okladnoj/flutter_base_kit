@@ -6,6 +6,7 @@ projects=(
     "."
     "templates/base_kit_app"
     "templates/base_kit_package"
+    "templates/base_kit_package/example"
     "templates/base_kit_tester"
     "example"
 )
