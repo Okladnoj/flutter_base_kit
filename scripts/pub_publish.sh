@@ -12,8 +12,8 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-  "Fixed version to retrofit_generator: ^10.0.2"
-  "Remove unnecessary logic at template"
+  "Fixed templates by state statuses"
+  "Remove linter rule for go_router"
 )
 
 # Increment the version number

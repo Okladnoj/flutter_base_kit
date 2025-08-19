@@ -6,7 +6,7 @@ analyzer:
     - lib/**mock**.dart
     - lib/**.config.dart
     - lib/**.graphql.dart
-    - lib/routes/**.gr.dart
+    # - lib/routes/**.gr.dart
     - lib/**.freezed.dart
     - lib/**.hive.dart
     - lib/**.g.dart

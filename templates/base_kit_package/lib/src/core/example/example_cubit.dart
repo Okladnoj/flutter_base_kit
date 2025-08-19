@@ -29,6 +29,7 @@ class ExampleCubit extends BaseCubit<ExampleState> {
 
   Future<void> getPosts() async {
     await safeAction(() async {
+      emit(state.copyWith(status: StateStatus.refresh));
       final result = await _exampleService.getPosts();
       emit(state.copyWith(posts: result.data));
     });

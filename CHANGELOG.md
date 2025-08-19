@@ -1,3 +1,9 @@
+## 1.3.4
+
+- Fixed templates by state statuses
+- Remove linter rule for go_router
+
+
 ## 1.3.3
 
 - Fixed version to retrofit_generator: ^10.0.2
