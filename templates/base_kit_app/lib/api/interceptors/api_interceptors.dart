@@ -19,9 +19,6 @@ class ApiInterceptor extends Interceptor {
     this._requestTracker,
   );
 
-  bool _isRefreshing = false;
-  Completer<void>? _refreshCompleter;
-
   @override
   Future<void> onRequest(
     RequestOptions options,
@@ -42,10 +39,7 @@ class ApiInterceptor extends Interceptor {
     options.headers
       ..putIfAbsent('accept', () => '*/*')
       ..putIfAbsent('Content-Type', () => 'application/json');
-    if (options.path == '/auth/logout') {
-      final token = await _tokenService.getRefreshToken();
-      options.headers['Authorization'] = 'Bearer $token';
-    } else if (token.isNotEmpty) {
+    if (token.isNotEmpty) {
       options.headers['Authorization'] = 'Bearer $token';
     }
 
@@ -68,68 +62,8 @@ class ApiInterceptor extends Interceptor {
     DioException err,
     ErrorInterceptorHandler handler,
   ) async {
-    if (err.response?.statusCode == 401 &&
-        !_isRefreshing &&
-        await _tokenService.getRefreshToken() != '') {
-      try {
-        await _refreshToken();
-        final newRequest = await Dio().request<dynamic>(
-          err.requestOptions.path,
-          data: err.requestOptions.data,
-          queryParameters: err.requestOptions.queryParameters,
-          options: Options(
-            method: err.requestOptions.method,
-            headers: err.requestOptions.headers,
-            extra: err.requestOptions.extra,
-            responseType: err.requestOptions.responseType,
-            contentType: err.requestOptions.contentType,
-            followRedirects: err.requestOptions.followRedirects,
-            receiveTimeout: err.requestOptions.receiveTimeout,
-            sendTimeout: err.requestOptions.sendTimeout,
-          ),
-        );
-        _requestTracker.done();
-        return handler.resolve(newRequest);
-      } catch (e) {
-        _requestTracker.done();
-        return handler.reject(err);
-      }
-    }
-
     _requestTracker.done();
     return super.onError(err, handler);
-  }
-
-  Future<void> _refreshToken() async {
-    if (_isRefreshing) return _refreshCompleter!.future;
-
-    _isRefreshing = true;
-    _refreshCompleter = Completer<void>();
-
-    try {
-      final refresh = await _tokenService.getRefreshToken();
-      final response = await Dio().post<Map<String, dynamic>>(
-        ApiConstants.refreshEndpoint,
-        data: {'refreshToken': refresh},
-        options: Options(headers: {'Content-Type': 'application/json'}),
-      );
-
-      final data = response.data!;
-      final newToken = data['token'] as String;
-      final newRefresh = data['refreshToken'] as String? ?? refresh;
-
-      await _tokenService.saveToken(newToken);
-      await _tokenService.saveRefreshToken(newRefresh);
-
-      _refreshCompleter!.complete();
-    } catch (e, s) {
-      _refreshCompleter!.completeError(e, s);
-      rethrow;
-    } finally {
-      _isRefreshing = false;
-    }
-
-    return _refreshCompleter!.future;
   }
 
   void _logRequest(RequestOptions options) {

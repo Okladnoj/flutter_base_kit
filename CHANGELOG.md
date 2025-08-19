@@ -1,3 +1,9 @@
+## 1.3.3
+
+- Fixed version to retrofit_generator: ^10.0.2
+- Remove unnecessary logic at template
+
+
 ## 1.3.2
 
 - Update all dependencies to maximum compatible versions after Flutter SDK update

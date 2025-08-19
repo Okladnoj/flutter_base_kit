@@ -12,9 +12,8 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-  "Update all dependencies to maximum compatible versions after Flutter SDK update"
-  "Remove unnecessary dependencies and fix compatibility issues between main package and templates"
-  "Add new request_tracker functionality and improve overall package structure"
+  "Fixed version to retrofit_generator: ^10.0.2"
+  "Remove unnecessary logic at template"
 )
 
 # Increment the version number
