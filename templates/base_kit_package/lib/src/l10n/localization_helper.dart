@@ -28,7 +28,7 @@ Locale get supportedLocale {
 AppLocalizations getLocaleLocalizations([Locale? locale]) {
   Locale? local;
   if (locale == null) {
-    local = _userLocale;
+    local = appLocale;
   } else {
     local = locale;
   }
