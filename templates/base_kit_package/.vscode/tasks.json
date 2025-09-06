@@ -1,0 +1,104 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Localize",
+            "type": "shell",
+            "command": "flutter",
+            "group": "build",
+            "options": {
+                "cwd": "${cwd}"
+            },
+            "runOptions": {
+                "instanceLimit": 1,
+                "reevaluateOnRerun": false
+            },
+            "args": ["gen-l10n"],
+            "presentation": {
+                "echo": true,
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Build Models",
+            "type": "shell",
+            "command": "dart",
+            "group": "build",
+            "options": {
+                "cwd": "${cwd}"
+            },
+            "runOptions": {
+                "instanceLimit": 1,
+                "reevaluateOnRerun": false
+            },
+            "args": [ 
+                "run", 
+                "build_runner",
+                "build", 
+                "--delete-conflicting-outputs",
+            ],
+            "presentation": {
+                "echo": true,
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Icons Launcher",
+            "type": "shell",
+            "command": "flutter",
+            "group": "build",
+            "options": {
+                "cwd": "${cwd}"
+            },
+            "runOptions": {
+                "instanceLimit": 1,
+                "reevaluateOnRerun": false
+            },
+            "args": [ 
+                "pub", 
+                "run",
+                "flutter_launcher_icons:main", 
+                "-f", 
+                "launcher_icon.yaml", 
+            ],
+            "presentation": {
+                "echo": true,
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Generate Splash",
+            "type": "shell",
+            "command": "flutter clean&&flutter pub get&&flutter pub run flutter_native_splash:create",
+            "group": "build",
+            "options": {
+                "cwd": "${cwd}"
+            },
+            "runOptions": {
+                "instanceLimit": 1,
+                "reevaluateOnRerun": false
+            },
+            "args": [],
+            "presentation": {
+                "echo": true,
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": []
+        }
+    ]
+}

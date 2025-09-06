@@ -9,11 +9,11 @@
 cd "$(dirname "$0")/.."
 
 
-
 # Your comments for the changelog split by "/"
 comments=(
-  "Fixed templates by state statuses"
-  "Remove linter rule for go_router"
+  "Upgrade build_runner to version 2.7.1"
+  "Adjust localization_helper.dart to use appLocale instead of _userLocale for better clarity"
+  "Added KitInitializer.initialize to templates"
 )
 
 # Increment the version number

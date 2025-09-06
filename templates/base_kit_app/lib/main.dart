@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_base_kit/flutter_base_kit.dart';
 import 'package:provider/provider.dart';
 
 import 'core/providers.dart';
@@ -14,6 +15,8 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await configureDependencies(DiEnvironment.dev.env);
+
+  await KitInitializer.initialize();
 
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,

@@ -1,3 +1,10 @@
+## 1.3.5
+
+- Upgrade build_runner to version 2.7.1
+- Adjust localization_helper.dart to use appLocale instead of _userLocale for better clarity
+- Added KitInitializer.initialize to templates
+
+
 ## 1.3.4
 
 - Fixed templates by state statuses
