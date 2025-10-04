@@ -1,3 +1,8 @@
+## 1.3.7
+
+- Fix module command to generate camelCase module name
+
+
 ## 1.3.6
 
 - Improve module command to generate camelCase module name

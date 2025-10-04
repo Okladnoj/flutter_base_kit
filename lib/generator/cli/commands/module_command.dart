@@ -202,7 +202,7 @@ class ModuleCommand {
     final newCamelCase = _toCamelCase(newName);
 
     return content
-        .replaceAll('exampleService', newCamelCase)
+        .replaceAll('exampleService', '${newCamelCase}Service')
         .replaceAll('example', newName)
         .replaceAll('Example', newPascalCase)
         .replaceAll('EXAMPLE', newName.toUpperCase());

@@ -11,9 +11,7 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-  "Improve module command to generate camelCase module name"
-  "Improve settings state to use system theme"
-  "Improve theme selector and language selector to use system theme"
+  "Fix module command to generate camelCase module name"
 )
 
 # Increment the version number
