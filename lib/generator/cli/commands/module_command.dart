@@ -199,8 +199,10 @@ class ModuleCommand {
 
   static String _replaceNames(String content, String oldName, String newName) {
     final newPascalCase = _toPascalCase(newName);
+    final newCamelCase = _toCamelCase(newName);
 
     return content
+        .replaceAll('exampleService', newCamelCase)
         .replaceAll('example', newName)
         .replaceAll('Example', newPascalCase)
         .replaceAll('EXAMPLE', newName.toUpperCase());
@@ -226,6 +228,18 @@ class ModuleCommand {
     return words.map((word) {
       if (word.isEmpty) return word;
       return word[0].toUpperCase() + word.substring(1).toLowerCase();
+    }).join('');
+  }
+
+  static String _toCamelCase(String newName) {
+    if (newName.isEmpty) return newName;
+
+    // Handle snake_case and simple names
+    final words = newName.split('_').where((word) => word.isNotEmpty);
+
+    return words.map((word) {
+      if (word.isEmpty) return word;
+      return word[0].toLowerCase() + word.substring(1).toLowerCase();
     }).join('');
   }
 

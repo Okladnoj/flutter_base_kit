@@ -18,7 +18,7 @@ class SettingsState extends BaseProvider {
   SettingsState(this._localeService, this._themeService, this._fontsService);
 
   Locale locale = appLocale;
-  ThemeType themeType = ThemeType.dark;
+  ThemeType themeType = ThemeType.system;
   String? fontFamily;
   double textScaleFactor = 1;
 

@@ -11,9 +11,9 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-  "Upgrade build_runner to version 2.7.1"
-  "Adjust localization_helper.dart to use appLocale instead of _userLocale for better clarity"
-  "Added KitInitializer.initialize to templates"
+  "Improve module command to generate camelCase module name"
+  "Improve settings state to use system theme"
+  "Improve theme selector and language selector to use system theme"
 )
 
 # Increment the version number

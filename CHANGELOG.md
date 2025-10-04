@@ -1,3 +1,10 @@
+## 1.3.6
+
+- Improve module command to generate camelCase module name
+- Improve settings state to use system theme
+- Improve theme selector and language selector to use system theme
+
+
 ## 1.3.5
 
 - Upgrade build_runner to version 2.7.1

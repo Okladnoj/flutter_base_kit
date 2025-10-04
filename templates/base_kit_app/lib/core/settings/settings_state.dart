@@ -22,7 +22,7 @@ class SettingsState extends BaseProvider {
   );
 
   Locale locale = appLocale;
-  ThemeType themeType = ThemeType.dark;
+  ThemeType themeType = ThemeType.system;
   String? fontFamily;
   double textScaleFactor = 1;
 

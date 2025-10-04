@@ -134,6 +134,12 @@ abstract class AppLocalizations {
   /// **'Internet Connection Error'**
   String get errorInternetConnection;
 
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
   /// No description provided for @theme.
   ///
   /// In en, this message translates to:
@@ -151,6 +157,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Dark'**
   String get dark;
+
+  /// No description provided for @system.
+  ///
+  /// In en, this message translates to:
+  /// **'Use device settings'**
+  String get system;
 
   /// No description provided for @oops.
   ///

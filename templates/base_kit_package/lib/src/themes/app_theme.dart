@@ -1,5 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../gen/assets.gen.dart';
 import '../l10n/localization_helper.dart';
 import 'extensions/custom_designs.dart';
 
@@ -8,7 +10,8 @@ part 'light/light_theme_data.dart';
 
 enum ThemeType {
   light,
-  dark;
+  dark,
+  system;
 
   static final themeDataMap = {
     ThemeType.dark: _darkThemeData,
@@ -19,6 +22,7 @@ enum ThemeType {
     final themeToNameMap = {
       ThemeType.light: context.strings.light,
       ThemeType.dark: context.strings.dark,
+      ThemeType.system: context.strings.system,
     };
     return themeToNameMap[this]!;
   }
@@ -26,6 +30,7 @@ enum ThemeType {
   static final labelToEnumMap = {
     ThemeType.dark.name: ThemeType.dark,
     ThemeType.light.name: ThemeType.light,
+    ThemeType.system.name: ThemeType.system,
   };
 
   static ThemeType fromString(String text) {
@@ -33,8 +38,26 @@ enum ThemeType {
   }
 
   ThemeData themeData({String? fontFamily}) {
+    if (this == ThemeType.system) {
+      final themeType = switch (_brightness) {
+        Brightness.light => ThemeType.light,
+        Brightness.dark => ThemeType.dark,
+      };
+      return themeDataMap[themeType]!(fontFamily: fontFamily);
+    }
     return themeDataMap[this]!(fontFamily: fontFamily);
   }
+
+  AssetGenImage get imageBg => switch (this) {
+    light => Assets.images.backgroundLight,
+    dark => Assets.images.backgroundDark,
+    system => switch (_brightness) {
+      Brightness.light => Assets.images.backgroundLight,
+      Brightness.dark => Assets.images.backgroundDark,
+    },
+  };
+
+  Brightness get _brightness => PlatformDispatcher.instance.platformBrightness;
 }
 
 extension BuildContextExt on BuildContext {

@@ -27,6 +27,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get errorInternetConnection => 'Error de conexión a Internet';
 
   @override
+  String get settings => 'Settings';
+
+  @override
   String get theme => 'Tema';
 
   @override
@@ -34,6 +37,9 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get dark => 'Oscuro';
+
+  @override
+  String get system => 'Use device settings';
 
   @override
   String get oops => 'Oops...';

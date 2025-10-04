@@ -24,11 +24,19 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/background-dark.webp
+  AssetGenImage get backgroundDark =>
+      const AssetGenImage('assets/images/background-dark.webp');
+
+  /// File path: assets/images/background-light.webp
+  AssetGenImage get backgroundLight =>
+      const AssetGenImage('assets/images/background-light.webp');
+
   /// File path: assets/images/image.png
   AssetGenImage get image => const AssetGenImage('assets/images/image.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [image];
+  List<AssetGenImage> get values => [backgroundDark, backgroundLight, image];
 }
 
 class $AssetsLottieGen {
