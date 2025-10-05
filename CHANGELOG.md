@@ -1,3 +1,8 @@
+## 1.3.8
+
+- Fixed String _toCamelCase
+
+
 ## 1.3.7
 
 - Fix module command to generate camelCase module name

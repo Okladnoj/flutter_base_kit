@@ -11,7 +11,7 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-  "Fix module command to generate camelCase module name"
+  "Fixed String _toCamelCase"
 )
 
 # Increment the version number

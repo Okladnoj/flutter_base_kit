@@ -237,10 +237,16 @@ class ModuleCommand {
     // Handle snake_case and simple names
     final words = newName.split('_').where((word) => word.isNotEmpty);
 
-    return words.map((word) {
-      if (word.isEmpty) return word;
-      return word[0].toLowerCase() + word.substring(1).toLowerCase();
+    final wordsList = words.toList();
+    if (wordsList.isEmpty) return newName;
+
+    final first = wordsList.first.toLowerCase();
+    final rest = wordsList.skip(1).map((word) {
+      final lower = word.toLowerCase();
+      return lower[0].toUpperCase() + lower.substring(1);
     }).join('');
+
+    return first + rest;
   }
 
   static bool _isValidModuleName(String input) {
