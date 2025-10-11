@@ -43,3 +43,6 @@ linter:
     omit_local_variable_types: false
     unawaited_futures: false
     sort_constructors_first: false
+
+formatter:
+  trailing_commas: preserve

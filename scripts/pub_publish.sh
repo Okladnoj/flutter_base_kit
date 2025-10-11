@@ -11,7 +11,7 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-  "Fixed String _toCamelCase"
+  "Add formatter section to analysis options for consistent trailing commas"
 )
 
 # Increment the version number

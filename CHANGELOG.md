@@ -1,3 +1,8 @@
+## 1.3.9
+
+- Add formatter section to analysis options for consistent trailing commas
+
+
 ## 1.3.8
 
 - Fixed String _toCamelCase
