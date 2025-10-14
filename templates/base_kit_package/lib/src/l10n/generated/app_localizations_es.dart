@@ -96,4 +96,45 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get verification => 'Verificación';
+
+  @override
+  String get startPage => 'Página de inicio';
+
+  @override
+  String get crashLogs => 'Registros de fallos';
+
+  @override
+  String get viewCrashLogs => 'Ver registros de fallos';
+
+  @override
+  String get noCrashLogsFound => 'No se encontraron registros de fallos';
+
+  @override
+  String get exportLogs => 'Exportar registros';
+
+  @override
+  String get clearLogs => 'Borrar registros';
+
+  @override
+  String get confirmClearLogs =>
+      '¿Estás seguro de que quieres borrar los registros de fallos?';
+
+  @override
+  String get logsExported => 'Registros exportados con éxito';
+
+  @override
+  String get logsCleared => 'Registros borrados con éxito';
+
+  @override
+  String get appLogs => 'Registros de aplicación';
+
+  @override
+  String get viewAppLogs => 'Ver registros de aplicación';
+
+  @override
+  String get noAppLogsFound => 'No se encontraron registros de aplicación';
+
+  @override
+  String get confirmClearAppLogs =>
+      '¿Estás seguro de que quieres borrar los registros de aplicación?';
 }

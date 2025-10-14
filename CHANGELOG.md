@@ -1,3 +1,11 @@
+## 1.3.11
+
+- Add horizontal scrolling to logs viewers (app logs and crash logs)
+- Disable line wrapping in logs - each line displays as single line with maxLines: 1
+- Add vertical and horizontal scroll bars with controllers for better navigation
+- Apply to both base_kit_app and base_kit_package templates
+
+
 ## 1.3.10
 
 - Add LogOutputHandler callback for custom log output (file, database, server)

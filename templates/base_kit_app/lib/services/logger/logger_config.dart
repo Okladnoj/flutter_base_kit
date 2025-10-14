@@ -2,12 +2,15 @@ import 'package:flutter_base_kit/flutter_base_kit.dart';
 
 import 'logger_config_io.dart' if (dart.library.html) 'logger_config_web.dart';
 
+export 'logger_config_io.dart' if (dart.library.html) 'logger_config_web.dart'
+    show getLogs, clearLogs, getLogFile;
+
 /// Configure logger output based on platform
 ///
 /// - Native: Writes logs to file in cache directory
 /// - Web: Stores logs in LocalStorage with rotation
-Future<void> configureLogger() async {
-  await configurePlatformLogger();
+Future<void> configureLogger([LogOutputHandler? outputHandler]) async {
+  await configurePlatformLogger(outputHandler);
   loggerApp.i('Logger configured successfully');
 }
 

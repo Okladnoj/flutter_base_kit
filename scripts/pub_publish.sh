@@ -11,10 +11,10 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-  "Add LogOutputHandler callback for custom log output (file, database, server)"
-  "Logger now sends exact same formatted output to handler as appears in console"
-  "Add default logger configurations for base_kit_app and base_kit_package templates"
-  "Update web logger templates to use package:web instead of deprecated dart:html"
+  "Add horizontal scrolling to logs viewers (app logs and crash logs)"
+  "Disable line wrapping in logs - each line displays as single line with maxLines: 1"
+  "Add vertical and horizontal scroll bars with controllers for better navigation"
+  "Apply to both base_kit_app and base_kit_package templates"
 )
 
 # Increment the version number

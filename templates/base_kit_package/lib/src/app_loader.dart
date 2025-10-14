@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:universal_io/io.dart';
 
 import 'app_example.dart';
+import 'core/logs/logs_state.dart';
 import 'core/providers.dart';
 import 'di/di.dart';
 import 'models/enums/di_environment.dart';
@@ -20,6 +21,8 @@ Future<void> _simulateLoading() async {
   await configureDependencies(DiEnvironment.dev.env);
 
   await KitInitializer.initialize();
+
+  LogsState.instance.initialize();
 
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,

@@ -265,6 +265,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Verification'**
   String get verification;
+
+  /// No description provided for @startPage.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Page'**
+  String get startPage;
+
+  /// No description provided for @crashLogs.
+  ///
+  /// In en, this message translates to:
+  /// **'Crash Logs'**
+  String get crashLogs;
+
+  /// No description provided for @viewCrashLogs.
+  ///
+  /// In en, this message translates to:
+  /// **'View crash logs'**
+  String get viewCrashLogs;
+
+  /// No description provided for @noCrashLogsFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No crash logs found'**
+  String get noCrashLogsFound;
+
+  /// No description provided for @exportLogs.
+  ///
+  /// In en, this message translates to:
+  /// **'Export Logs'**
+  String get exportLogs;
+
+  /// No description provided for @clearLogs.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear Logs'**
+  String get clearLogs;
+
+  /// No description provided for @confirmClearLogs.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to clear crash logs?'**
+  String get confirmClearLogs;
+
+  /// No description provided for @logsExported.
+  ///
+  /// In en, this message translates to:
+  /// **'Logs exported successfully'**
+  String get logsExported;
+
+  /// No description provided for @logsCleared.
+  ///
+  /// In en, this message translates to:
+  /// **'Logs cleared successfully'**
+  String get logsCleared;
+
+  /// No description provided for @appLogs.
+  ///
+  /// In en, this message translates to:
+  /// **'App Logs'**
+  String get appLogs;
+
+  /// No description provided for @viewAppLogs.
+  ///
+  /// In en, this message translates to:
+  /// **'View app logs'**
+  String get viewAppLogs;
+
+  /// No description provided for @noAppLogsFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No app logs found'**
+  String get noAppLogsFound;
+
+  /// No description provided for @confirmClearAppLogs.
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to clear app logs?'**
+  String get confirmClearAppLogs;
 }
 
 class _AppLocalizationsDelegate

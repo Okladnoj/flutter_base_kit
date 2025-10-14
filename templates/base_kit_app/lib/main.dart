@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_base_kit/flutter_base_kit.dart';
 import 'package:provider/provider.dart';
 
+import 'core/logs/logs_state.dart';
 import 'core/providers.dart';
 import 'di/di.dart';
 import 'models/enums/di_environment.dart';
@@ -17,6 +18,8 @@ Future<void> main() async {
   await configureDependencies(DiEnvironment.dev.env);
 
   await KitInitializer.initialize();
+
+  LogsState.instance.initialize();
 
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,

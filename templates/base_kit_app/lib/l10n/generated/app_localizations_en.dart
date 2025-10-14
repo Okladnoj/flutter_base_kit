@@ -94,4 +94,43 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get verification => 'Verification';
+
+  @override
+  String get startPage => 'Start Page';
+
+  @override
+  String get crashLogs => 'Crash Logs';
+
+  @override
+  String get viewCrashLogs => 'View crash logs';
+
+  @override
+  String get noCrashLogsFound => 'No crash logs found';
+
+  @override
+  String get exportLogs => 'Export Logs';
+
+  @override
+  String get clearLogs => 'Clear Logs';
+
+  @override
+  String get confirmClearLogs => 'Are you sure you want to clear crash logs?';
+
+  @override
+  String get logsExported => 'Logs exported successfully';
+
+  @override
+  String get logsCleared => 'Logs cleared successfully';
+
+  @override
+  String get appLogs => 'App Logs';
+
+  @override
+  String get viewAppLogs => 'View app logs';
+
+  @override
+  String get noAppLogsFound => 'No app logs found';
+
+  @override
+  String get confirmClearAppLogs => 'Are you sure you want to clear app logs?';
 }

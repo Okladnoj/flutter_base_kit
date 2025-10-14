@@ -27,5 +27,18 @@
     "confirm": "confirm",
     "cancel": "cancel",
     "ok": "OK",
-    "verification": "Verification"
+    "verification": "Verification",
+    "startPage": "Start Page",
+    "crashLogs": "Crash Logs",
+    "viewCrashLogs": "View crash logs",
+    "noCrashLogsFound": "No crash logs found",
+    "exportLogs": "Export Logs",
+    "clearLogs": "Clear Logs",
+    "confirmClearLogs": "Are you sure you want to clear crash logs?",
+    "logsExported": "Logs exported successfully",
+    "logsCleared": "Logs cleared successfully",
+    "appLogs": "App Logs",
+    "viewAppLogs": "View app logs",
+    "noAppLogsFound": "No app logs found",
+    "confirmClearAppLogs": "Are you sure you want to clear app logs?"
 }

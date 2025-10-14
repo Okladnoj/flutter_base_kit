@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../../l10n/localization_helper.dart';
 import '../../../../views/app_bars/empty_title.dart';
+import 'views/app_logs_viewer.dart';
+import 'views/crash_logs_viewer.dart';
 import 'views/language_selector.dart';
 import 'views/theme_selector.dart';
 
@@ -20,6 +22,10 @@ class SettingsPage extends StatelessWidget {
           const LanguageSelector(),
           const SizedBox(height: 8),
           const ThemeSelector(),
+          const SizedBox(height: 8),
+          const CrashLogsViewer(),
+          const SizedBox(height: 8),
+          const AppLogsViewer(),
         ],
       ),
     );

@@ -25,5 +25,18 @@
     "confirm": "confirmar",
     "cancel": "cancelar",
     "ok": "Aceptar",
-    "verification": "Verificación"
+    "verification": "Verificación",
+    "startPage": "Página de inicio",
+    "crashLogs": "Registros de fallos",
+    "viewCrashLogs": "Ver registros de fallos",
+    "noCrashLogsFound": "No se encontraron registros de fallos",
+    "exportLogs": "Exportar registros",
+    "clearLogs": "Borrar registros",
+    "confirmClearLogs": "¿Estás seguro de que quieres borrar los registros de fallos?",
+    "logsExported": "Registros exportados con éxito",
+    "logsCleared": "Registros borrados con éxito",
+    "appLogs": "Registros de aplicación",
+    "viewAppLogs": "Ver registros de aplicación",
+    "noAppLogsFound": "No se encontraron registros de aplicación",
+    "confirmClearAppLogs": "¿Estás seguro de que quieres borrar los registros de aplicación?"
 }

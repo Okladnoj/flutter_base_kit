@@ -1,10 +1,11 @@
 import 'dart:io';
 
+import 'package:cross_file/cross_file.dart';
 import 'package:flutter_base_kit/flutter_base_kit.dart';
 import 'package:path_provider/path_provider.dart';
 
 /// Configure file logging for native platforms (iOS, Android, macOS, Linux, Windows)
-Future<void> configurePlatformLogger() async {
+Future<void> configurePlatformLogger([LogOutputHandler? outputHandler]) async {
   try {
     // Get cache directory
     final appDocDir = await getApplicationCacheDirectory();
@@ -15,6 +16,11 @@ Future<void> configurePlatformLogger() async {
 
     // Set up file output handler with rotation
     loggerApp.setOutputHandler((logMessage) async {
+      try {
+        outputHandler?.call(logMessage);
+      } catch (e) {
+        print('Failed to write log to output handler: $e');
+      }
       try {
         // Check file size and rotate if needed (max 5MB)
         if (await logFile.exists()) {
@@ -47,20 +53,41 @@ Future<void> configurePlatformLogger() async {
   }
 }
 
-/// Get the log file for reading/sharing
-Future<File?> getLogFile() async {
+/// Get all logs as a string
+Future<String> getLogs() async {
   try {
     final appDocDir = await getApplicationCacheDirectory();
     final logFilePath = '${appDocDir.path}/app_logs.txt';
     final logFile = File(logFilePath);
 
     if (await logFile.exists()) {
-      return logFile;
+      return await logFile.readAsString();
+    }
+  } catch (e) {
+    loggerApp.e('Failed to get logs', error: e);
+  }
+  return '';
+}
+
+/// Get the log file for reading/sharing
+Future<XFile?> getLogFile() async {
+  try {
+    final appDocDir = await getApplicationCacheDirectory();
+    final logFilePath = '${appDocDir.path}/app_logs.txt';
+    final logFile = File(logFilePath);
+
+    if (await logFile.exists()) {
+      return XFile(logFilePath);
     }
   } catch (e) {
     loggerApp.e('Failed to get log file', error: e);
   }
   return null;
+}
+
+/// Download logs (no-op on native, for web compatibility)
+void downloadLogs({String filename = 'app_logs.txt'}) {
+  // No-op on native platforms
 }
 
 /// Clear all logs

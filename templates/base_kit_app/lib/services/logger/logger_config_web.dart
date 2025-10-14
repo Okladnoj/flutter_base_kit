@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:js_interop';
 
+import 'package:cross_file/cross_file.dart';
 import 'package:flutter_base_kit/flutter_base_kit.dart';
 import 'package:web/web.dart' as web;
 
@@ -8,7 +9,7 @@ const String _storageKey = 'app_logs';
 const int _maxLogEntries = 1000;
 
 /// Configure LocalStorage logging for web platform
-Future<void> configurePlatformLogger() async {
+Future<void> configurePlatformLogger([LogOutputHandler? outputHandler]) async {
   final logs = <String>[];
 
   // Load existing logs from LocalStorage
@@ -16,6 +17,11 @@ Future<void> configurePlatformLogger() async {
 
   // Set up LocalStorage output handler
   loggerApp.setOutputHandler((logMessage) {
+    try {
+      outputHandler?.call(logMessage);
+    } catch (e) {
+      print('Failed to write log to output handler: $e');
+    }
     try {
       logs.add(logMessage);
 
@@ -33,8 +39,9 @@ Future<void> configurePlatformLogger() async {
     }
   });
 
-  loggerApp
-      .i('Web LocalStorage logging configured (max: $_maxLogEntries entries)');
+  loggerApp.i(
+    'Web LocalStorage logging configured (max: $_maxLogEntries entries)',
+  );
 }
 
 void _loadExistingLogs(List<String> logs) {
@@ -110,7 +117,20 @@ Future<void> clearLogs() async {
   }
 }
 
-/// Get the log file for reading/sharing (stub for web compatibility)
-Future<dynamic> getLogFile() async {
-  return null;
+/// Get the log file for reading/sharing
+Future<XFile?> getLogFile() async {
+  try {
+    final content = getLogs();
+    if (content.isEmpty) return null;
+
+    final bytes = utf8.encode(content);
+    return XFile.fromData(
+      bytes,
+      name: 'app_logs.txt',
+      mimeType: 'text/plain',
+    );
+  } catch (e) {
+    loggerApp.e('Failed to get log file', error: e);
+    return null;
+  }
 }
