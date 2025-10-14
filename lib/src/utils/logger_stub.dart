@@ -1,9 +1,29 @@
 /// Global logger instance for the Flutter Base Kit
 final loggerApp = _LoggerStub();
 
+/// Callback type for log output handler
+typedef LogOutputHandler = void Function(String logMessage);
+
 /// Custom logger class with simplified methods for web platform
 class _LoggerStub {
   final l = 100;
+  LogOutputHandler? _outputHandler;
+
+  /// Set custom output handler for logs
+  ///
+  /// The handler will receive formatted log messages as strings.
+  /// You can use this to write logs to IndexedDB, LocalStorage, or send to a server.
+  ///
+  /// Example:
+  /// ```dart
+  /// loggerApp.setOutputHandler((logMessage) {
+  ///   // Store in LocalStorage or IndexedDB
+  ///   window.localStorage['logs'] = logMessage;
+  /// });
+  /// ```
+  void setOutputHandler(LogOutputHandler? handler) {
+    _outputHandler = handler;
+  }
 
   /// Log info message
   void i(dynamic message) {
@@ -27,13 +47,10 @@ class _LoggerStub {
     Object? error,
     StackTrace? stackTrace,
   }) {
-    _log('ERROR', message);
-    if (error != null) {
-      _log('ERROR', 'Error: $error');
-    }
-    if (stackTrace != null) {
-      _log('ERROR', 'StackTrace: $stackTrace');
-    }
+    final errorMsg = error != null ? '$message\nError: $error' : message;
+    final fullMsg =
+        stackTrace != null ? '$errorMsg\nStackTrace: $stackTrace' : errorMsg;
+    _log('ERROR', fullMsg);
   }
 
   /// Log fatal message
@@ -54,6 +71,8 @@ class _LoggerStub {
   /// Internal logging method
   void _log(String level, dynamic message) {
     final timestamp = DateTime.now().toIso8601String();
-    print('[$timestamp] $level: $message');
+    final logEntry = '[$timestamp] $level: $message';
+    print(logEntry);
+    _outputHandler?.call(logEntry);
   }
 }

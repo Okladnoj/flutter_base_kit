@@ -11,7 +11,10 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-  "Add formatter section to analysis options for consistent trailing commas"
+  "Add LogOutputHandler callback for custom log output (file, database, server)"
+  "Logger now sends exact same formatted output to handler as appears in console"
+  "Add default logger configurations for base_kit_app and base_kit_package templates"
+  "Update web logger templates to use package:web instead of deprecated dart:html"
 )
 
 # Increment the version number

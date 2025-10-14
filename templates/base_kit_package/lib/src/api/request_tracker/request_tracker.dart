@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_base_kit/flutter_base_kit.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../di/di.dart';
-import '../../utils/logger.dart';
 
 @lazySingleton
 class RequestTracker with WidgetsBindingObserver {
