@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:universal_io/io.dart';
+import 'package:flutter_base_kit/flutter_base_kit.dart';
 
 import '../../../../../../l10n/localization_helper.dart';
 import '../../../../../../themes/app_theme.dart';
@@ -248,13 +249,19 @@ class _CrashLogsViewerState extends State<CrashLogsViewer> {
                                 ..._logsContent!
                                     .split('\n')
                                     .map(
-                                      (log) => Text(
-                                        log,
+                                      (log) => RichText(
                                         maxLines: 1,
-                                        style: TextStyle(
-                                          color: context.designs.textPrimary,
-                                          fontSize: 12,
-                                          fontFamily: 'monospace',
+                                        overflow: TextOverflow.visible,
+                                        text: TextSpan(
+                                          children: AnsiParser.parseAnsi(
+                                            log,
+                                            TextStyle(
+                                              color:
+                                                  context.designs.textPrimary,
+                                              fontSize: 12,
+                                              fontFamily: 'monospace',
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),

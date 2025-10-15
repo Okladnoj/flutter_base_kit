@@ -16,7 +16,7 @@ library;
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../utils/logger.dart';
+import '../../utils/logger/logger.dart';
 import '../exceptions/base_exception.dart';
 
 part 'common/base_state.dart';

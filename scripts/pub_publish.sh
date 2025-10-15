@@ -11,10 +11,8 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-  "Add horizontal scrolling to logs viewers (app logs and crash logs)"
-  "Disable line wrapping in logs - each line displays as single line with maxLines: 1"
-  "Add vertical and horizontal scroll bars with controllers for better navigation"
-  "Apply to both base_kit_app and base_kit_package templates"
+  "Add ANSI color parser for colored log output in viewers"
+  "Keep ANSI codes in log files and render them with colors in UI"
 )
 
 # Increment the version number

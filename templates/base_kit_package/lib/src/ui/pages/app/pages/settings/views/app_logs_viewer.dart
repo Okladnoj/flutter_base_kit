@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_base_kit/flutter_base_kit.dart';
 
 import '../../../../../../core/logs/logs_state.dart';
 import '../../../../../../l10n/localization_helper.dart';
@@ -199,13 +200,19 @@ class _AppLogsViewerState extends State<AppLogsViewer> {
                                 ...state.logsContent
                                     .split('\n')
                                     .map(
-                                      (log) => Text(
-                                        log,
+                                      (log) => RichText(
                                         maxLines: 1,
-                                        style: TextStyle(
-                                          color: context.designs.textPrimary,
-                                          fontSize: 12,
-                                          fontFamily: 'monospace',
+                                        overflow: TextOverflow.visible,
+                                        text: TextSpan(
+                                          children: AnsiParser.parseAnsi(
+                                            log,
+                                            TextStyle(
+                                              color:
+                                                  context.designs.textPrimary,
+                                              fontSize: 12,
+                                              fontFamily: 'monospace',
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),

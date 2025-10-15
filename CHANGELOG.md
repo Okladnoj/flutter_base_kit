@@ -1,3 +1,9 @@
+## 1.3.12
+
+- Add ANSI color parser for colored log output in viewers
+- Keep ANSI codes in log files and render them with colors in UI
+
+
 ## 1.3.11
 
 - Add horizontal scrolling to logs viewers (app logs and crash logs)

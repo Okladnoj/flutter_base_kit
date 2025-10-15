@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
-import '../../utils/logger.dart';
+import '../../utils/logger/logger.dart';
 import '../exceptions/application_exception.dart';
 import '../exceptions/api_exception.dart';
 
