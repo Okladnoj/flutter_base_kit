@@ -11,8 +11,8 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-  "Add ANSI color parser for colored log output in viewers"
-  "Keep ANSI codes in log files and render them with colors in UI"
+  "Improve DI module with GetIt integration for better dependency management"
+  "Add fallback logic to check GetIt registry before creating new instances"
 )
 
 # Increment the version number

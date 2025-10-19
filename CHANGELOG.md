@@ -1,3 +1,9 @@
+## 1.3.13
+
+- Improve DI module with GetIt integration for better dependency management
+- Add fallback logic to check GetIt registry before creating new instances
+
+
 ## 1.3.12
 
 - Add ANSI color parser for colored log output in viewers
