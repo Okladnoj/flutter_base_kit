@@ -11,8 +11,8 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-  "Improve DI module with GetIt integration for better dependency management"
-  "Add fallback logic to check GetIt registry before creating new instances"
+  "Update dependencies and plugin imports for base kit package and tester"
+  "Refactor dependency registration methods in DiModule for improved readability and maintainability"
 )
 
 # Increment the version number

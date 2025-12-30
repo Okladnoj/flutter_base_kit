@@ -1,3 +1,9 @@
+## 1.3.14
+
+- Update dependencies and plugin imports for base kit package and tester
+- Refactor dependency registration methods in DiModule for improved readability and maintainability
+
+
 ## 1.3.13
 
 - Improve DI module with GetIt integration for better dependency management

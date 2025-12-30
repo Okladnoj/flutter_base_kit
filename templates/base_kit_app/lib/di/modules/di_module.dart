@@ -12,38 +12,39 @@ import 'package:shared_preferences/shared_preferences.dart';
 abstract class DiModule {
   @preResolve
   Future<SharedPreferences> sharedPreferences() async {
-    final getIt = GetIt.I;
-    if (getIt.isRegistered<SharedPreferences>()) {
-      return getIt<SharedPreferences>();
-    }
-    return SharedPreferences.getInstance();
+    return await _fRegistered<SharedPreferences>(SharedPreferences.getInstance);
   }
 
   FlutterSecureStorage get secureStorage {
-    final getIt = GetIt.I;
-    if (getIt.isRegistered<FlutterSecureStorage>()) {
-      return getIt<FlutterSecureStorage>();
-    }
-    return const FlutterSecureStorage(
-      aOptions: AndroidOptions(encryptedSharedPreferences: true),
-      iOptions: IOSOptions(),
-    );
+    return _sRegistered<FlutterSecureStorage>(FlutterSecureStorage.new);
   }
 
   @preResolve
   Future<PackageInfo> packageInfo() async {
-    final getIt = GetIt.I;
-    if (getIt.isRegistered<PackageInfo>()) {
-      return getIt<PackageInfo>();
-    }
-    return PackageInfo.fromPlatform();
+    return await _fRegistered<PackageInfo>(PackageInfo.fromPlatform);
   }
 
   DeviceInfoPlugin deviceInfo() {
-    final getIt = GetIt.I;
-    if (getIt.isRegistered<DeviceInfoPlugin>()) {
-      return getIt<DeviceInfoPlugin>();
-    }
-    return DeviceInfoPlugin();
+    return _sRegistered<DeviceInfoPlugin>(DeviceInfoPlugin.new);
   }
+}
+
+Future<T> _fRegistered<T extends Object>(Future<T> Function() factory) async {
+  final getIt = GetIt.I;
+  try {
+    if (getIt.isRegistered<T>()) {
+      return getIt<T>();
+    }
+  } catch (_) {}
+  return await factory();
+}
+
+T _sRegistered<T extends Object>(T Function() factory) {
+  final getIt = GetIt.I;
+  try {
+    if (getIt.isRegistered<T>()) {
+      return getIt<T>();
+    }
+  } catch (_) {}
+  return factory();
 }

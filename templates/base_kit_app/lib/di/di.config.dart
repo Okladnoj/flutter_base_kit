@@ -1,5 +1,5 @@
-// dart format width=80
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format width=80
 
 // **************************************************************************
 // InjectableConfigGenerator
@@ -23,6 +23,7 @@ import '../api/request_tracker/request_tracker.dart' as _i250;
 import '../api/retrofit/example/example_api.dart' as _i1045;
 import '../api/retrofit/posts/posts_api.dart' as _i652;
 import '../core/example/example_cubit.dart' as _i180;
+import '../core/logs/logs_state.dart' as _i267;
 import '../core/posts/posts_cubit.dart' as _i286;
 import '../core/settings/settings_state.dart' as _i751;
 import '../core/snack_messages/snack_messages_state.dart' as _i935;
@@ -56,19 +57,20 @@ Future<_i174.GetIt> $initGetIt(
   final diModule = _$DiModule();
   final routeModule = _$RouteModule();
   final dioModule = _$DioModule();
-  final postsApiModule = _$PostsApiModule();
   final exampleApiModule = _$ExampleApiModule();
-  await gh.factoryAsync<_i460.SharedPreferences>(
-    () => diModule.prefs,
-    preResolve: true,
-  );
+  final postsApiModule = _$PostsApiModule();
   gh.factory<_i558.FlutterSecureStorage>(() => diModule.secureStorage);
-  await gh.factoryAsync<_i655.PackageInfo>(
-    () => diModule.packageInfo,
+  await gh.factoryAsync<_i460.SharedPreferences>(
+    () => diModule.sharedPreferences(),
     preResolve: true,
   );
-  gh.factory<_i833.DeviceInfoPlugin>(() => diModule.deviceInfo);
+  await gh.factoryAsync<_i655.PackageInfo>(
+    () => diModule.packageInfo(),
+    preResolve: true,
+  );
+  gh.factory<_i833.DeviceInfoPlugin>(() => diModule.deviceInfo());
   gh.factory<_i694.AppObserver>(() => _i694.AppObserver());
+  gh.singleton<_i267.LogsState>(() => _i267.LogsState());
   gh.singleton<_i935.SnackMessagesState>(() => _i935.SnackMessagesState());
   gh.lazySingleton<_i250.RequestTracker>(() => _i250.RequestTracker());
   gh.lazySingleton<_i393.AppRouter>(() => routeModule.router());
@@ -80,12 +82,12 @@ Future<_i174.GetIt> $initGetIt(
       ));
   gh.factory<_i700.TokenService>(
       () => _i700.TokenService(gh<_i558.FlutterSecureStorage>()));
+  gh.factory<_i490.FontsService>(
+      () => _i490.FontsService(gh<_i460.SharedPreferences>()));
   gh.factory<_i247.LocaleService>(
       () => _i247.LocaleService(gh<_i460.SharedPreferences>()));
   gh.factory<_i977.ThemeService>(
       () => _i977.ThemeService(gh<_i460.SharedPreferences>()));
-  gh.factory<_i490.FontsService>(
-      () => _i490.FontsService(gh<_i460.SharedPreferences>()));
   gh.lazySingleton<_i810.AppInfoService>(
     () => _i810.AppInfoServiceDev(gh<_i655.PackageInfo>()),
     registerFor: {_dev},
@@ -101,10 +103,10 @@ Future<_i174.GetIt> $initGetIt(
       ));
   gh.lazySingleton<_i361.Dio>(
       () => dioModule.client(gh<_i956.ApiInterceptor>()));
-  gh.lazySingleton<_i652.PostsApi>(
-      () => postsApiModule.getInstance(gh<_i361.Dio>()));
   gh.lazySingleton<_i1045.ExampleApi>(
       () => exampleApiModule.getInstance(gh<_i361.Dio>()));
+  gh.lazySingleton<_i652.PostsApi>(
+      () => postsApiModule.getInstance(gh<_i361.Dio>()));
   gh.lazySingleton<_i229.ExampleService>(
       () => _i229.ExampleService(gh<_i1045.ExampleApi>()));
   gh.lazySingleton<_i354.PostsService>(
@@ -122,6 +124,6 @@ class _$RouteModule extends _i402.RouteModule {}
 
 class _$DioModule extends _i1023.DioModule {}
 
-class _$PostsApiModule extends _i652.PostsApiModule {}
-
 class _$ExampleApiModule extends _i1045.ExampleApiModule {}
+
+class _$PostsApiModule extends _i652.PostsApiModule {}

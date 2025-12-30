@@ -16,6 +16,7 @@ do
     echo -e "\n\033[32m[clean]: $project <-------\033[0m"
     cd "$project" || { echo "Failed to enter directory $project"; continue; }
 
+    flutter pub upgrade --major-versions
     flutter clean
 
     cd - > /dev/null
