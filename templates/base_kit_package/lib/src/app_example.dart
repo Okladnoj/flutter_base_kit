@@ -43,7 +43,10 @@ class AppExample extends StatelessWidget {
         builder: (context, child) {
           return Stack(
             alignment: Alignment.center,
-            children: [SizedBox(child: child), const SnackMessagesView()],
+            children: [
+              SizedBox(child: child),
+              const SnackMessagesView(),
+            ],
           );
         },
       ),

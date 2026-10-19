@@ -81,7 +81,8 @@ class RequestTracker with WidgetsBindingObserver {
 
       if (inactiveMinutes > 5) {
         loggerApp.i(
-            'Force resetting HTTP adapter after long inactivity ($inactiveMinutes minutes)');
+          'Force resetting HTTP adapter after long inactivity ($inactiveMinutes minutes)',
+        );
         _timer?.cancel();
         _timer = null;
         _pendingReset = false;

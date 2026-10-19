@@ -167,20 +167,19 @@ class _AppCupertinoDatePickerState extends State<AppCupertinoDatePicker> {
                   _animateToInitialItem();
                 });
               },
-              children:
-                  years
-                      .map(
-                        (d) => Center(
-                          child: Text(
-                            DateTimeParser.dateToYearString(d),
-                            style: TextStyle(
-                              color: _designs.background,
-                              fontSize: 17.0,
-                            ),
-                          ),
+              children: years
+                  .map(
+                    (d) => Center(
+                      child: Text(
+                        DateTimeParser.dateToYearString(d),
+                        style: TextStyle(
+                          color: _designs.background,
+                          fontSize: 17.0,
                         ),
-                      )
-                      .toList(),
+                      ),
+                    ),
+                  )
+                  .toList(),
             ),
           ),
         Expanded(

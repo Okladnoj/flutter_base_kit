@@ -87,21 +87,20 @@ class _CrashLogsViewerState extends State<CrashLogsViewer> {
   Future<void> _clearLogs() async {
     final confirmed = await showDialog<bool>(
       context: context,
-      builder:
-          (context) => AlertDialog(
-            title: Text(context.strings.clearLogs),
-            content: Text(context.strings.confirmClearLogs),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context, false),
-                child: Text(context.strings.cancel),
-              ),
-              TextButton(
-                onPressed: () => Navigator.pop(context, true),
-                child: Text(context.strings.confirm),
-              ),
-            ],
+      builder: (context) => AlertDialog(
+        title: Text(context.strings.clearLogs),
+        content: Text(context.strings.confirmClearLogs),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: Text(context.strings.cancel),
           ),
+          TextButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: Text(context.strings.confirm),
+          ),
+        ],
+      ),
     );
 
     if (confirmed == true) {

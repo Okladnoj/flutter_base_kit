@@ -29,22 +29,44 @@ abstract class DiModule {
   }
 }
 
-Future<T> _fRegistered<T extends Object>(Future<T> Function() factory) async {
-  final getIt = GetIt.I;
-  try {
-    if (getIt.isRegistered<T>()) {
-      return getIt<T>();
-    }
-  } catch (_) {}
-  return await factory();
-}
+final _resolving = <Type>{};
 
 T _sRegistered<T extends Object>(T Function() factory) {
   final getIt = GetIt.I;
+
+  if (_resolving.contains(T)) {
+    return factory();
+  }
+
   try {
+    _resolving.add(T);
     if (getIt.isRegistered<T>()) {
       return getIt<T>();
     }
-  } catch (_) {}
+  } catch (_) {
+  } finally {
+    _resolving.remove(T);
+  }
+
   return factory();
+}
+
+Future<T> _fRegistered<T extends Object>(Future<T> Function() factory) async {
+  final getIt = GetIt.I;
+
+  if (_resolving.contains(T)) {
+    return await factory();
+  }
+
+  try {
+    _resolving.add(T);
+    if (getIt.isRegistered<T>()) {
+      return getIt<T>();
+    }
+  } catch (_) {
+  } finally {
+    _resolving.remove(T);
+  }
+
+  return await factory();
 }

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'example_cubit.dart';
@@ -9,6 +9,7 @@ part of 'example_cubit.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $ExampleStateCopyWith<ExampleState> get copyWith => _$ExampleStateCopyWithImpl<E
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExampleState&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.posts, posts));
+  final _this = this as ExampleState;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExampleState&&(identical(other.status, _this.status) || other.status == _this.status)&&(identical(other.message, _this.message) || other.message == _this.message)&&const DeepCollectionEquality().equals(other.posts, _this.posts));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,message,const DeepCollectionEquality().hash(posts));
+int get hashCode {
+  final _this = this as ExampleState;
+  return Object.hash(runtimeType,_this.status,_this.message,const DeepCollectionEquality().hash(_this.posts));
+}
 
 @override
 String toString() {
-  return 'ExampleState(status: $status, message: $message, posts: $posts)';
+  final _this = this as ExampleState;
+  return 'ExampleState(status: ${_this.status}, message: ${_this.message}, posts: ${_this.posts})';
 }
 
 
@@ -63,7 +69,7 @@ class _$ExampleStateCopyWithImpl<$Res>
 /// Create a copy of ExampleState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? status = null,Object? message = null,Object? posts = null,}) {
-  return _then(_self.copyWith(
+  return _then(ExampleState(
 status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
 as StateStatus,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
 as String,posts: null == posts ? _self.posts : posts // ignore: cast_nullable_to_non_nullable
@@ -208,7 +214,7 @@ return $default(_that.status,_that.message,_that.posts);case _:
 
 
 class _ExampleState extends ExampleState {
-  const _ExampleState({this.status = StateStatus.initial, this.message = '', final  List<ExampleModel> posts = const []}): _posts = posts,super._();
+  const _ExampleState({this.status = StateStatus.initial, this.message = '',  List<ExampleModel> posts = const []}): _posts = posts,super._();
   
 
 @override@JsonKey() final  StateStatus status;
@@ -231,16 +237,18 @@ _$ExampleStateCopyWith<_ExampleState> get copyWith => __$ExampleStateCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ExampleState&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other._posts, _posts));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ExampleState&&(identical(other.status, status) || other.status == status)&&(identical(other.message, message) || other.message == message)&&const DeepCollectionEquality().equals(other.posts, _posts));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,status,message,const DeepCollectionEquality().hash(_posts));
+int get hashCode {
+    return Object.hash(runtimeType,status,message,const DeepCollectionEquality().hash(_posts));
+}
 
 @override
 String toString() {
-  return 'ExampleState(status: $status, message: $message, posts: $posts)';
+    return 'ExampleState(status: $status, message: $message, posts: $posts)';
 }
 
 

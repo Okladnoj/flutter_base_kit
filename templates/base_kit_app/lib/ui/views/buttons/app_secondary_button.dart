@@ -43,9 +43,10 @@ class AppSecondaryButton extends StatelessWidget {
           text,
           textAlign: TextAlign.center,
           style: context.textTheme.titleMedium?.copyWith(
-              fontSize: fontSize ?? 17,
-              fontWeight: fontWeight ?? FontWeight.w700,
-              color: colorText ?? context.designs.primary),
+            fontSize: fontSize ?? 17,
+            fontWeight: fontWeight ?? FontWeight.w700,
+            color: colorText ?? context.designs.primary,
+          ),
         ),
       ),
     );

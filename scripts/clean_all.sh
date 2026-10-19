@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Run command: [bash scripts/clean_all.sh]
+# Run command: [sh scripts/clean_all.sh]
 
 projects=(
     "."

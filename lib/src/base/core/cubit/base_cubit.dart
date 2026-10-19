@@ -39,14 +39,18 @@ abstract class BaseCubit<State extends BaseStateI> extends Cubit<State> {
   void handleError(BaseException message) {
     try {
       dynamic state = this.state;
-      emit(state.copyWith(
-        status: StateStatus.error,
-        message: message.toString(),
-      ) as State);
-      emit(state.copyWith(
-        status: StateStatus.loaded,
-        message: '',
-      ) as State);
+      emit(
+        state.copyWith(
+          status: StateStatus.error,
+          message: message.toString(),
+        ) as State,
+      );
+      emit(
+        state.copyWith(
+          status: StateStatus.loaded,
+          message: '',
+        ) as State,
+      );
     } catch (_) {}
   }
 

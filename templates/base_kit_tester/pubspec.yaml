@@ -4,15 +4,15 @@ publish_to: 'none'
 version: 0.1.0
 
 environment:
-  sdk: ^3.7.2
+  sdk: ^3.13.0
 
 dependencies:
   flutter:
     sdk: flutter
   base_kit_package:
     path: ../base_kit_package
-  universal_io: ^2.2.2
-  freezed: ^3.1.0
+  universal_io: ^2.3.1
+  freezed: ^4.0.1
 
 dev_dependencies:
   flutter_test:

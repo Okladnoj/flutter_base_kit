@@ -9,6 +9,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+
 import 'package:device_info_plus/device_info_plus.dart' as _i833;
 import 'package:dio/dio.dart' as _i361;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i558;
@@ -73,15 +74,6 @@ Future<_i174.GetIt> $initGetIt(
   gh.lazySingleton<_i792.UrlLauncherService>(
     () => const _i792.UrlLauncherService(),
   );
-  gh.factory<_i395.StoreVersionService>(
-    () => _i395.StoreVersionService(
-      gh<_i460.SharedPreferences>(),
-      gh<_i558.FlutterSecureStorage>(),
-    ),
-  );
-  gh.factory<_i700.TokenService>(
-    () => _i700.TokenService(gh<_i558.FlutterSecureStorage>()),
-  );
   gh.factory<_i490.FontsService>(
     () => _i490.FontsService(gh<_i460.SharedPreferences>()),
   );
@@ -91,9 +83,8 @@ Future<_i174.GetIt> $initGetIt(
   gh.factory<_i977.ThemeService>(
     () => _i977.ThemeService(gh<_i460.SharedPreferences>()),
   );
-  gh.lazySingleton<_i810.AppInfoService>(
-    () => _i810.AppInfoServiceDev(gh<_i655.PackageInfo>()),
-    registerFor: {_dev},
+  gh.factory<_i700.TokenService>(
+    () => _i700.TokenService(gh<_i558.FlutterSecureStorage>()),
   );
   gh.singleton<_i751.SettingsState>(
     () => _i751.SettingsState(
@@ -102,11 +93,21 @@ Future<_i174.GetIt> $initGetIt(
       gh<_i490.FontsService>(),
     ),
   );
+  gh.factory<_i395.StoreVersionService>(
+    () => _i395.StoreVersionService(
+      gh<_i460.SharedPreferences>(),
+      gh<_i558.FlutterSecureStorage>(),
+    ),
+  );
   gh.lazySingleton<_i956.ApiInterceptor>(
     () => _i956.ApiInterceptor(
       gh<_i700.TokenService>(),
       gh<_i250.RequestTracker>(),
     ),
+  );
+  gh.lazySingleton<_i810.AppInfoService>(
+    () => _i810.AppInfoServiceDev(gh<_i655.PackageInfo>()),
+    registerFor: {_dev},
   );
   gh.lazySingleton<_i361.Dio>(
     () => dioModule.client(gh<_i956.ApiInterceptor>()),
@@ -120,11 +121,11 @@ Future<_i174.GetIt> $initGetIt(
   gh.lazySingleton<_i229.ExampleService>(
     () => _i229.ExampleService(gh<_i1045.ExampleApi>()),
   );
-  gh.factory<_i180.ExampleCubit>(
-    () => _i180.ExampleCubit(gh<_i229.ExampleService>()),
-  );
   gh.lazySingleton<_i354.PostsService>(
     () => _i354.PostsService(gh<_i652.PostsApi>()),
+  );
+  gh.factory<_i180.ExampleCubit>(
+    () => _i180.ExampleCubit(gh<_i229.ExampleService>()),
   );
   gh.factory<_i286.PostsCubit>(
     () => _i286.PostsCubit(gh<_i354.PostsService>()),

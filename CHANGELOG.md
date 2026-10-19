@@ -1,3 +1,13 @@
+## 1.3.15
+
+- Upgrade dependencies to the latest compatible versions (equatable 3, injectable 3, freezed 4, cached_network_image 4, share_plus 13, permission_handler 13, flutter_secure_storage 11 and more)
+- Raise minimum Dart SDK to 3.13.0 for the package and all templates
+- Remove freezed from flutter_base_kit dependencies - templates declare it directly
+- Regenerate template code with updated generators (freezed, injectable, auto_route, retrofit, flutter_gen)
+- Add re-entrance guard to DiModule registration helpers to prevent recursive GetIt resolution
+- Exclude platform folders from analysis in templates and examples
+
+
 ## 1.3.14
 
 - Update dependencies and plugin imports for base kit package and tester

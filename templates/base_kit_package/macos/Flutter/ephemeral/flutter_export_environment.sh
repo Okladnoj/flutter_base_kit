@@ -2,6 +2,7 @@
 # This is a generated file; do not edit or check into version control.
 export "FLUTTER_ROOT=/Users/okji/development/flutter"
 export "FLUTTER_APPLICATION_PATH=/Users/okji/dev/flutter/work/flutter_base_kit/templates/base_kit_package"
+export "FLUTTER_FRAMEWORK_SWIFT_PACKAGE_PATH=/Users/okji/dev/flutter/work/flutter_base_kit/templates/base_kit_package/macos/Flutter/ephemeral/Packages/.packages/FlutterFramework"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=0.0.1"

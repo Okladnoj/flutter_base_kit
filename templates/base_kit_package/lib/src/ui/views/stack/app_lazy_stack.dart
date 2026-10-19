@@ -36,14 +36,14 @@ class _AppLazyIndexedStackState extends State<AppLazyIndexedStack> {
   }
 
   @override
-  void didUpdateWidget(final AppLazyIndexedStack oldWidget) {
+  void didUpdateWidget(AppLazyIndexedStack oldWidget) {
     super.didUpdateWidget(oldWidget);
 
     _children[widget.index] = widget.children[widget.index];
   }
 
   @override
-  Widget build(final BuildContext context) {
+  Widget build(BuildContext context) {
     return IndexedStack(
       key: _stackKey,
       index: widget.index,

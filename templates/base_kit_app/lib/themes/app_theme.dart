@@ -49,13 +49,13 @@ enum ThemeType {
   }
 
   AssetGenImage get imageBg => switch (this) {
-        light => Assets.images.backgroundLight,
-        dark => Assets.images.backgroundDark,
-        system => switch (_brightness) {
-            Brightness.light => Assets.images.backgroundLight,
-            Brightness.dark => Assets.images.backgroundDark,
-          },
-      };
+    light => Assets.images.backgroundLight,
+    dark => Assets.images.backgroundDark,
+    system => switch (_brightness) {
+      Brightness.light => Assets.images.backgroundLight,
+      Brightness.dark => Assets.images.backgroundDark,
+    },
+  };
 
   Brightness get _brightness => PlatformDispatcher.instance.platformBrightness;
 }

@@ -1,5 +1,7 @@
 import 'dart:io';
+
 import 'package:path/path.dart' as path;
+
 import '../constants.dart';
 import 'copy_utils.dart';
 
@@ -52,22 +54,26 @@ class PubspecUtils {
     if (currentVersion == null) {
       if (verbose) {
         stdout.writeln(
-            '${Constants.errorMessage} Could not determine package version, using latest');
+          '${Constants.errorMessage} Could not determine package version, using latest',
+        );
       }
     }
 
-    final versionString =
-        currentVersion != null ? '^$currentVersion' : '^1.1.1';
+    final versionString = currentVersion != null
+        ? '^$currentVersion'
+        : '^1.1.1';
 
     // Find dependencies section and add/update flutter_base_kit from pub.dev
     final lines = content.split('\n');
-    final dependenciesIndex =
-        lines.indexWhere((line) => line.trim() == 'dependencies:');
+    final dependenciesIndex = lines.indexWhere(
+      (line) => line.trim() == 'dependencies:',
+    );
 
     if (dependenciesIndex != -1) {
       // Check if flutter_base_kit dependency already exists
-      final existingIndex = lines.indexWhere((line) =>
-          line.trim().startsWith('${Constants.flutterBaseKitPackage}:'));
+      final existingIndex = lines.indexWhere(
+        (line) => line.trim().startsWith('${Constants.flutterBaseKitPackage}:'),
+      );
 
       if (existingIndex != -1) {
         // Update existing dependency
@@ -75,15 +81,19 @@ class PubspecUtils {
             '  ${Constants.flutterBaseKitPackage}: $versionString';
         if (verbose) {
           stdout.writeln(
-              '${Constants.infoMessage} Updated flutter_base_kit dependency to version $versionString');
+            '${Constants.infoMessage} Updated flutter_base_kit dependency to version $versionString',
+          );
         }
       } else {
         // Add new dependency
-        lines.insert(dependenciesIndex + 1,
-            '  ${Constants.flutterBaseKitPackage}: $versionString');
+        lines.insert(
+          dependenciesIndex + 1,
+          '  ${Constants.flutterBaseKitPackage}: $versionString',
+        );
         if (verbose) {
           stdout.writeln(
-              '${Constants.infoMessage} Added flutter_base_kit dependency from pub.dev (version $versionString)');
+            '${Constants.infoMessage} Added flutter_base_kit dependency from pub.dev (version $versionString)',
+          );
         }
       }
 
@@ -99,8 +109,9 @@ class PubspecUtils {
     final pubspecFile = File(path.join(appDir, Constants.pubspecFileName));
     if (!pubspecFile.existsSync()) {
       if (verbose) {
-        stdout
-            .writeln('${Constants.errorMessage} pubspec.yaml not found in app');
+        stdout.writeln(
+          '${Constants.errorMessage} pubspec.yaml not found in app',
+        );
       }
       return;
     }
@@ -109,8 +120,12 @@ class PubspecUtils {
 
     // Replace the entire content with our template content
     final root = CopyUtils.findTemplatePath();
-    final templatePath = path.join(root, 'templates',
-        Constants.baseKitAppTemplate, Constants.pubspecFileName);
+    final templatePath = path.join(
+      root,
+      'templates',
+      Constants.baseKitAppTemplate,
+      Constants.pubspecFileName,
+    );
     final templateFile = File(templatePath);
 
     if (templateFile.existsSync()) {
@@ -139,7 +154,8 @@ class PubspecUtils {
     if (!pubspecFile.existsSync()) {
       if (verbose) {
         stdout.writeln(
-            '${Constants.errorMessage} pubspec.yaml not found in package');
+          '${Constants.errorMessage} pubspec.yaml not found in package',
+        );
       }
       return;
     }
@@ -148,15 +164,21 @@ class PubspecUtils {
 
     // Replace the entire content with our template content
     final root = CopyUtils.findTemplatePath();
-    final templatePath = path.join(root, 'templates',
-        Constants.baseKitPackageTemplate, Constants.pubspecFileName);
+    final templatePath = path.join(
+      root,
+      'templates',
+      Constants.baseKitPackageTemplate,
+      Constants.pubspecFileName,
+    );
     final templateFile = File(templatePath);
 
     if (templateFile.existsSync()) {
       content = await templateFile.readAsString();
       // Update project name
-      content =
-          content.replaceAll('name: base_kit_package', 'name: $packageName');
+      content = content.replaceAll(
+        'name: base_kit_package',
+        'name: $packageName',
+      );
     }
 
     await pubspecFile.writeAsString(content);
@@ -184,43 +206,57 @@ class PubspecUtils {
     if (!pubspecFile.existsSync()) {
       if (verbose) {
         stdout.writeln(
-            '${Constants.errorMessage} pubspec.yaml not found in tester');
+          '${Constants.errorMessage} pubspec.yaml not found in tester',
+        );
       }
       return;
     }
 
     // Replace the entire content with our template content
     final root = CopyUtils.findTemplatePath();
-    final templatePath = path.join(root, 'templates',
-        Constants.baseKitTesterTemplate, Constants.pubspecFileName);
+    final templatePath = path.join(
+      root,
+      'templates',
+      Constants.baseKitTesterTemplate,
+      Constants.pubspecFileName,
+    );
     final templateFile = File(templatePath);
 
     String content;
     if (templateFile.existsSync()) {
       content = await templateFile.readAsString();
       // Update project name
-      content =
-          content.replaceAll('name: base_kit_tester', 'name: $testerName');
+      content = content.replaceAll(
+        'name: base_kit_tester',
+        'name: $testerName',
+      );
       // Update package dependency
       content = content.replaceAll('base_kit_package:', '$packageName:');
       content = content.replaceAll(
-          'path: ../base_kit_package', 'path: ../$packageName');
+        'path: ../base_kit_package',
+        'path: ../$packageName',
+      );
     } else {
       // Fallback to original content if template not found
       content = await pubspecFile.readAsString();
-      content =
-          content.replaceAll('name: base_kit_tester', 'name: $testerName');
+      content = content.replaceAll(
+        'name: base_kit_tester',
+        'name: $testerName',
+      );
 
       // Add package dependency if it doesn't exist
       if (!content.contains('$packageName:')) {
         final lines = content.split('\n');
-        final dependenciesIndex =
-            lines.indexWhere((line) => line.trim() == 'dependencies:');
+        final dependenciesIndex = lines.indexWhere(
+          (line) => line.trim() == 'dependencies:',
+        );
 
         if (dependenciesIndex != -1) {
           // Add package dependency after flutter dependency
           final flutterIndex = lines.indexWhere(
-              (line) => line.trim().startsWith('flutter:'), dependenciesIndex);
+            (line) => line.trim().startsWith('flutter:'),
+            dependenciesIndex,
+          );
 
           if (flutterIndex != -1) {
             lines.insert(flutterIndex + 1, '  $packageName:');
@@ -276,7 +312,8 @@ export 'src/app_loader.dart';
       await testDir.delete(recursive: true);
       if (verbose) {
         stdout.writeln(
-            '${Constants.updateMessage} Removed default test directory');
+          '${Constants.updateMessage} Removed default test directory',
+        );
       }
     }
   }
@@ -289,15 +326,20 @@ export 'src/app_loader.dart';
     if (!analysisFile.existsSync()) {
       if (verbose) {
         stdout.writeln(
-            '${Constants.errorMessage} analysis_options.yaml not found');
+          '${Constants.errorMessage} analysis_options.yaml not found',
+        );
       }
       return;
     }
 
     // Replace with template content
     final root = CopyUtils.findTemplatePath();
-    final templatePath = path.join(root, 'templates',
-        Constants.baseKitPackageTemplate, 'analysis_options.yaml');
+    final templatePath = path.join(
+      root,
+      'templates',
+      Constants.baseKitPackageTemplate,
+      'analysis_options.yaml',
+    );
     final templateFile = File(templatePath);
 
     if (templateFile.existsSync()) {
@@ -305,7 +347,8 @@ export 'src/app_loader.dart';
       await analysisFile.writeAsString(content);
       if (verbose) {
         stdout.writeln(
-            '${Constants.updateMessage} Updated analysis_options.yaml');
+          '${Constants.updateMessage} Updated analysis_options.yaml',
+        );
       }
     }
   }

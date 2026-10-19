@@ -16,8 +16,9 @@ abstract class ResponseWrapperModels<T> with _$ResponseWrapperModels<T> {
   }) = _ResponseWrapperModels<T>;
 
   factory ResponseWrapperModels.fromJson(
-          Map<String, dynamic> json, T Function(Object? json) fromJsonT) =>
-      _$ResponseWrapperModelsFromJson(json, fromJsonT);
+    Map<String, dynamic> json,
+    T Function(Object? json) fromJsonT,
+  ) => _$ResponseWrapperModelsFromJson(json, fromJsonT);
 }
 
 @Freezed(makeCollectionsUnmodifiable: false, genericArgumentFactories: true)
@@ -28,8 +29,9 @@ abstract class ResponseWrapperModel<T> with _$ResponseWrapperModel<T> {
   }) = _ResponseWrapperModel<T>;
 
   factory ResponseWrapperModel.fromJson(
-          Map<String, dynamic> json, T Function(Object? json) fromJsonT) =>
-      _$ResponseWrapperModelFromJson(json, fromJsonT);
+    Map<String, dynamic> json,
+    T Function(Object? json) fromJsonT,
+  ) => _$ResponseWrapperModelFromJson(json, fromJsonT);
 }
 
 @immutable

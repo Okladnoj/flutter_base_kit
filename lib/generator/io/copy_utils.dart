@@ -1,5 +1,7 @@
 import 'dart:io';
+
 import 'package:path/path.dart' as path;
+
 import '../constants.dart';
 
 class CopyUtils {
@@ -98,7 +100,9 @@ class CopyUtils {
   }
 
   static Future<void> ensureDirectoryExists(
-      String dirPath, bool verbose) async {
+    String dirPath,
+    bool verbose,
+  ) async {
     final dir = Directory(dirPath);
     if (!dir.existsSync()) {
       await dir.create(recursive: true);

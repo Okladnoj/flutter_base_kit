@@ -7,13 +7,13 @@ part of 'api_exception.dart';
 // **************************************************************************
 
 ApiException _$ApiExceptionFromJson(Map<String, dynamic> json) => ApiException(
-      statusCode: (json['statusCode'] as num?)?.toInt(),
-      title: json['title'] as String? ?? '',
-      message: json['message'] as String? ?? '',
-      errors: json['errors'] == null
-          ? ''
-          : const ApiErrorsConverter().fromJson(json['errors']),
-    );
+  statusCode: (json['statusCode'] as num?)?.toInt(),
+  title: json['title'] as String? ?? '',
+  message: json['message'] as String? ?? '',
+  errors: json['errors'] == null
+      ? ''
+      : const ApiErrorsConverter().fromJson(json['errors']),
+);
 
 Map<String, dynamic> _$ApiExceptionToJson(ApiException instance) =>
     <String, dynamic>{

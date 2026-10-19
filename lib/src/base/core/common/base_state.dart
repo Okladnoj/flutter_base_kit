@@ -41,9 +41,9 @@ abstract class BaseStateI {
 extension BaseStateIExt on BaseStateI {
   /// Returns true if the state is in a loading state
   bool get statusLoading => [
-        StateStatus.loading,
-        StateStatus.refresh,
-      ].contains(status);
+    StateStatus.loading,
+    StateStatus.refresh,
+  ].contains(status);
 }
 
 /// Mixin providing state management capabilities
@@ -62,7 +62,7 @@ mixin BaseStateMixin {
 extension BaseStateMixinExt on BaseStateMixin {
   /// Returns true if the state is in a loading state
   bool get statusLoading => [
-        StateStatus.loading,
-        StateStatus.refresh,
-      ].contains(status);
+    StateStatus.loading,
+    StateStatus.refresh,
+  ].contains(status);
 }

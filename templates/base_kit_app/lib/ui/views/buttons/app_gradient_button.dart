@@ -38,9 +38,10 @@ class AppGradientButton extends StatelessWidget {
           text,
           textAlign: TextAlign.center,
           style: context.textTheme.titleMedium?.copyWith(
-              fontSize: fontSize,
-              fontWeight: FontWeight.w900,
-              color: context.designs.onPrimary),
+            fontSize: fontSize,
+            fontWeight: FontWeight.w900,
+            color: context.designs.onPrimary,
+          ),
         ),
       ),
     );

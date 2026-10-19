@@ -100,18 +100,18 @@ class AppDialog {
               : Text(
                   title,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        fontSize: 22,
-                        fontWeight: FontWeight.w900,
-                      ),
+                    fontSize: 22,
+                    fontWeight: FontWeight.w900,
+                  ),
                 ),
           content: content == null
               ? null
               : Text(
                   content,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: ColorsSet.colorBlack,
-                        fontSize: 20,
-                      ),
+                    color: ColorsSet.colorBlack,
+                    fontSize: 20,
+                  ),
                 ),
           actions: [
             if (cancel != null)
@@ -145,19 +145,23 @@ class AppDialog {
       content: Text(info),
       actions: [
         if (onCancel != null)
-          Builder(builder: (context) {
-            return TextButton(
-              onPressed: () => onCancel(context),
-              child: Text(cancelText),
-            );
-          }),
+          Builder(
+            builder: (context) {
+              return TextButton(
+                onPressed: () => onCancel(context),
+                child: Text(cancelText),
+              );
+            },
+          ),
         if (onAccept != null)
-          Builder(builder: (context) {
-            return TextButton(
-              onPressed: () => onAccept(context),
-              child: Text(acceptText),
-            );
-          }),
+          Builder(
+            builder: (context) {
+              return TextButton(
+                onPressed: () => onAccept(context),
+                child: Text(acceptText),
+              );
+            },
+          ),
       ],
     );
   }

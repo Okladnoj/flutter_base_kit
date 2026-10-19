@@ -1,6 +1,8 @@
 import 'dart:io';
+
 import 'package:args/args.dart';
 import 'package:path/path.dart' as path;
+
 import '../../constants.dart';
 import '../../io/copy_utils.dart';
 import '../../io/pubspec_utils.dart';
@@ -12,12 +14,15 @@ class CreateCommand {
       stdout.writeln('📦 Running dart pub get in: $directory');
     }
 
-    final result =
-        await Process.run('dart', ['pub', 'get'], workingDirectory: directory);
+    final result = await Process.run('dart', [
+      'pub',
+      'get',
+    ], workingDirectory: directory);
 
     if (result.exitCode != 0) {
-      stderr
-          .writeln('⚠️ Warning: Failed to run dart pub get: ${result.stderr}');
+      stderr.writeln(
+        '⚠️ Warning: Failed to run dart pub get: ${result.stderr}',
+      );
     } else if (verbose) {
       stdout.writeln('✅ Dependencies installed successfully');
     }
@@ -64,7 +69,8 @@ class CreateCommand {
         break;
       default:
         stderr.writeln(
-            '${Constants.errorMessage} Error: Unknown template type: $template');
+          '${Constants.errorMessage} Error: Unknown template type: $template',
+        );
         exit(1);
     }
   }
@@ -77,7 +83,8 @@ class CreateCommand {
     final projectDir = path.join(Directory.current.path, name);
     if (Directory(projectDir).existsSync()) {
       stderr.writeln(
-          '${Constants.errorMessage} Error: Directory already exists: $name');
+        '${Constants.errorMessage} Error: Directory already exists: $name',
+      );
       exit(1);
     }
 
@@ -86,12 +93,18 @@ class CreateCommand {
     }
 
     final orgParam = org ?? 'com.base.kit';
-    final result = await Process.run(
-        'flutter', ['create', '--org', orgParam, '--template=app', name]);
+    final result = await Process.run('flutter', [
+      'create',
+      '--org',
+      orgParam,
+      '--template=app',
+      name,
+    ]);
 
     if (result.exitCode != 0) {
       stderr.writeln(
-          '${Constants.errorMessage} Error creating app: ${result.stderr}');
+        '${Constants.errorMessage} Error creating app: ${result.stderr}',
+      );
       exit(1);
     }
 
@@ -106,7 +119,11 @@ class CreateCommand {
 
     // Create README
     await _createReadme(
-        projectDir, name, ReadmeTemplates.appReadme(name), verbose);
+      projectDir,
+      name,
+      ReadmeTemplates.appReadme(name),
+      verbose,
+    );
 
     // Run flutter pub get
     await _runPubGet(projectDir, verbose);
@@ -127,7 +144,8 @@ class CreateCommand {
     final projectDir = path.join(Directory.current.path, name);
     if (Directory(projectDir).existsSync()) {
       stderr.writeln(
-          '${Constants.errorMessage} Error: Directory already exists: $name');
+        '${Constants.errorMessage} Error: Directory already exists: $name',
+      );
       exit(1);
     }
 
@@ -136,12 +154,18 @@ class CreateCommand {
     }
 
     final orgParam = org ?? 'com.base.kit';
-    final result = await Process.run(
-        'flutter', ['create', '--org', orgParam, '--template=package', name]);
+    final result = await Process.run('flutter', [
+      'create',
+      '--org',
+      orgParam,
+      '--template=package',
+      name,
+    ]);
 
     if (result.exitCode != 0) {
       stderr.writeln(
-          '${Constants.errorMessage} Error creating package: ${result.stderr}');
+        '${Constants.errorMessage} Error creating package: ${result.stderr}',
+      );
       exit(1);
     }
 
@@ -153,14 +177,19 @@ class CreateCommand {
 
     // Create README
     await _createReadme(
-        projectDir, name, ReadmeTemplates.packageReadme(name), verbose);
+      projectDir,
+      name,
+      ReadmeTemplates.packageReadme(name),
+      verbose,
+    );
 
     // Run flutter pub get
     await _runPubGet(projectDir, verbose);
 
     stdout
       ..writeln(
-          '${Constants.successMessage} Flutter package created successfully!')
+        '${Constants.successMessage} Flutter package created successfully!',
+      )
       ..writeln('')
       ..writeln('Next steps:')
       ..writeln('  cd $name')
@@ -175,7 +204,8 @@ class CreateCommand {
     final projectDir = path.join(Directory.current.path, name);
     if (Directory(projectDir).existsSync()) {
       stderr.writeln(
-          '${Constants.errorMessage} Error: Directory already exists: $name');
+        '${Constants.errorMessage} Error: Directory already exists: $name',
+      );
       exit(1);
     }
 
@@ -197,13 +227,18 @@ class CreateCommand {
     }
 
     final orgParam = org ?? 'com.base.kit';
-    final packageResult = await Process.run('flutter',
-        ['create', '--org', orgParam, '--template=package', packageName],
-        workingDirectory: projectDir);
+    final packageResult = await Process.run('flutter', [
+      'create',
+      '--org',
+      orgParam,
+      '--template=package',
+      packageName,
+    ], workingDirectory: projectDir);
 
     if (packageResult.exitCode != 0) {
       stderr.writeln(
-          '${Constants.errorMessage} Error creating package: ${packageResult.stderr}');
+        '${Constants.errorMessage} Error creating package: ${packageResult.stderr}',
+      );
       exit(1);
     }
 
@@ -212,13 +247,19 @@ class CreateCommand {
       stdout.writeln('🧪 Creating tester: $testerName');
     }
 
-    final testerResult = await Process.run('flutter',
-        ['create', '--org', orgParam, '--template=app', '--empty', testerName],
-        workingDirectory: projectDir);
+    final testerResult = await Process.run('flutter', [
+      'create',
+      '--org',
+      orgParam,
+      '--template=app',
+      '--empty',
+      testerName,
+    ], workingDirectory: projectDir);
 
     if (testerResult.exitCode != 0) {
       stderr.writeln(
-          '${Constants.errorMessage} Error creating tester: ${testerResult.stderr}');
+        '${Constants.errorMessage} Error creating tester: ${testerResult.stderr}',
+      );
       exit(1);
     }
 
@@ -231,15 +272,31 @@ class CreateCommand {
     // Update pubspec files
     await PubspecUtils.updatePackagePubspec(packageDir, packageName, verbose);
     await PubspecUtils.updateTesterPubspec(
-        testerDir, testerName, packageName, verbose);
+      testerDir,
+      testerName,
+      packageName,
+      verbose,
+    );
 
     // Create README files
-    await _createReadme(packageDir, packageName,
-        ReadmeTemplates.packageReadme(packageName), verbose);
-    await _createReadme(testerDir, testerName,
-        ReadmeTemplates.testerReadme(testerName, packageName), verbose);
-    await _createReadme(projectDir, name,
-        ReadmeTemplates.rootReadme(name, packageName, testerName), verbose);
+    await _createReadme(
+      packageDir,
+      packageName,
+      ReadmeTemplates.packageReadme(packageName),
+      verbose,
+    );
+    await _createReadme(
+      testerDir,
+      testerName,
+      ReadmeTemplates.testerReadme(testerName, packageName),
+      verbose,
+    );
+    await _createReadme(
+      projectDir,
+      name,
+      ReadmeTemplates.rootReadme(name, packageName, testerName),
+      verbose,
+    );
 
     // Run flutter pub get for both package and tester
     await _runPubGet(packageDir, verbose);
@@ -247,7 +304,8 @@ class CreateCommand {
 
     stdout
       ..writeln(
-          '${Constants.successMessage} Flutter package with tester created successfully!')
+        '${Constants.successMessage} Flutter package with tester created successfully!',
+      )
       ..writeln('')
       ..writeln('Next steps:')
       ..writeln('  cd $name/$packageName')
@@ -277,10 +335,16 @@ class CreateCommand {
     bool verbose,
   ) async {
     final root = CopyUtils.findTemplatePath();
-    final packageTemplate =
-        path.join(root, 'templates', Constants.baseKitPackageTemplate);
-    final testerTemplate =
-        path.join(root, 'templates', Constants.baseKitTesterTemplate);
+    final packageTemplate = path.join(
+      root,
+      'templates',
+      Constants.baseKitPackageTemplate,
+    );
+    final testerTemplate = path.join(
+      root,
+      'templates',
+      Constants.baseKitTesterTemplate,
+    );
 
     if (verbose) {
       stdout.writeln('📁 Copying template content...');
@@ -288,10 +352,18 @@ class CreateCommand {
 
     // Copy assets, fonts, and configs to package
     await _copyDirectoryIfExists(
-        packageTemplate, packageDir, 'assets', verbose);
+      packageTemplate,
+      packageDir,
+      'assets',
+      verbose,
+    );
     await _copyDirectoryIfExists(packageTemplate, packageDir, 'fonts', verbose);
     await _copyFileIfExists(
-        packageTemplate, packageDir, 'flutter_native_splash.yaml', verbose);
+      packageTemplate,
+      packageDir,
+      'flutter_native_splash.yaml',
+      verbose,
+    );
     await _copyFileIfExists(packageTemplate, packageDir, 'l10n.yaml', verbose);
     await _copyFileIfExists(packageTemplate, packageDir, 'build.yaml', verbose);
 
@@ -299,9 +371,17 @@ class CreateCommand {
     await _copyDirectoryIfExists(testerTemplate, testerDir, 'assets', verbose);
     await _copyDirectoryIfExists(testerTemplate, testerDir, 'fonts', verbose);
     await _copyFileIfExists(
-        testerTemplate, testerDir, 'flutter_native_splash.yaml', verbose);
+      testerTemplate,
+      testerDir,
+      'flutter_native_splash.yaml',
+      verbose,
+    );
     await _copyFileIfExists(
-        testerTemplate, testerDir, 'analysis_options.yaml', verbose);
+      testerTemplate,
+      testerDir,
+      'analysis_options.yaml',
+      verbose,
+    );
 
     // Copy main.dart for tester
     await _copyTesterMainFile(testerDir, packageName, verbose);
@@ -312,8 +392,11 @@ class CreateCommand {
     bool verbose,
   ) async {
     final root = CopyUtils.findTemplatePath();
-    final packageTemplate =
-        path.join(root, 'templates', Constants.baseKitPackageTemplate);
+    final packageTemplate = path.join(
+      root,
+      'templates',
+      Constants.baseKitPackageTemplate,
+    );
 
     if (verbose) {
       stdout.writeln('📁 Copying package template content...');
@@ -321,13 +404,25 @@ class CreateCommand {
 
     // Copy assets, fonts, and configs to package
     await _copyDirectoryIfExists(
-        packageTemplate, packageDir, 'assets', verbose);
+      packageTemplate,
+      packageDir,
+      'assets',
+      verbose,
+    );
     await _copyDirectoryIfExists(packageTemplate, packageDir, 'fonts', verbose);
     await _copyFileIfExists(
-        packageTemplate, packageDir, 'flutter_native_splash.yaml', verbose);
+      packageTemplate,
+      packageDir,
+      'flutter_native_splash.yaml',
+      verbose,
+    );
     await _copyFileIfExists(packageTemplate, packageDir, 'l10n.yaml', verbose);
     await _copyFileIfExists(
-        packageTemplate, packageDir, 'analysis_options.yaml', verbose);
+      packageTemplate,
+      packageDir,
+      'analysis_options.yaml',
+      verbose,
+    );
     await _copyFileIfExists(packageTemplate, packageDir, 'build.yaml', verbose);
 
     // Copy lib directory content
@@ -339,8 +434,11 @@ class CreateCommand {
     bool verbose,
   ) async {
     final root = CopyUtils.findTemplatePath();
-    final appTemplate =
-        path.join(root, 'templates', Constants.baseKitAppTemplate);
+    final appTemplate = path.join(
+      root,
+      'templates',
+      Constants.baseKitAppTemplate,
+    );
 
     if (verbose) {
       stdout.writeln('📱 Copying app template content...');
@@ -350,10 +448,18 @@ class CreateCommand {
     await _copyDirectoryIfExists(appTemplate, appDir, 'assets', verbose);
     await _copyDirectoryIfExists(appTemplate, appDir, 'fonts', verbose);
     await _copyFileIfExists(
-        appTemplate, appDir, 'flutter_native_splash.yaml', verbose);
+      appTemplate,
+      appDir,
+      'flutter_native_splash.yaml',
+      verbose,
+    );
     await _copyFileIfExists(appTemplate, appDir, 'l10n.yaml', verbose);
     await _copyFileIfExists(
-        appTemplate, appDir, 'analysis_options.yaml', verbose);
+      appTemplate,
+      appDir,
+      'analysis_options.yaml',
+      verbose,
+    );
 
     // Copy lib directory content (skip main.dart as it's created by flutter create)
     await _copyAppLibContent(appDir, verbose);
@@ -367,16 +473,20 @@ class CreateCommand {
     bool verbose,
   ) async {
     final root = CopyUtils.findTemplatePath();
-    final appTemplate =
-        path.join(root, 'templates', Constants.baseKitAppTemplate);
+    final appTemplate = path.join(
+      root,
+      'templates',
+      Constants.baseKitAppTemplate,
+    );
 
     // Copy lib directory content (but not the main dart file)
     final libTemplateDir = path.join(appTemplate, 'lib');
     final libDestDir = path.join(appDir, 'lib');
 
     if (Directory(libTemplateDir).existsSync()) {
-      await for (final entity in Directory(libTemplateDir)
-          .list(recursive: true, followLinks: false)) {
+      await for (final entity in Directory(
+        libTemplateDir,
+      ).list(recursive: true, followLinks: false)) {
         final rel = path.relative(entity.path, from: libTemplateDir);
 
         // Skip the main dart file (it's already created by flutter create)
@@ -403,8 +513,11 @@ class CreateCommand {
     bool verbose,
   ) async {
     final root = CopyUtils.findTemplatePath();
-    final appTemplate =
-        path.join(root, 'templates', Constants.baseKitAppTemplate);
+    final appTemplate = path.join(
+      root,
+      'templates',
+      Constants.baseKitAppTemplate,
+    );
     final sourcePath = path.join(appTemplate, 'lib', 'main.dart');
     final destPath = path.join(appDir, 'lib', 'main.dart');
 
@@ -425,7 +538,8 @@ class CreateCommand {
       await testDir.delete(recursive: true);
       if (verbose) {
         stdout.writeln(
-            '${Constants.updateMessage} Removed default test directory');
+          '${Constants.updateMessage} Removed default test directory',
+        );
       }
     }
   }
@@ -435,16 +549,20 @@ class CreateCommand {
     bool verbose,
   ) async {
     final root = CopyUtils.findTemplatePath();
-    final packageTemplate =
-        path.join(root, 'templates', Constants.baseKitPackageTemplate);
+    final packageTemplate = path.join(
+      root,
+      'templates',
+      Constants.baseKitPackageTemplate,
+    );
 
     // Copy lib directory content (but not the main dart file)
     final libTemplateDir = path.join(packageTemplate, 'lib');
     final libDestDir = path.join(packageDir, 'lib');
 
     if (Directory(libTemplateDir).existsSync()) {
-      await for (final entity in Directory(libTemplateDir)
-          .list(recursive: true, followLinks: false)) {
+      await for (final entity in Directory(
+        libTemplateDir,
+      ).list(recursive: true, followLinks: false)) {
         final rel = path.relative(entity.path, from: libTemplateDir);
 
         // Skip the main dart file (it's already created by flutter create)
@@ -506,8 +624,11 @@ class CreateCommand {
     bool verbose,
   ) async {
     final root = CopyUtils.findTemplatePath();
-    final testerTemplate =
-        path.join(root, 'templates', Constants.baseKitTesterTemplate);
+    final testerTemplate = path.join(
+      root,
+      'templates',
+      Constants.baseKitTesterTemplate,
+    );
     final sourcePath = path.join(testerTemplate, 'lib', 'main.dart');
     final destPath = path.join(testerDir, 'lib', 'main.dart');
 

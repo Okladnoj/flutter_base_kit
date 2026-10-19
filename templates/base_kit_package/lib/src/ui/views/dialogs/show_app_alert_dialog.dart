@@ -95,26 +95,24 @@ class AppDialog {
       builder: (context) {
         return AlertDialog(
           backgroundColor: const Color(0xE51E294A),
-          title:
-              title == null
-                  ? null
-                  : Text(
-                    title,
-                    style: context.textTheme.bodyMedium?.copyWith(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w900,
-                    ),
+          title: title == null
+              ? null
+              : Text(
+                  title,
+                  style: context.textTheme.bodyMedium?.copyWith(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w900,
                   ),
-          content:
-              content == null
-                  ? null
-                  : Text(
-                    content,
-                    style: context.textTheme.bodyMedium?.copyWith(
-                      color: context.designs.background,
-                      fontSize: 20,
-                    ),
+                ),
+          content: content == null
+              ? null
+              : Text(
+                  content,
+                  style: context.textTheme.bodyMedium?.copyWith(
+                    color: context.designs.background,
+                    fontSize: 20,
                   ),
+                ),
           actions: [
             if (cancel != null)
               AppSecondaryButton(

@@ -95,10 +95,9 @@ void downloadLogs({String filename = 'app_logs.txt'}) {
     final content = getLogs();
     final blob = web.Blob([content.toJS].toJS);
     final url = web.URL.createObjectURL(blob);
-    final anchor =
-        web.document.createElement('a') as web.HTMLAnchorElement
-          ..href = url
-          ..download = filename;
+    final anchor = web.document.createElement('a') as web.HTMLAnchorElement
+      ..href = url
+      ..download = filename;
     anchor.click();
     web.URL.revokeObjectURL(url);
 

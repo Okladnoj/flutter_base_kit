@@ -40,14 +40,18 @@ abstract class BaseBloc<Event extends BaseEventI, State extends BaseStateI>
   void handleError(BaseException message) {
     try {
       dynamic state = this.state;
-      emit(state.copyWith(
-        status: StateStatus.error,
-        message: message.toString(),
-      ) as State);
-      emit(state.copyWith(
-        status: StateStatus.loaded,
-        message: '',
-      ) as State);
+      emit(
+        state.copyWith(
+          status: StateStatus.error,
+          message: message.toString(),
+        ) as State,
+      );
+      emit(
+        state.copyWith(
+          status: StateStatus.loaded,
+          message: '',
+        ) as State,
+      );
     } catch (_) {}
   }
 

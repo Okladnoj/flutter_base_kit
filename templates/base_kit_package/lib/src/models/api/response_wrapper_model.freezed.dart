@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'response_wrapper_model.dart';
@@ -9,6 +9,7 @@ part of 'response_wrapper_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 
@@ -27,23 +28,29 @@ $ResponseWrapperModelsCopyWith<T, ResponseWrapperModels<T>> get copyWith => _$Re
 
 @override
 void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  final _this = this as ResponseWrapperModels<T>;
   properties
     ..add(DiagnosticsProperty('type', 'ResponseWrapperModels<$T>'))
-    ..add(DiagnosticsProperty('messages', messages))..add(DiagnosticsProperty('data', data));
+    ..add(DiagnosticsProperty('messages', _this.messages))..add(DiagnosticsProperty('data', _this.data));
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ResponseWrapperModels<T>&&const DeepCollectionEquality().equals(other.messages, messages)&&const DeepCollectionEquality().equals(other.data, data));
+  final _this = this as ResponseWrapperModels<T>;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ResponseWrapperModels<T>&&const DeepCollectionEquality().equals(other.messages, _this.messages)&&const DeepCollectionEquality().equals(other.data, _this.data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(messages),const DeepCollectionEquality().hash(data));
+int get hashCode {
+  final _this = this as ResponseWrapperModels<T>;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.messages),const DeepCollectionEquality().hash(_this.data));
+}
 
 @override
 String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
-  return 'ResponseWrapperModels<$T>(messages: $messages, data: $data)';
+  final _this = this as ResponseWrapperModels<T>;
+  return 'ResponseWrapperModels<$T>(messages: ${_this.messages}, data: ${_this.data})';
 }
 
 
@@ -72,7 +79,7 @@ class _$ResponseWrapperModelsCopyWithImpl<T,$Res>
 /// Create a copy of ResponseWrapperModels
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? messages = null,Object? data = null,}) {
-  return _then(_self.copyWith(
+  return _then(ResponseWrapperModels(
 messages: null == messages ? _self.messages : messages // ignore: cast_nullable_to_non_nullable
 as List<String>,data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as List<T>,
@@ -234,23 +241,25 @@ Map<String, dynamic> toJson(Object? Function(T) toJsonT) {
 }
 @override
 void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-  properties
+    properties
     ..add(DiagnosticsProperty('type', 'ResponseWrapperModels<$T>'))
     ..add(DiagnosticsProperty('messages', messages))..add(DiagnosticsProperty('data', data));
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ResponseWrapperModels<T>&&const DeepCollectionEquality().equals(other.messages, messages)&&const DeepCollectionEquality().equals(other.data, data));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ResponseWrapperModels<T>&&const DeepCollectionEquality().equals(other.messages, messages)&&const DeepCollectionEquality().equals(other.data, data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(messages),const DeepCollectionEquality().hash(data));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(messages),const DeepCollectionEquality().hash(data));
+}
 
 @override
 String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
-  return 'ResponseWrapperModels<$T>(messages: $messages, data: $data)';
+    return 'ResponseWrapperModels<$T>(messages: $messages, data: $data)';
 }
 
 
@@ -305,23 +314,29 @@ $ResponseWrapperModelCopyWith<T, ResponseWrapperModel<T>> get copyWith => _$Resp
 
 @override
 void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  final _this = this as ResponseWrapperModel<T>;
   properties
     ..add(DiagnosticsProperty('type', 'ResponseWrapperModel<$T>'))
-    ..add(DiagnosticsProperty('messages', messages))..add(DiagnosticsProperty('data', data));
+    ..add(DiagnosticsProperty('messages', _this.messages))..add(DiagnosticsProperty('data', _this.data));
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ResponseWrapperModel<T>&&const DeepCollectionEquality().equals(other.messages, messages)&&const DeepCollectionEquality().equals(other.data, data));
+  final _this = this as ResponseWrapperModel<T>;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ResponseWrapperModel<T>&&const DeepCollectionEquality().equals(other.messages, _this.messages)&&const DeepCollectionEquality().equals(other.data, _this.data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(messages),const DeepCollectionEquality().hash(data));
+int get hashCode {
+  final _this = this as ResponseWrapperModel<T>;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.messages),const DeepCollectionEquality().hash(_this.data));
+}
 
 @override
 String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
-  return 'ResponseWrapperModel<$T>(messages: $messages, data: $data)';
+  final _this = this as ResponseWrapperModel<T>;
+  return 'ResponseWrapperModel<$T>(messages: ${_this.messages}, data: ${_this.data})';
 }
 
 
@@ -350,7 +365,7 @@ class _$ResponseWrapperModelCopyWithImpl<T,$Res>
 /// Create a copy of ResponseWrapperModel
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? messages = null,Object? data = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ResponseWrapperModel(
 messages: null == messages ? _self.messages : messages // ignore: cast_nullable_to_non_nullable
 as List<String>,data: freezed == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as T?,
@@ -512,23 +527,25 @@ Map<String, dynamic> toJson(Object? Function(T) toJsonT) {
 }
 @override
 void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-  properties
+    properties
     ..add(DiagnosticsProperty('type', 'ResponseWrapperModel<$T>'))
     ..add(DiagnosticsProperty('messages', messages))..add(DiagnosticsProperty('data', data));
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ResponseWrapperModel<T>&&const DeepCollectionEquality().equals(other.messages, messages)&&const DeepCollectionEquality().equals(other.data, data));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ResponseWrapperModel<T>&&const DeepCollectionEquality().equals(other.messages, messages)&&const DeepCollectionEquality().equals(other.data, data));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(messages),const DeepCollectionEquality().hash(data));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(messages),const DeepCollectionEquality().hash(data));
+}
 
 @override
 String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
-  return 'ResponseWrapperModel<$T>(messages: $messages, data: $data)';
+    return 'ResponseWrapperModel<$T>(messages: $messages, data: $data)';
 }
 
 
@@ -578,14 +595,14 @@ mixin _$EmptyDataModel implements DiagnosticableTreeMixin {
 
 @override
 void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-  properties
+    properties
     ..add(DiagnosticsProperty('type', 'EmptyDataModel'))
     ;
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EmptyDataModel);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is EmptyDataModel);
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -594,7 +611,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
-  return 'EmptyDataModel()';
+    return 'EmptyDataModel()';
 }
 
 
@@ -752,14 +769,14 @@ Map<String, dynamic> toJson() {
 }
 @override
 void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-  properties
+    properties
     ..add(DiagnosticsProperty('type', 'EmptyDataModel'))
     ;
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmptyDataModel);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _EmptyDataModel);
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -768,7 +785,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
-  return 'EmptyDataModel()';
+    return 'EmptyDataModel()';
 }
 
 

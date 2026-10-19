@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:flutter_base_kit/generator/io/pubspec_utils.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:path/path.dart' as path;
@@ -41,7 +42,11 @@ dev_dependencies:
 ''');
 
         await PubspecUtils.updatePubspec(
-            tempDir.path, 'test_app', 'com.test', false);
+          tempDir.path,
+          'test_app',
+          'com.test',
+          false,
+        );
 
         final content = await pubspecFile.readAsString();
         expect(content, contains('flutter_base_kit:'));
@@ -71,7 +76,11 @@ dev_dependencies:
 ''');
 
         await PubspecUtils.updatePubspec(
-            tempDir.path, 'test_app', 'com.test', false);
+          tempDir.path,
+          'test_app',
+          'com.test',
+          false,
+        );
 
         final content = await pubspecFile.readAsString();
         // Should update to current version (1.3.1)
@@ -82,9 +91,14 @@ dev_dependencies:
         // Create a directory without pubspec.yaml
         final emptyDir = Directory.systemTemp.createTempSync('empty_test_');
         expect(
-            () => PubspecUtils.updatePubspec(
-                emptyDir.path, 'test_app', 'com.test', false),
-            returnsNormally);
+          () => PubspecUtils.updatePubspec(
+            emptyDir.path,
+            'test_app',
+            'com.test',
+            false,
+          ),
+          returnsNormally,
+        );
         emptyDir.deleteSync(recursive: true);
       });
 
@@ -108,7 +122,11 @@ dev_dependencies:
 ''');
 
         await PubspecUtils.updatePubspec(
-            tempDir.path, 'test_app', 'com.mycompany', false);
+          tempDir.path,
+          'test_app',
+          'com.mycompany',
+          false,
+        );
 
         final content = await pubspecFile.readAsString();
         expect(content, contains('name: test_app'));
@@ -140,7 +158,11 @@ dev_dependencies:
 ''');
 
         await PubspecUtils.updateTesterPubspec(
-            tempDir.path, 'test_app_tester', 'test_package', false);
+          tempDir.path,
+          'test_app_tester',
+          'test_package',
+          false,
+        );
 
         final content = await pubspecFile.readAsString();
         expect(content, contains('test_package:'));
@@ -169,7 +191,11 @@ dev_dependencies:
 ''');
 
         await PubspecUtils.updateTesterPubspec(
-            tempDir.path, 'test_app_tester', 'test_package', false);
+          tempDir.path,
+          'test_app_tester',
+          'test_package',
+          false,
+        );
 
         final content = await pubspecFile.readAsString();
         expect(content, contains('test_package:'));

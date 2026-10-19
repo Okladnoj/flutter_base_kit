@@ -1,4 +1,5 @@
 import 'dart:io';
+
 import 'package:flutter_base_kit/generator/io/copy_utils.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:path/path.dart' as path;
@@ -29,8 +30,9 @@ void main() {
         expect(templatesDir.existsSync(), isTrue);
 
         // Check that at least one template exists
-        final baseKitAppDir =
-            Directory(path.join(templatePath, 'templates', 'base_kit_app'));
+        final baseKitAppDir = Directory(
+          path.join(templatePath, 'templates', 'base_kit_app'),
+        );
         expect(baseKitAppDir.existsSync(), isTrue);
       });
 
@@ -87,25 +89,31 @@ void main() {
 
         // Verify files were copied
         expect(File(path.join(destDir.path, 'test.txt')).existsSync(), isTrue);
-        expect(File(path.join(destDir.path, 'subdir', 'sub.txt')).existsSync(),
-            isTrue);
-        expect(File(path.join(destDir.path, 'test.txt')).readAsStringSync(),
-            equals('test content'));
         expect(
-            File(path.join(destDir.path, 'subdir', 'sub.txt'))
-                .readAsStringSync(),
-            equals('sub content'));
+          File(path.join(destDir.path, 'subdir', 'sub.txt')).existsSync(),
+          isTrue,
+        );
+        expect(
+          File(path.join(destDir.path, 'test.txt')).readAsStringSync(),
+          equals('test content'),
+        );
+        expect(
+          File(path.join(destDir.path, 'subdir', 'sub.txt')).readAsStringSync(),
+          equals('sub content'),
+        );
       });
 
       test('should handle non-existent source directory', () async {
-        final nonExistentDir =
-            Directory(path.join(tempDir.path, 'non_existent'));
+        final nonExistentDir = Directory(
+          path.join(tempDir.path, 'non_existent'),
+        );
         final destDir = Directory(path.join(tempDir.path, 'dest'));
 
         expect(
-            () => CopyUtils.copyDirectory(
-                nonExistentDir.path, destDir.path, false),
-            throwsA(isA<Exception>()));
+          () =>
+              CopyUtils.copyDirectory(nonExistentDir.path, destDir.path, false),
+          throwsA(isA<Exception>()),
+        );
       });
 
       test('should handle existing destination directory', () async {
@@ -127,9 +135,13 @@ void main() {
 
         expect(File(path.join(destDir.path, 'test.txt')).existsSync(), isTrue);
         expect(
-            File(path.join(destDir.path, 'existing.txt')).existsSync(), isTrue);
-        expect(File(path.join(destDir.path, 'test.txt')).readAsStringSync(),
-            equals('source content'));
+          File(path.join(destDir.path, 'existing.txt')).existsSync(),
+          isTrue,
+        );
+        expect(
+          File(path.join(destDir.path, 'test.txt')).readAsStringSync(),
+          equals('source content'),
+        );
       });
     });
 
@@ -143,19 +155,23 @@ void main() {
       });
 
       test('should not fail if directory already exists', () {
-        final existingDir =
-            Directory(path.join(tempDir.path, 'existing_directory'));
+        final existingDir = Directory(
+          path.join(tempDir.path, 'existing_directory'),
+        );
         existingDir.createSync();
         expect(existingDir.existsSync(), isTrue);
 
-        expect(() => CopyUtils.ensureDirectoryExists(existingDir.path, false),
-            returnsNormally);
+        expect(
+          () => CopyUtils.ensureDirectoryExists(existingDir.path, false),
+          returnsNormally,
+        );
         expect(existingDir.existsSync(), isTrue);
       });
 
       test('should create nested directories', () async {
-        final nestedDir =
-            Directory(path.join(tempDir.path, 'nested', 'deep', 'directory'));
+        final nestedDir = Directory(
+          path.join(tempDir.path, 'nested', 'deep', 'directory'),
+        );
         expect(nestedDir.existsSync(), isFalse);
 
         await CopyUtils.ensureDirectoryExists(nestedDir.path, false);

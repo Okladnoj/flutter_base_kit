@@ -12,20 +12,23 @@ part 'router.gr.dart';
 class AppRouter extends RootStackRouter {
   @override
   RouteType get defaultRouteType => RouteType.custom(
-        transitionsBuilder: TransitionsBuilders.slideRightWithFade,
-        duration: const Duration(milliseconds: 300),
-        reverseDuration: const Duration(milliseconds: 300),
-        barrierColor: Colors.transparent,
-      );
+    transitionsBuilder: TransitionsBuilders.slideRightWithFade,
+    duration: const Duration(milliseconds: 300),
+    reverseDuration: const Duration(milliseconds: 300),
+    barrierColor: Colors.transparent,
+  );
 
   @override
   List<AutoRoute> get routes {
     return [
       AutoRoute(page: SplashRoute.page, path: '/'),
-      AutoRoute(page: AppFlowRoute.page, children: [
-        AutoRoute(page: ExampleRoute.page, path: ''),
-        AutoRoute(page: SettingsRoute.page),
-      ]),
+      AutoRoute(
+        page: AppFlowRoute.page,
+        children: [
+          AutoRoute(page: ExampleRoute.page, path: ''),
+          AutoRoute(page: SettingsRoute.page),
+        ],
+      ),
     ];
   }
 }

@@ -72,8 +72,9 @@ class _AppCupertinoDatePickerState extends State<AppCupertinoDatePicker> {
   @override
   void initState() {
     _currentDate = _clampDate(widget.initialDateTime ?? DateTime.now());
-    WidgetsBinding.instance
-        .addPostFrameCallback((_) => _animateToInitialItem());
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => _animateToInitialItem(),
+    );
     super.initState();
   }
 
@@ -137,7 +138,8 @@ class _AppCupertinoDatePickerState extends State<AppCupertinoDatePicker> {
     final day = _currentDate.day;
 
     final maxYearDate = widget.maxDateTime ?? DateTime.now();
-    final minYearDate = widget.minDateTime ??
+    final minYearDate =
+        widget.minDateTime ??
         maxYearDate.subtract(const Duration(days: 365 * 120));
 
     final years = List<DateTime>.generate(
@@ -187,8 +189,9 @@ class _AppCupertinoDatePickerState extends State<AppCupertinoDatePicker> {
             backgroundColor: _designs.surface,
             onSelectedItemChanged: (int index) {
               setState(() {
-                _currentDate =
-                    _clampDate(DateTime(year, index + 1, _currentDate.day));
+                _currentDate = _clampDate(
+                  DateTime(year, index + 1, _currentDate.day),
+                );
                 _animateToInitialItem();
               });
             },

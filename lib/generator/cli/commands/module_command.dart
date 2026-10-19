@@ -1,6 +1,8 @@
 import 'dart:io';
+
 import 'package:args/args.dart';
 import 'package:path/path.dart' as path;
+
 import '../../constants.dart';
 import '../../io/copy_utils.dart';
 
@@ -11,13 +13,15 @@ class ModuleCommand {
 
     if (name == null || name.isEmpty) {
       stderr.writeln(
-          '${Constants.errorMessage} Error: Module name required (--name)');
+        '${Constants.errorMessage} Error: Module name required (--name)',
+      );
       exit(1);
     }
 
     if (!_isValidModuleName(name)) {
       stderr.writeln(
-          '${Constants.errorMessage} Error: Module name must be valid (e.g., user, user_store, product_item)');
+        '${Constants.errorMessage} Error: Module name must be valid (e.g., user, user_store, product_item)',
+      );
       exit(1);
     }
 
@@ -32,14 +36,19 @@ class ModuleCommand {
 
     if (!Directory(libDir).existsSync()) {
       stderr.writeln(
-          '${Constants.errorMessage} Error: Not a Flutter project (lib directory not found)');
+        '${Constants.errorMessage} Error: Not a Flutter project (lib directory not found)',
+      );
       exit(1);
     }
 
     final isPackage = _isPackageProject(libDir);
     final baseTemplateDir = CopyUtils.findTemplatePath();
-    final templateDir =
-        path.join(baseTemplateDir, 'templates', 'base_kit_app', 'lib');
+    final templateDir = path.join(
+      baseTemplateDir,
+      'templates',
+      'base_kit_app',
+      'lib',
+    );
 
     await _copyModuleFiles(name, libDir, templateDir, isPackage, verbose);
 
@@ -47,7 +56,8 @@ class ModuleCommand {
 
     final prefix = isPackage ? 'lib/src' : 'lib';
     stdout.writeln(
-        '${Constants.successMessage} Module $name created successfully!');
+      '${Constants.successMessage} Module $name created successfully!',
+    );
     stdout.writeln('${Constants.infoMessage} Files created:');
     stdout.writeln('  - $prefix/api/retrofit/$name/${name}_api.dart');
     stdout.writeln('  - $prefix/services/api/$name/${name}_service.dart');
@@ -61,8 +71,13 @@ class ModuleCommand {
     return Directory(srcDir).existsSync();
   }
 
-  static Future<void> _copyModuleFiles(String name, String libDir,
-      String templateDir, bool isPackage, bool verbose) async {
+  static Future<void> _copyModuleFiles(
+    String name,
+    String libDir,
+    String templateDir,
+    bool isPackage,
+    bool verbose,
+  ) async {
     final baseDir = isPackage ? path.join(libDir, 'src') : libDir;
 
     await _copyApiFiles(name, baseDir, templateDir, verbose);
@@ -77,7 +92,11 @@ class ModuleCommand {
   }
 
   static Future<void> _copyApiFiles(
-      String name, String baseDir, String templateDir, bool verbose) async {
+    String name,
+    String baseDir,
+    String templateDir,
+    bool verbose,
+  ) async {
     final sourceDir = path.join(templateDir, 'api', 'retrofit', 'example');
     final targetDir = path.join(baseDir, 'api', 'retrofit', name);
 
@@ -98,7 +117,11 @@ class ModuleCommand {
   }
 
   static Future<void> _copyServiceFiles(
-      String name, String baseDir, String templateDir, bool verbose) async {
+    String name,
+    String baseDir,
+    String templateDir,
+    bool verbose,
+  ) async {
     final sourceDir = path.join(templateDir, 'services', 'api', 'example');
     final targetDir = path.join(baseDir, 'services', 'api', name);
 
@@ -119,7 +142,11 @@ class ModuleCommand {
   }
 
   static Future<void> _copyModelFiles(
-      String name, String baseDir, String templateDir, bool verbose) async {
+    String name,
+    String baseDir,
+    String templateDir,
+    bool verbose,
+  ) async {
     final sourceDir = path.join(templateDir, 'models', 'example');
     final targetDir = path.join(baseDir, 'models', name);
 
@@ -140,7 +167,11 @@ class ModuleCommand {
   }
 
   static Future<void> _copyCubitFiles(
-      String name, String baseDir, String templateDir, bool verbose) async {
+    String name,
+    String baseDir,
+    String templateDir,
+    bool verbose,
+  ) async {
     final sourceDir = path.join(templateDir, 'core', 'example');
     final targetDir = path.join(baseDir, 'core', name);
 
@@ -156,7 +187,8 @@ class ModuleCommand {
 
       if (verbose) {
         stdout.writeln(
-            '${Constants.fileMessage} Created: ${targetCubitFile.path}');
+          '${Constants.fileMessage} Created: ${targetCubitFile.path}',
+        );
       }
     }
 
@@ -170,15 +202,26 @@ class ModuleCommand {
 
       if (verbose) {
         stdout.writeln(
-            '${Constants.fileMessage} Created: ${targetStateFile.path}');
+          '${Constants.fileMessage} Created: ${targetStateFile.path}',
+        );
       }
     }
   }
 
   static Future<void> _copyPageFiles(
-      String name, String baseDir, String templateDir, bool verbose) async {
-    final sourceDir =
-        path.join(templateDir, 'ui', 'pages', 'app', 'pages', 'example');
+    String name,
+    String baseDir,
+    String templateDir,
+    bool verbose,
+  ) async {
+    final sourceDir = path.join(
+      templateDir,
+      'ui',
+      'pages',
+      'app',
+      'pages',
+      'example',
+    );
     final targetDir = path.join(baseDir, 'ui', 'pages', 'app', 'pages', name);
 
     await _ensureDirectoryExists(targetDir, verbose);
@@ -209,7 +252,9 @@ class ModuleCommand {
   }
 
   static Future<void> _ensureDirectoryExists(
-      String dirPath, bool verbose) async {
+    String dirPath,
+    bool verbose,
+  ) async {
     final dir = Directory(dirPath);
     if (!dir.existsSync()) {
       await dir.create(recursive: true);
@@ -225,10 +270,12 @@ class ModuleCommand {
     // Handle snake_case and simple names
     final words = input.split('_').where((word) => word.isNotEmpty);
 
-    return words.map((word) {
-      if (word.isEmpty) return word;
-      return word[0].toUpperCase() + word.substring(1).toLowerCase();
-    }).join('');
+    return words
+        .map((word) {
+          if (word.isEmpty) return word;
+          return word[0].toUpperCase() + word.substring(1).toLowerCase();
+        })
+        .join('');
   }
 
   static String _toCamelCase(String newName) {
@@ -241,10 +288,13 @@ class ModuleCommand {
     if (wordsList.isEmpty) return newName;
 
     final first = wordsList.first.toLowerCase();
-    final rest = wordsList.skip(1).map((word) {
-      final lower = word.toLowerCase();
-      return lower[0].toUpperCase() + lower.substring(1);
-    }).join('');
+    final rest = wordsList
+        .skip(1)
+        .map((word) {
+          final lower = word.toLowerCase();
+          return lower[0].toUpperCase() + lower.substring(1);
+        })
+        .join('');
 
     return first + rest;
   }

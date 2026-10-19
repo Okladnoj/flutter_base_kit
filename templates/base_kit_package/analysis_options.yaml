@@ -11,6 +11,11 @@ analyzer:
     - lib/src/**.hive.dart
     - lib/src/**.g.dart
     - build/**
+    - android/**
+    - ios/**
+    - windows/**
+    - macos/**
+    - linux/**
   errors:
     invalid_annotation_target: ignore
 

@@ -48,8 +48,9 @@ class _LoggerStub {
     StackTrace? stackTrace,
   }) {
     final errorMsg = error != null ? '$message\nError: $error' : message;
-    final fullMsg =
-        stackTrace != null ? '$errorMsg\nStackTrace: $stackTrace' : errorMsg;
+    final fullMsg = stackTrace != null
+        ? '$errorMsg\nStackTrace: $stackTrace'
+        : errorMsg;
     _log('ERROR', fullMsg);
   }
 

@@ -17,10 +17,11 @@ class AppShaderMask extends StatelessWidget {
     return ShaderMask(
       shaderCallback: (rect) {
         return LinearGradient(
-            begin: Alignment.bottomCenter,
-            end: Alignment.topCenter,
-            colors: [context.colorScheme.primary, Colors.transparent],
-            stops: const [0.2, 1]).createShader(
+          begin: Alignment.bottomCenter,
+          end: Alignment.topCenter,
+          colors: [context.colorScheme.primary, Colors.transparent],
+          stops: const [0.2, 1],
+        ).createShader(
           Rect.fromLTRB(0, 0, rect.width, bottomHeight),
         );
       },

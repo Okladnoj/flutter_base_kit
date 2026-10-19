@@ -17,10 +17,13 @@ class StringCase {
     if (wordsList.isEmpty) return newName;
 
     final first = wordsList.first.toLowerCase();
-    final rest = wordsList.skip(1).map((word) {
-      final lower = word.toLowerCase();
-      return lower[0].toUpperCase() + lower.substring(1);
-    }).join('');
+    final rest = wordsList
+        .skip(1)
+        .map((word) {
+          final lower = word.toLowerCase();
+          return lower[0].toUpperCase() + lower.substring(1);
+        })
+        .join('');
 
     return first + rest;
   }
@@ -49,8 +52,10 @@ void main() {
     });
 
     test('multiple segments', () {
-      expect(StringCase.toCamelCase('make_http_request_now'),
-          'makeHttpRequestNow');
+      expect(
+        StringCase.toCamelCase('make_http_request_now'),
+        'makeHttpRequestNow',
+      );
     });
 
     test('handles consecutive underscores', () {
@@ -62,8 +67,10 @@ void main() {
     });
 
     test('digits preserved and segments capitalized after underscores', () {
-      expect(StringCase.toCamelCase('version_2_release_candidate'),
-          'version2ReleaseCandidate');
+      expect(
+        StringCase.toCamelCase('version_2_release_candidate'),
+        'version2ReleaseCandidate',
+      );
     });
 
     test('non-latin letters preserved with casing per code unit', () {

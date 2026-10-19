@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../../../../../../core/settings/settings_state.dart';
 import '../../../../../../l10n/localization_helper.dart';
 import '../../../../../../themes/app_theme.dart';
@@ -91,10 +92,9 @@ class ThemeOption extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
           decoration: BoxDecoration(
-            color:
-                isSelected
-                    ? context.designs.primary.withValues(alpha: 0.2)
-                    : Colors.transparent,
+            color: isSelected
+                ? context.designs.primary.withValues(alpha: 0.2)
+                : Colors.transparent,
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
               color: isSelected ? context.designs.primary : Colors.transparent,
@@ -114,10 +114,9 @@ class ThemeOption extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 12,
                   fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
-                  color:
-                      isSelected
-                          ? context.designs.primary
-                          : context.designs.textPrimary,
+                  color: isSelected
+                      ? context.designs.primary
+                      : context.designs.textPrimary,
                 ),
                 textAlign: TextAlign.center,
               ),

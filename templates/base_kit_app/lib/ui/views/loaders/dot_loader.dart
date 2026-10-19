@@ -38,10 +38,12 @@ class _RunningDotsAnimationState extends State<RunningDotsAnimation>
       vsync: this,
     )..repeat();
 
-    _animation = Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(
-      parent: _controller,
-      curve: const Cubic(0.1, 0.4, 0.9, 0.4),
-    ));
+    _animation = Tween<double>(begin: 0, end: 1).animate(
+      CurvedAnimation(
+        parent: _controller,
+        curve: const Cubic(0.1, 0.4, 0.9, 0.4),
+      ),
+    );
   }
 
   @override
@@ -110,13 +112,16 @@ class RunningDotsPainter extends CustomPainter {
       ..style = PaintingStyle.fill;
 
     for (int i = 0; i < dotCount; i++) {
-      double x = (i * spacing + progress * (canvasWidth + spacing)) %
+      double x =
+          (i * spacing + progress * (canvasWidth + spacing)) %
           (canvasWidth + spacing);
       double y = size.height / 2;
 
       double distanceToCenter = (x - canvasWidth / 2).abs();
-      double scaleFactor =
-          (1 - distanceToCenter / (canvasWidth / 2)).clamp(0.0, 1.0);
+      double scaleFactor = (1 - distanceToCenter / (canvasWidth / 2)).clamp(
+        0.0,
+        1.0,
+      );
       double radius =
           dotRadiusMin + (dotRadiusMax - dotRadiusMin) * scaleFactor;
 

@@ -1,5 +1,7 @@
 import 'dart:io';
+
 import 'package:args/args.dart';
+
 import '../../constants.dart';
 import '../../io/copy_utils.dart';
 
@@ -11,12 +13,14 @@ class InitCommand {
 
   static Future<void> _initProject(bool verbose) async {
     stdout.writeln(
-        '${Constants.initMessage} Initializing current project with Flutter Base Kit');
+      '${Constants.initMessage} Initializing current project with Flutter Base Kit',
+    );
 
     final pubspec = File(Constants.pubspecFileName);
     if (!pubspec.existsSync()) {
       stderr.writeln(
-          '${Constants.errorMessage} Error: Not a Flutter project (pubspec.yaml not found)');
+        '${Constants.errorMessage} Error: Not a Flutter project (pubspec.yaml not found)',
+      );
       exit(1);
     }
 
@@ -24,7 +28,8 @@ class InitCommand {
 
     stdout
       ..writeln(
-          '${Constants.successMessage} Project initialized with Flutter Base Kit!')
+        '${Constants.successMessage} Project initialized with Flutter Base Kit!',
+      )
       ..writeln('')
       ..writeln('Next steps:')
       ..writeln('  flutter pub get')
@@ -38,7 +43,8 @@ class InitCommand {
     if (content.contains('${Constants.flutterBaseKitPackage}:')) {
       if (verbose) {
         stdout.writeln(
-            '${Constants.infoMessage} flutter_base_kit dependency already exists');
+          '${Constants.infoMessage} flutter_base_kit dependency already exists',
+        );
       }
       return;
     }
@@ -46,22 +52,27 @@ class InitCommand {
     final currentVersion = CopyUtils.getCurrentPackageVersion();
     if (currentVersion == null) {
       stderr.writeln(
-          '${Constants.errorMessage} Error: Could not determine package version');
+        '${Constants.errorMessage} Error: Could not determine package version',
+      );
       exit(1);
     }
 
     final lines = content.split('\n');
-    final dependenciesIndex =
-        lines.indexWhere((line) => line.trim() == 'dependencies:');
+    final dependenciesIndex = lines.indexWhere(
+      (line) => line.trim() == 'dependencies:',
+    );
 
     if (dependenciesIndex != -1) {
-      lines.insert(dependenciesIndex + 1,
-          '  ${Constants.flutterBaseKitPackage}: ^$currentVersion');
+      lines.insert(
+        dependenciesIndex + 1,
+        '  ${Constants.flutterBaseKitPackage}: ^$currentVersion',
+      );
 
       await pubspecFile.writeAsString(lines.join('\n'));
       if (verbose) {
         stdout.writeln(
-            '${Constants.infoMessage} Added flutter_base_kit dependency from pub.dev (version ^$currentVersion)');
+          '${Constants.infoMessage} Added flutter_base_kit dependency from pub.dev (version ^$currentVersion)',
+        );
       }
     }
   }

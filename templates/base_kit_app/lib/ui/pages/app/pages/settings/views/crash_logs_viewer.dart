@@ -244,7 +244,9 @@ class _CrashLogsViewerState extends State<CrashLogsViewer> {
                               shrinkWrap: true,
                               controller: _verticalController,
                               children: [
-                                ..._logsContent!.split('\n').map(
+                                ..._logsContent!
+                                    .split('\n')
+                                    .map(
                                       (log) => RichText(
                                         maxLines: 1,
                                         overflow: TextOverflow.visible,

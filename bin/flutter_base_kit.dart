@@ -4,6 +4,7 @@ import 'package:flutter_base_kit/generator/cli/arg_parser.dart';
 import 'package:flutter_base_kit/generator/cli/commands/create_command.dart';
 import 'package:flutter_base_kit/generator/cli/commands/init_command.dart';
 import 'package:flutter_base_kit/generator/cli/commands/module_command.dart';
+
 import 'dart:io';
 
 void main(List<String> arguments) async {

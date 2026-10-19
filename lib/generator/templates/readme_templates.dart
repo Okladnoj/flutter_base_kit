@@ -1,5 +1,6 @@
 class ReadmeTemplates {
-  static String appReadme(String name) => '''
+  static String appReadme(String name) =>
+      '''
 # $name
 
 A Flutter application generated with **Flutter Base Kit**.
@@ -13,7 +14,8 @@ flutter run
 ```
 ''';
 
-  static String packageReadme(String name) => '''
+  static String packageReadme(String name) =>
+      '''
 # $name
 
 A Flutter package generated with **Flutter Base Kit**.
@@ -27,7 +29,8 @@ flutter test
 ```
 ''';
 
-  static String testerReadme(String tester, String package) => '''
+  static String testerReadme(String tester, String package) =>
+      '''
 # $tester
 
 A tester app for **$package** generated with **Flutter Base Kit**.
@@ -40,7 +43,8 @@ flutter run
 ```
 ''';
 
-  static String rootReadme(String repo, String package, String tester) => '''
+  static String rootReadme(String repo, String package, String tester) =>
+      '''
 # $repo
 
 Monorepo generated with **Flutter Base Kit**.

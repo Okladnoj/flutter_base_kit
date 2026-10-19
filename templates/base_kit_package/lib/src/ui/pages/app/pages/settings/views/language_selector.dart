@@ -70,28 +70,27 @@ class LanguageSelector extends StatelessWidget {
               filled: true,
               fillColor: context.designs.surface,
             ),
-            items:
-                AppLocalizations.supportedLocales.map((locale) {
-                  return DropdownMenuItem<Locale>(
-                    value: locale,
-                    child: Row(
-                      children: [
-                        Text(
-                          getLocaleFlag(locale),
-                          style: const TextStyle(fontSize: 20),
-                        ),
-                        const SizedBox(width: 8),
-                        Text(
-                          getLocaleLocalizations(locale).languageName,
-                          style: TextStyle(
-                            color: context.designs.textPrimary,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ],
+            items: AppLocalizations.supportedLocales.map((locale) {
+              return DropdownMenuItem<Locale>(
+                value: locale,
+                child: Row(
+                  children: [
+                    Text(
+                      getLocaleFlag(locale),
+                      style: const TextStyle(fontSize: 20),
                     ),
-                  );
-                }).toList(),
+                    const SizedBox(width: 8),
+                    Text(
+                      getLocaleLocalizations(locale).languageName,
+                      style: TextStyle(
+                        color: context.designs.textPrimary,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            }).toList(),
             onChanged: (Locale? newLocale) {
               if (newLocale != null) {
                 settings.changeLanguage(newLocale);

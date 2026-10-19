@@ -82,9 +82,9 @@ class AppSnackBar {
     return Text(
       message,
       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-            fontWeight: FontWeight.w500,
-            color: _messageTextColor(error),
-          ),
+        fontWeight: FontWeight.w500,
+        color: _messageTextColor(error),
+      ),
     );
   }
 
@@ -100,11 +100,11 @@ class AppSnackBar {
         child: Text(
           message,
           style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                fontSize: 13,
-                letterSpacing: -0.08,
-                fontWeight: FontWeight.w400,
-                color: ColorsSet.colorSchemePrimary,
-              ),
+            fontSize: 13,
+            letterSpacing: -0.08,
+            fontWeight: FontWeight.w400,
+            color: ColorsSet.colorSchemePrimary,
+          ),
         ),
       ),
     );

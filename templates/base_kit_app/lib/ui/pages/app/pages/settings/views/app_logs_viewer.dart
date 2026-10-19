@@ -196,7 +196,9 @@ class _AppLogsViewerState extends State<AppLogsViewer> {
                               shrinkWrap: true,
                               controller: _verticalController,
                               children: [
-                                ...state.logsContent.split('\n').map(
+                                ...state.logsContent
+                                    .split('\n')
+                                    .map(
                                       (log) => RichText(
                                         maxLines: 1,
                                         overflow: TextOverflow.visible,

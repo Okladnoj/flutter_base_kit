@@ -14,7 +14,7 @@ part of 'router.dart';
 /// [AppFlowPage]
 class AppFlowRoute extends PageRouteInfo<void> {
   const AppFlowRoute({List<PageRouteInfo>? children})
-      : super(AppFlowRoute.name, initialChildren: children);
+    : super(AppFlowRoute.name, initialChildren: children);
 
   static const String name = 'AppFlowRoute';
 
@@ -30,7 +30,7 @@ class AppFlowRoute extends PageRouteInfo<void> {
 /// [ExamplePage]
 class ExampleRoute extends PageRouteInfo<void> {
   const ExampleRoute({List<PageRouteInfo>? children})
-      : super(ExampleRoute.name, initialChildren: children);
+    : super(ExampleRoute.name, initialChildren: children);
 
   static const String name = 'ExampleRoute';
 
@@ -46,7 +46,7 @@ class ExampleRoute extends PageRouteInfo<void> {
 /// [SettingsPage]
 class SettingsRoute extends PageRouteInfo<void> {
   const SettingsRoute({List<PageRouteInfo>? children})
-      : super(SettingsRoute.name, initialChildren: children);
+    : super(SettingsRoute.name, initialChildren: children);
 
   static const String name = 'SettingsRoute';
 
@@ -62,7 +62,7 @@ class SettingsRoute extends PageRouteInfo<void> {
 /// [SplashPage]
 class SplashRoute extends PageRouteInfo<void> {
   const SplashRoute({List<PageRouteInfo>? children})
-      : super(SplashRoute.name, initialChildren: children);
+    : super(SplashRoute.name, initialChildren: children);
 
   static const String name = 'SplashRoute';
 

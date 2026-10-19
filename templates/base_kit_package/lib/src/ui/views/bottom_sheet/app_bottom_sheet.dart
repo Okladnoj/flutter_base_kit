@@ -22,9 +22,8 @@ class AppBottomSheet<T> {
         borderRadius: BorderRadius.vertical(top: Radius.circular(14)),
       ),
       elevation: 0,
-      builder:
-          (context) =>
-              GestureDetector(onTap: context.router.maybePop, child: body),
+      builder: (context) =>
+          GestureDetector(onTap: context.router.maybePop, child: body),
     );
   }
 }
