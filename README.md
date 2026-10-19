@@ -262,11 +262,9 @@ flutter packages pub run build_runner build --delete-conflicting-outputs
 
 ## Support the project
 
-If you find this package helpful, consider supporting its development:
+If you find this package helpful, consider supporting its development. All current ways to support my work are collected on one page:
 
-<a href="https://www.buymeacoffee.com/okji" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="Buy Me A Coffee" height="40"></a>
-
-<a href="https://www.paypal.com/donate?hosted_button_id=NBYVPYB7XDW6A" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-00457C?style=for-the-badge&logo=paypal" alt="Donate"></a>
+<a href="https://donate-okji.web.app/" target="_blank"><img src="https://img.shields.io/badge/Donate-Support%20my%20work-E91E63?style=for-the-badge&logo=githubsponsors&logoColor=white" alt="Donate"></a>
 
 ## License
 

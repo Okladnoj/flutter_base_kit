@@ -11,12 +11,9 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-  "Upgrade dependencies to the latest compatible versions (equatable 3, injectable 3, freezed 4, cached_network_image 4, share_plus 13, permission_handler 13, flutter_secure_storage 11 and more)"
-  "Raise minimum Dart SDK to 3.13.0 for the package and all templates"
-  "Remove freezed from flutter_base_kit dependencies - templates declare it directly"
-  "Regenerate template code with updated generators (freezed, injectable, auto_route, retrofit, flutter_gen)"
-  "Add re-entrance guard to DiModule registration helpers to prevent recursive GetIt resolution"
-  "Exclude platform folders from analysis in templates and examples"
+  "Replace donation links with a single donation page"
+  "Add funding link to pubspec"
+  "Point template lockfiles to the published flutter_base_kit instead of a local path"
 )
 
 # Increment the version number

@@ -1,3 +1,10 @@
+## 1.3.16
+
+- Replace donation links with a single donation page
+- Add funding link to pubspec
+- Point template lockfiles to the published flutter_base_kit instead of a local path
+
+
 ## 1.3.15
 
 - Upgrade dependencies to the latest compatible versions (equatable 3, injectable 3, freezed 4, cached_network_image 4, share_plus 13, permission_handler 13, flutter_secure_storage 11 and more)
