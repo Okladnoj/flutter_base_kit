@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_base_kit/flutter_base_kit.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../core/example/example_cubit.dart';
 import '../../../../../routes/router.dart';
@@ -47,11 +48,41 @@ class ExamplePage extends StatelessWidget {
                   onPressed: () => context.router.push(const SettingsRoute()),
                   child: const Text('Go to Settings'),
                 ),
+                const SizedBox(height: 40),
+                _buildCachedPosts(context, state),
               ],
             ),
           ),
         );
       },
+    );
+  }
+
+  Widget _buildCachedPosts(BuildContext context, ExampleState state) {
+    final cubit = context.read<ExampleCubit>();
+
+    return Column(
+      children: [
+        Text(
+          'Cached posts: ${state.posts.length}',
+          style: const TextStyle(fontSize: 16),
+        ),
+        const SizedBox(height: 12),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: cubit.getPosts,
+              child: const Text('Load posts'),
+            ),
+            const SizedBox(width: 12),
+            OutlinedButton(
+              onPressed: cubit.clearCachedPosts,
+              child: const Text('Clear cache'),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

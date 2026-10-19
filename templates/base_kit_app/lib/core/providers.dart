@@ -14,7 +14,7 @@ abstract class Providers {
     return [
       ChangeNotifierProvider<SettingsState>(create: (_) => locator()..init()),
       ChangeNotifierProvider<SnackMessagesState>(create: (_) => locator()),
-      BlocProvider<ExampleCubit>(create: (_) => locator()),
+      BlocProvider<ExampleCubit>(create: (_) => locator()..init()),
       BlocProvider<PostsCubit>(create: (_) => locator()),
       ChangeNotifierProvider<LogsState>(create: (_) => LogsState.instance),
     ];

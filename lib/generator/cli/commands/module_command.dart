@@ -61,6 +61,11 @@ class ModuleCommand {
     stdout.writeln('${Constants.infoMessage} Files created:');
     stdout.writeln('  - $prefix/api/retrofit/$name/${name}_api.dart');
     stdout.writeln('  - $prefix/services/api/$name/${name}_service.dart');
+    stdout.writeln('  - $prefix/app_db/tables/$name/${name}_table.dart');
+    stdout.writeln('  - $prefix/app_db/dao/$name/${name}_dao.dart');
+    stdout.writeln(
+      '  - $prefix/services/app_db/$name/${name}_db_service.dart',
+    );
     stdout.writeln('  - $prefix/models/$name/${name}_model.dart');
     stdout.writeln('  - $prefix/core/$name/${name}_cubit.dart');
     stdout.writeln('  - $prefix/ui/pages/app/pages/$name/${name}_page.dart');
@@ -84,11 +89,38 @@ class ModuleCommand {
 
     await _copyServiceFiles(name, baseDir, templateDir, verbose);
 
+    await _copyDbFiles(name, baseDir, templateDir, verbose);
+
+    await _registerInAppDatabase(name, baseDir, verbose);
+
     await _copyModelFiles(name, baseDir, templateDir, verbose);
 
     await _copyCubitFiles(name, baseDir, templateDir, verbose);
 
     await _copyPageFiles(name, baseDir, templateDir, verbose);
+
+    await _importPageInRouter(name, baseDir, verbose);
+  }
+
+  static Future<void> _importPageInRouter(
+    String name,
+    String baseDir,
+    bool verbose,
+  ) async {
+    final routerFile = File(path.join(baseDir, 'routes', 'router.dart'));
+    if (!routerFile.existsSync()) {
+      return;
+    }
+
+    final content = routerFile.readAsStringSync();
+    final pageImport = '../ui/pages/app/pages/$name/${name}_page.dart';
+    await routerFile.writeAsString(_addImport(content, pageImport));
+
+    if (verbose) {
+      stdout.writeln(
+        '${Constants.updateMessage} Imported ${name}_page.dart in ${routerFile.path}',
+      );
+    }
   }
 
   static Future<void> _copyApiFiles(
@@ -139,6 +171,131 @@ class ModuleCommand {
         stdout.writeln('${Constants.fileMessage} Created: ${targetFile.path}');
       }
     }
+  }
+
+  static Future<void> _copyDbFiles(
+    String name,
+    String baseDir,
+    String templateDir,
+    bool verbose,
+  ) async {
+    await _copyRenamedFile(
+      name: name,
+      sourceDir: path.join(templateDir, 'app_db', 'tables', 'example'),
+      targetDir: path.join(baseDir, 'app_db', 'tables', name),
+      fileSuffix: '_table.dart',
+      verbose: verbose,
+    );
+
+    await _copyRenamedFile(
+      name: name,
+      sourceDir: path.join(templateDir, 'app_db', 'dao', 'example'),
+      targetDir: path.join(baseDir, 'app_db', 'dao', name),
+      fileSuffix: '_dao.dart',
+      verbose: verbose,
+    );
+
+    await _copyRenamedFile(
+      name: name,
+      sourceDir: path.join(templateDir, 'services', 'app_db', 'example'),
+      targetDir: path.join(baseDir, 'services', 'app_db', name),
+      fileSuffix: '_db_service.dart',
+      verbose: verbose,
+    );
+  }
+
+  static Future<void> _copyRenamedFile({
+    required String name,
+    required String sourceDir,
+    required String targetDir,
+    required String fileSuffix,
+    required bool verbose,
+  }) async {
+    final sourceFile = File(path.join(sourceDir, 'example$fileSuffix'));
+    if (!sourceFile.existsSync()) {
+      return;
+    }
+
+    await _ensureDirectoryExists(targetDir, verbose);
+
+    final targetFile = File(path.join(targetDir, '$name$fileSuffix'));
+    final content = sourceFile.readAsStringSync();
+    await targetFile.writeAsString(_replaceNames(content, 'example', name));
+
+    if (verbose) {
+      stdout.writeln('${Constants.fileMessage} Created: ${targetFile.path}');
+    }
+  }
+
+  static Future<void> _registerInAppDatabase(
+    String name,
+    String baseDir,
+    bool verbose,
+  ) async {
+    final pascalName = _toPascalCase(name);
+    final databaseFile = File(
+      path.join(baseDir, 'app_db', 'app_database.dart'),
+    );
+
+    if (!databaseFile.existsSync()) {
+      stderr.writeln(
+        '⚠️ Warning: app_db/app_database.dart not found. '
+        'Register ${pascalName}Table and ${pascalName}Dao in @DriftDatabase manually',
+      );
+      return;
+    }
+
+    var content = databaseFile.readAsStringSync();
+    content = _addImport(content, 'dao/$name/${name}_dao.dart');
+    content = _addImport(content, 'tables/$name/${name}_table.dart');
+    content = _appendToListArgument(content, 'tables', '${pascalName}Table');
+    content = _appendToListArgument(content, 'daos', '${pascalName}Dao');
+    await databaseFile.writeAsString(content);
+
+    if (verbose) {
+      stdout.writeln(
+        '${Constants.updateMessage} Registered ${pascalName}Table and ${pascalName}Dao in ${databaseFile.path}',
+      );
+    }
+  }
+
+  static String _addImport(String content, String importPath) {
+    final directive = "import '$importPath';";
+    if (content.contains(directive)) {
+      return content;
+    }
+
+    final lines = content.split('\n');
+    final lastImportIndex = lines.lastIndexWhere(
+      (line) => line.startsWith('import '),
+    );
+    lines.insert(lastImportIndex + 1, directive);
+
+    return lines.join('\n');
+  }
+
+  static String _appendToListArgument(
+    String content,
+    String argument,
+    String item,
+  ) {
+    final pattern = RegExp('($argument:\\s*\\[)([^\\]]*)(\\])');
+
+    return content.replaceFirstMapped(pattern, (match) {
+      final items = match
+          .group(2)!
+          .split(',')
+          .map((value) => value.trim())
+          .where((value) => value.isNotEmpty)
+          .toList();
+
+      if (items.contains(item)) {
+        return match.group(0)!;
+      }
+
+      items.add(item);
+      return '${match.group(1)}${items.join(', ')}${match.group(3)}';
+    });
   }
 
   static Future<void> _copyModelFiles(
@@ -245,7 +402,7 @@ class ModuleCommand {
     final newCamelCase = _toCamelCase(newName);
 
     return content
-        .replaceAll('exampleService', '${newCamelCase}Service')
+        .replaceAllMapped(RegExp('$oldName(?=[A-Z])'), (_) => newCamelCase)
         .replaceAll('example', newName)
         .replaceAll('Example', newPascalCase)
         .replaceAll('EXAMPLE', newName.toUpperCase());

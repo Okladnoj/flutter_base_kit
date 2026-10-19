@@ -33,12 +33,14 @@ dependencies:
   collection: ^1.19.1
   device_info_plus: ^13.3.0
   package_info_plus: ^10.2.2
-  flutter_base_kit: ^1.3.16
+  flutter_base_kit: ^1.3.17
   provider: ^6.1.5+1
   url_launcher: ^6.3.3
   permission_handler: ^13.0.2
   crypto: ^3.0.7
   path_provider: ^2.1.6
+  drift: ^2.35.2
+  drift_flutter: ^0.3.1
   universal_io: ^2.3.1
   freezed: ^4.0.1
   web: ^1.1.1
@@ -54,6 +56,7 @@ dev_dependencies:
   injectable_generator: ^3.1.3
   json_serializable: ^6.14.1
   retrofit_generator: ^10.2.12
+  drift_dev: ^2.35.1
   flutter_gen_runner: ^5.15.0
   flutter_native_splash: ^2.4.8
   flutter_launcher_icons: ^0.14.4

@@ -23,6 +23,8 @@ import '../api/interceptors/api_interceptors.dart' as _i956;
 import '../api/request_tracker/request_tracker.dart' as _i250;
 import '../api/retrofit/example/example_api.dart' as _i1045;
 import '../api/retrofit/posts/posts_api.dart' as _i652;
+import '../app_db/app_database.dart' as _i997;
+import '../app_db/dao/example/example_dao.dart' as _i511;
 import '../core/example/example_cubit.dart' as _i180;
 import '../core/logs/logs_state.dart' as _i267;
 import '../core/posts/posts_cubit.dart' as _i286;
@@ -33,6 +35,7 @@ import '../routes/observer/app_observer.dart' as _i694;
 import '../routes/router.dart' as _i393;
 import '../services/api/example/example_service.dart' as _i229;
 import '../services/api/posts/posts_service.dart' as _i354;
+import '../services/app_db/example/example_db_service.dart' as _i121;
 import '../services/other/app_info/app_info_service.dart' as _i810;
 import '../services/other/url_launcher/url_launcher_service.dart' as _i792;
 import '../services/storage/fonts/fonts_service.dart' as _i490;
@@ -70,6 +73,7 @@ Future<_i174.GetIt> $initGetIt(
   gh.singleton<_i267.LogsState>(() => _i267.LogsState());
   gh.singleton<_i935.SnackMessagesState>(() => _i935.SnackMessagesState());
   gh.lazySingleton<_i250.RequestTracker>(() => _i250.RequestTracker());
+  gh.lazySingleton<_i997.AppDatabase>(() => diModule.appDatabase);
   gh.lazySingleton<_i393.AppRouter>(() => routeModule.router());
   gh.lazySingleton<_i792.UrlLauncherService>(
     () => const _i792.UrlLauncherService(),
@@ -83,6 +87,7 @@ Future<_i174.GetIt> $initGetIt(
   gh.factory<_i977.ThemeService>(
     () => _i977.ThemeService(gh<_i460.SharedPreferences>()),
   );
+  gh.factory<_i511.ExampleDao>(() => _i511.ExampleDao(gh<_i997.AppDatabase>()));
   gh.singleton<_i751.SettingsState>(
     () => _i751.SettingsState(
       gh<_i247.LocaleService>(),
@@ -98,6 +103,9 @@ Future<_i174.GetIt> $initGetIt(
       gh<_i460.SharedPreferences>(),
       gh<_i558.FlutterSecureStorage>(),
     ),
+  );
+  gh.lazySingleton<_i121.ExampleDbService>(
+    () => _i121.ExampleDbService(gh<_i511.ExampleDao>()),
   );
   gh.lazySingleton<_i956.ApiInterceptor>(
     () => _i956.ApiInterceptor(
@@ -128,7 +136,10 @@ Future<_i174.GetIt> $initGetIt(
     () => _i286.PostsCubit(gh<_i354.PostsService>()),
   );
   gh.factory<_i180.ExampleCubit>(
-    () => _i180.ExampleCubit(gh<_i229.ExampleService>()),
+    () => _i180.ExampleCubit(
+      gh<_i229.ExampleService>(),
+      gh<_i121.ExampleDbService>(),
+    ),
   );
   return getIt;
 }

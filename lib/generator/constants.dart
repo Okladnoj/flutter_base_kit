@@ -14,6 +14,10 @@ class Constants {
   static const String pubspecFileName = 'pubspec.yaml';
   static const String readmeFileName = 'README.md';
   static const String metadataFileName = '.metadata';
+  static const List<String> driftWebAssets = [
+    'sqlite3.wasm',
+    'drift_worker.js',
+  ];
 
   // Package names
   static const String flutterBaseKitPackage = 'flutter_base_kit';

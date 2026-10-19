@@ -1,3 +1,13 @@
+## 1.3.17
+
+- Add local database layer (drift + drift_flutter) to app and package templates: AppDatabase, example table, DAO and DB service
+- Cache example posts in the local database and expose them to ExampleCubit through a watch stream
+- Ship sqlite3.wasm and drift_worker.js for web, copied by the create command into app and tester projects
+- Module command now generates table, DAO and DB service and registers them in AppDatabase
+- Fix module command not importing the generated page in router.dart
+- Remove leftover Hive references from templates
+
+
 ## 1.3.16
 
 - Replace donation links with a single donation page

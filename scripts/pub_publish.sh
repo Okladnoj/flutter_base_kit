@@ -11,9 +11,12 @@ cd "$(dirname "$0")/.."
 
 # Your comments for the changelog split by "/"
 comments=(
-  "Replace donation links with a single donation page"
-  "Add funding link to pubspec"
-  "Point template lockfiles to the published flutter_base_kit instead of a local path"
+  "Add local database layer (drift + drift_flutter) to app and package templates: AppDatabase, example table, DAO and DB service"
+  "Cache example posts in the local database and expose them to ExampleCubit through a watch stream"
+  "Ship sqlite3.wasm and drift_worker.js for web, copied by the create command into app and tester projects"
+  "Module command now generates table, DAO and DB service and registers them in AppDatabase"
+  "Fix module command not importing the generated page in router.dart"
+  "Remove leftover Hive references from templates"
 )
 
 # Increment the version number

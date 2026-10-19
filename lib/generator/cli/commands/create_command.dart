@@ -383,6 +383,8 @@ class CreateCommand {
       verbose,
     );
 
+    await _copyDriftWebAssets(testerTemplate, testerDir, verbose);
+
     // Copy main.dart for tester
     await _copyTesterMainFile(testerDir, packageName, verbose);
   }
@@ -460,6 +462,7 @@ class CreateCommand {
       'analysis_options.yaml',
       verbose,
     );
+    await _copyDriftWebAssets(appTemplate, appDir, verbose);
 
     // Copy lib directory content (skip main.dart as it's created by flutter create)
     await _copyAppLibContent(appDir, verbose);
@@ -615,6 +618,26 @@ class CreateCommand {
       if (verbose) {
         stdout.writeln('  📄 Copied $fileName');
       }
+    }
+  }
+
+  static Future<void> _copyDriftWebAssets(
+    String templateDir,
+    String projectDir,
+    bool verbose,
+  ) async {
+    final webDir = path.join(projectDir, 'web');
+    if (!Directory(webDir).existsSync()) {
+      return;
+    }
+
+    for (final fileName in Constants.driftWebAssets) {
+      await _copyFileIfExists(
+        path.join(templateDir, 'web'),
+        webDir,
+        fileName,
+        verbose,
+      );
     }
   }
 

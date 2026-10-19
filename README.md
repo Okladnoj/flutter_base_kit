@@ -13,7 +13,7 @@ Create new Flutter applications with pre-configured architecture: routing, DI, n
 ## Why Flutter Base Kit?
 
 - ⚡ **Quick Start** - don't waste time setting up architecture
-- 🏗️ **Ready Structure** - DI, routing, API, themes, localization
+- 🏗️ **Ready Structure** - DI, routing, API, local database (drift), themes, localization
 - 📱 **Best Practices** - proven architecture from real projects
 - 🔧 **CLI Tool** - create projects with a single command
 
@@ -92,6 +92,7 @@ flutter_base_kit module --name user_store
 ```
 lib/
 ├── api/           # API and network requests
+├── app_db/        # Local database (drift): tables, DAOs, converters
 ├── core/          # Core logic
 ├── di/            # Dependency injection
 ├── l10n/          # Localization (EN, ES)
@@ -108,6 +109,9 @@ lib/
 lib/
 ├── api/retrofit/{module_name}/     # API interface
 ├── services/api/{module_name}/     # Business logic
+├── app_db/tables/{module_name}/    # Drift table (registered in AppDatabase)
+├── app_db/dao/{module_name}/       # Drift DAO (registered in AppDatabase)
+├── services/app_db/{module_name}/  # Local storage service
 ├── models/{module_name}/           # Data models
 ├── core/{module_name}/             # State management
 └── ui/pages/app/pages/{module_name}/ # UI page
@@ -117,13 +121,14 @@ lib/
 - **Routing** - AutoRoute for navigation
 - **DI** - GetIt + Injectable for dependency management
 - **API** - Dio + Retrofit for server communication
+- **Local database** - Drift (SQLite) on mobile, desktop and web
 - **State** - Provider + Bloc for state management
 - **Themes** - Flexible theming with light/dark support
 - **Localization** - Support for English and Spanish languages
 - **Code Generation** - Freezed, JSON, routes are generated automatically
 
 ### 🧩 Module Generator
-- **Complete Module Creation** - Generate API → Service → Cubit → Page structure
+- **Complete Module Creation** - Generate API → Service → DB (table, DAO, service) → Cubit → Page structure
 - **Automatic Naming** - Converts snake_case to PascalCase automatically
 - **Build Runner Integration** - Automatically runs code generation after module creation
 

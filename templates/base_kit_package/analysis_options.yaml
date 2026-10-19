@@ -8,7 +8,6 @@ analyzer:
     - lib/src/**.graphql.dart
     # - lib/src/routes/**.gr.dart
     - lib/src/**.freezed.dart
-    - lib/src/**.hive.dart
     - lib/src/**.g.dart
     - build/**
     - android/**
